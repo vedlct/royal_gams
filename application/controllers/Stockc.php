@@ -100,8 +100,9 @@ class Stockc extends CI_Controller{
     $this->load->model('Stock');
 
     $this->data['edit'] = $this->Stock->editstock($id);
+    $this->load->view('edit_stock',$this->data);
 
-
+    /*
     foreach ($this->data['edit'] as $e){
         echo "<form class=\"form-material material-primary\" method=\"post\" action=\"http://localhost/royal_gams/Stockc/edit/$e->id\">
                                     <div class=\"form-group row \">
@@ -143,10 +144,11 @@ class Stockc extends CI_Controller{
                                         </div>
                                     </div>
                                 </form>";
+    */
 
     }
 
-}
+
 
 
 
