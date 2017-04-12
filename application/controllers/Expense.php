@@ -14,6 +14,7 @@ class Expense extends CI_Controller
             $this->data['gettotal'] = $this->Expensem->gettotal();
             $this->load->view('expense',$this->data);
 
+
         }
         else{
             $date_from=$this->input->post('date_from');
