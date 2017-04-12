@@ -1,10 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Stockc extends CI_Controller{
+class Stonec extends CI_Controller{
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model('Stock');
+    }
 
     public function index()
     {
-
+        /*
         if(isset($_POST['psubmit'])){
 
             $this->load->model('Stock');
@@ -12,20 +19,24 @@ class Stockc extends CI_Controller{
 
             $this->load->model('Stock');
             $this->data['showst'] = $this->Stock->showstock();
-            $this->load->view('stock', $this->data);
+            $this->load->view('stone', $this->data);
 
-
-
-
-        }else{
+        }
+        */
             $this->load->model('Stock');
             $this->load->model('Salary');
-            $this->load->model('Typem');
-            $this->data['gettype'] = $this->Typem->gettype();
             $this->data['showsl'] = $this->Salary->showsalary();
-            $this->data['showst'] = $this->Stock->showstock();
-            $this->load->view('stock', $this->data);
-        }
+            $this->data['showst'] = $this->Stock->showstone();
+            $this->load->view('stone', $this->data);
+
+
+
+    }
+
+    public function insert_stone()
+    {
+        $this->Stock->insert_stone();
+        redirect('Stonec');
     }
 
     function insertstock(){
@@ -66,18 +77,16 @@ class Stockc extends CI_Controller{
 
     function edit($id){
 
-        $this->load->model('Stock');
-        $this->Stock->edit($id);
-        redirect(Stockc);
+        $this->Stock->update_stone($id);
+        redirect('Stonec');
 
     }
 
-    function delete($id){
+    function delete_stone($id){
 
         //$id=$this->input->post('sp_id');
-        $this->load->model('Stock');
-        $this->Stock->delete($id);
-        redirect(Stockc);
+        $this->Stock->delete_stone($id);
+        redirect('Stonec');
 
     }
 
@@ -99,8 +108,8 @@ class Stockc extends CI_Controller{
     $id=$this->input->post('id');
     $this->load->model('Stock');
 
-    $this->data['edit'] = $this->Stock->editstock($id);
-    $this->load->view('edit_stock',$this->data);
+    $this->data['edit'] = $this->Stock->editstone($id);
+    $this->load->view('edit_stone',$this->data);
 
     /*
     foreach ($this->data['edit'] as $e){

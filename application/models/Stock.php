@@ -21,6 +21,37 @@ class Stock extends CI_Model {
         $this->db->insert('stock',$data);
     }
 
+    function insert_stone(){
+        $p_id = $this->input->post('p_id');
+        //$type = $this->input->post('type');
+        $weight = $this->input->post('weight');
+        $price = $this->input->post('price');
+        $amount = $this->input->post('amount');
+
+        $data = array(
+            'product_id' => $p_id,
+            'weight' => $weight,
+            'price' => $price,
+            'amount' => $amount,
+        );
+
+        $stonedata = array(
+            'product_id' => $p_id,
+            'type' => 'Stone',
+            'weight' => $weight,
+            'price' => $price,
+            'amount' => $amount,
+        );
+
+        $this->db->insert('stone',$data);
+        $this->db->insert('stock',$stonedata);
+    }
+
+    function showstone(){
+
+        $query = $this->db->query("SELECT * FROM `stone`");
+        return $query->result();
+    }
 
     function showstock(){
 
@@ -31,6 +62,12 @@ class Stock extends CI_Model {
     public function editstock($id){
 
         $query=$this->db->query("SELECT * FROM stock WHERE `id`= '$id'");
+        return $query->result();
+    }
+
+    public function editstone($id){
+
+        $query=$this->db->query("SELECT * FROM stone WHERE `id`= '$id'");
         return $query->result();
     }
 
@@ -56,6 +93,30 @@ class Stock extends CI_Model {
 
     }
 
+    function update_stone($id){
+
+        $p_id = $this->input->post('p_id');
+        $weight = $this->input->post('weight');
+        $price = $this->input->post('price');
+        $amount = $this->input->post('amount');
+
+        $data = array(
+            'product_id' => $p_id,
+            'weight' => $weight,
+            'price' => $price,
+            'amount' => $amount,
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('stone', $data);
+
+    }
+
+    public function delete_stone($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('stone');
+    }
 
     function delete($id){
 
