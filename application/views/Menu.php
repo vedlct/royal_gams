@@ -18,7 +18,7 @@
             </li>
 
             <li>
-                <a href="skins.html" class="waves-effect  waves-light">
+                <a href="<?php echo base_url()?>Stonec" class="waves-effect  waves-light">
                     <span class="s-icon"><i class="ti-palette"></i></span>
                     <span class="s-text">Stone</span>
                 </a>
