@@ -36,112 +36,112 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <![endif]-->
 
-<style>
+    <style>
 
-    @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-    @import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
+        @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+        @import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
 
-    *, *:before, *:after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html, body {
-        height: 100%;
-    }
-
-    body {
-        font: 14px/1 'Open Sans', sans-serif;
-        color: #555;
-        background: #eee;
-    }
-
-    h1 {
-        padding: 50px 0;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    p {
-        margin: 0 0 20px;
-        line-height: 1.5;
-    }
-
-    main {
-        min-width: 320px;
-        max-width: 800px;
-        padding: 50px;
-        margin: 0 auto;
-        background: #fff;
-    }
-
-    section {
-        display: none;
-        padding: 20px 0 0;
-        border-top: 1px solid #ddd;
-    }
-
-    input {
-        display: none;
-    }
-
-    label {
-        display: inline-block;
-        margin: 0 0 -1px;
-        padding: 15px 25px;
-        font-weight: 600;
-        text-align: center;
-        color: #bbb;
-        border: 1px solid transparent;
-    }
-
-    label:before {
-        font-family: fontawesome;
-        font-weight: normal;
-        margin-right: 10px;
-    }
-
-    /*label[for*='1']:before { content: '\f1cb'; }*/
-    /*label[for*='2']:before { content: '\f17d'; }*/
-    /*label[for*='3']:before { content: '\f16b'; }*/
-    /*label[for*='4']:before { content: '\f1a9'; }*/
-
-    label:hover {
-        color: #888;
-        cursor: pointer;
-    }
-
-    input:checked + label {
-        color: #555;
-        border: 1px solid #ddd;
-        border-top: 2px solid deepskyblue;
-        border-bottom: 1px solid #fff;
-    }
-
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3,
-    #tab4:checked ~ #content4 {
-        display: block;
-    }
-
-    @media screen and (max-width: 650px) {
-        label {
-            font-size: 0;
-        }
-        label:before {
+        *, *:before, *:after {
             margin: 0;
-            font-size: 18px;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
 
-    @media screen and (max-width: 400px) {
-        label {
-            padding: 15px;
+        html, body {
+            height: 100%;
         }
-    }
-</style>
+
+        body {
+            font: 14px/1 'Open Sans', sans-serif;
+            color: #555;
+            background: #eee;
+        }
+
+        h1 {
+            padding: 50px 0;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        p {
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+
+        main {
+            min-width: 320px;
+            max-width: 800px;
+            padding: 50px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        section {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #ddd;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            color: #bbb;
+            border: 1px solid transparent;
+        }
+
+        label:before {
+            font-family: fontawesome;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+
+        /*label[for*='1']:before { content: '\f1cb'; }*/
+        /*label[for*='2']:before { content: '\f17d'; }*/
+        /*label[for*='3']:before { content: '\f16b'; }*/
+        /*label[for*='4']:before { content: '\f1a9'; }*/
+
+        label:hover {
+            color: #888;
+            cursor: pointer;
+        }
+
+        input:checked + label {
+            color: #555;
+            border: 1px solid #ddd;
+            border-top: 2px solid deepskyblue;
+            border-bottom: 1px solid #fff;
+        }
+
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 {
+            display: block;
+        }
+
+        @media screen and (max-width: 650px) {
+            label {
+                font-size: 0;
+            }
+            label:before {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            label {
+                padding: 15px;
+            }
+        }
+    </style>
 
 
 
@@ -188,6 +188,11 @@
             cursor: pointer;
         }
     </style>
+
+    <!-- date picker      -->
+    <link rel="stylesheet" href="<?php echo base_url()?>css/datepicker.css">
+
+    <!-- date picker      -->
 
 </head>
 <body class="fixed-sidebar fixed-header skin-default content-appear">
@@ -566,96 +571,170 @@
 
 
 
-                                    <input id="tab1" type="radio" name="tabs" checked>
-                                    <label for="tab1">View</label>
+                                <input id="tab1" type="radio" name="tabs" checked>
+                                <label for="tab1">View</label>
 
-                                    <input id="tab2" type="radio" name="tabs">
-                                    <label for="tab2">Insert Stock</label>
+                                <input id="tab2" type="radio" name="tabs">
+                                <label for="tab2">Insert Stock</label>
 
 
-                                    <section id="content1">
 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="Stockc/search_by_id">
-                                                    <div class="form-group row ">
-                                                        <div class="col-md-3">
-                                                            <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
-                                                        </div>
+                                <section id="content1">
 
-                                                        <div class="col-md-2">
-                                                            <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                        <?php
-                                                        foreach ($showsl as $s ){
+                                    <div class="row">
+                                        <div class="col-md-12">
 
-                                                            echo $s->name;
-                                                        }
-                                                        ?>
-                                                    </form>
 
-                                                    <br>
-                                                    <h5 class="mb-1">Product List</h5>
-                                                    <table class="table mb-md-0">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Product Id</th>
-                                                            <th>Type</th>
-                                                            <th>Weight</th>
-                                                            <th>Price</th>
-                                                            <th>In Stock</th>
-                                                            <th>Action</th>
+                                            <br>
+                                            <h5 class="mb-1">Expence List</h5>
 
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <?php
-                                                        $count=0;
-                                                        foreach ($showst as $s){?>
-                                                        <tr>
-                                                            <th scope="row"><?php echo $count?></th>
-                                                            <td><?php echo $s->product_id?></td>
-                                                            <td><?php echo $s->type?></td>
+                                            <form method="post" action="<?php echo base_url()?>Expense">
+                                                <div class="col-md-3 col-sm-6" >
+                                                    <div class="form-group" >
 
-                                                            <td><?php echo $s->weight?></td>
-                                                            <td><?php echo $s->price?></td>
-                                                            <td><?php echo $s->amount?></td>
-                                                            <td>  <i data-panel-id="<?= $s->id ?>"  onclick="selectid2(this)"  class="fa fa-edit" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<i data-panel-id="<?= $s->id ?>" onclick="selectid(this)"  class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</td>
-                                                        </tr>
-                                                        <?php
-                                                        $count=$count+1;
-                                                        }
-                                                        ?>
-                                                        </tbody>
-                                                    </table>
+                                                        <label for="date">From</label>
+                                                        <input type="text" class="form-control docs-date" name="date_from" placeholder="Pick a date">
+                                                    </div >
                                                 </div>
-                                            </div>
 
-                                    </section>
+                                                <div class="col-md-3 col-sm-6" >
+                                                    <div class="form-group" >
 
-                                <section id="content2">
-                                    <?php $this->load->view('insertproduct');?>
+                                                        <label for="date">To</label>
+                                                        <input type="text" class="form-control docs-date" name="date_to" placeholder="Pick a date">
+                                                    </div >
+                                                </div>
+
+
+                                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
+                                                <input style="margin-top: 44px;margin-left: 50px" type="submit" name="generate" class="btn btn-success" value="Generate">
+
+                                            </form>
+
+
+                                        </div>
+                                    </div>
+
+                                    <?php if($this->input->post('generate')){?>
+
+                                        <div class="table-responsive">
+                                            <table class=" table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>SL</th>
+                                                    <th>Date</th>
+                                                    <th>Purpose</th>
+
+                                                    <th>Amount</th>
+                                                    <!--<th >Order Date</th>
+
+                                                    <th colspan="2">Action</th>-->
+                                                </tr>
+                                                </thead>
+                                                <?php $count=0; ?>
+
+                                                <?php foreach ($this->data['show_expense_review_by_date'] as $e){
+                                                    $count++;?>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><?php echo $count?></td>
+                                                        <td><?php echo $e->date ?></td>
+                                                        <td><?php echo $e->purpose ?></td>
+
+                                                        <td><?php echo $e->amoun ?></td>
+
+                                                    </tr>
+
+                                                    </tbody>
+                                                <?php }?>
+                                                <tr >
+                                                    <td colspan="2"></td>
+
+                                                    <th id="1">Total Amount</th>
+                                                    <?php foreach ($this->data['gettotaltrans'] as $p) { ?>
+                                                        <td ><?php echo $p->total?></td>
+
+                                                    <?php } ?>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    <?php }else{ ?>
+
+
+                                        <div class="table-responsive">
+                                            <table class=" table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th>SL</th>
+                                                    <th>Date</th>
+                                                    <th>Purpose</th>
+
+                                                    <th>Amount</th>
+                                                    <!--<th >Order Date</th>
+
+                                                    <th colspan="2">Action</th>-->
+                                                </tr>
+                                                </thead>
+                                                <?php $count=0; ?>
+
+                                                <?php foreach ($this->data['show_expense_review_date'] as $v){
+                                                    $count++;?>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><?php echo $count?></td>
+                                                        <td><?php echo $v->date ?></td>
+                                                        <td><?php echo $v->purpose ?></td>
+                                                        <td><?php echo $v->amoun ?></td>
+
+
+                                                    </tr>
+
+                                                    </tbody>
+                                                <?php }?>
+                                                <tr >
+                                                    <td colspan="2"></td>
+
+                                                    <th id="1">Total Amount</th>
+                                                    <?php foreach ($this->data['gettotal'] as $r) { ?>
+                                                        <td ><?php echo $r->total?></td>
+
+                                                    <?php } ?>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    <?php } ?>
+
                                 </section>
 
+
+
+<!--                                -->
                                 <?php
-                                //so you want to show the sidebar once submitted?
-                                if(isset($_POST['psubmit'])){
+                                                                //so you want to show the sidebar once submitted?
+                                                                if(isset($_POST['tsubmit'])){
 
-                                    ?>
-                                    <script>
+                                                                    ?>
+                                                                    <script>
 
-                                       document.getElementById("tab2").checked = true;
-                                    </script>
+                                                                        document.getElementById("tab2").checked = true;
+                                                                    </script>
 
-                                    <?php
-                                }else {?>
+                                                                    <?php
+                                                                }else {?>
 
-                                    <?php
+                                                                    <?php
 
-                                }
-                                ?>
+                                                                }
+                                                                ?>
+
+
+
+                                <section id="content2">
+                                    <?php $this->load->view('insertexpense');?>
+                                </section>
+
+
 
                             </div>
                         </div>
@@ -678,77 +757,77 @@
 
 
                             </div>
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                </table>
-
-                            </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            </table>
 
                         </div>
 
+                    </div>
 
 
+
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-xs-center">
+                        <div class="col-sm-4 text-sm-left mb-0-5 mb-sm-0">
+                            2016 © Tech Cloud Ltd.
+                        </div>
+                        <div class="col-sm-8 text-sm-right">
+                            <ul class="nav nav-inline l-h-2">
+                                <li class="nav-item"><a class="nav-link text-black" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link text-black" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link text-black" href="#">Help</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- Footer -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row text-xs-center">
-                            <div class="col-sm-4 text-sm-left mb-0-5 mb-sm-0">
-                                2016 © Tech Cloud Ltd.
-                            </div>
-                            <div class="col-sm-8 text-sm-right">
-                                <ul class="nav nav-inline l-h-2">
-                                    <li class="nav-item"><a class="nav-link text-black" href="#">Privacy</a></li>
-                                    <li class="nav-item"><a class="nav-link text-black" href="#">Terms</a></li>
-                                    <li class="nav-item"><a class="nav-link text-black" href="#">Help</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-
+            </footer>
         </div>
-        <script type="text/javascript">
 
-            var text_input = document.getElementById ('p_id');
-            text_input.focus ();
-            text_input.select ();
+    </div>
+    <script type="text/javascript">
 
-        </script>
+        var text_input = document.getElementById ('p_id');
+        text_input.focus ();
+        text_input.select ();
 
-
-        <script>
-
-
-            // Get the modal
-            // var modal = document.getElementById('myModal');
-            var modal2 = document.getElementById('myModal2');
-
-            // Get the button that opens the modal
-            //var btn = document.getElementById("myBtn");
-
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            // btn = $(x).data('panel-name');
-
-            function selectid2(x) {
-
-                btn = $(x).data('panel-id');
+    </script>
 
 
-                $.ajax({
-                    type:'POST',
-                    url:'<?php echo base_url("Stockc/showedit/")?>'+btn,
-                    data:{'id':btn},
-                    cache: false,
-                    success:function(data)
-                    {
-                        $('#txtHint').html(data);
-                    }
+    <script>
 
-                });
+
+        // Get the modal
+        // var modal = document.getElementById('myModal');
+        var modal2 = document.getElementById('myModal2');
+
+        // Get the button that opens the modal
+        //var btn = document.getElementById("myBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        // btn = $(x).data('panel-name');
+
+        function selectid2(x) {
+
+            btn = $(x).data('panel-id');
+
+
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Stockc/showedit/")?>'+btn,
+                data:{'id':btn},
+                cache: false,
+                success:function(data)
+                {
+                    $('#txtHint').html(data);
+                }
+
+            });
 
 
 //                    if (window.XMLHttpRequest) {
@@ -769,14 +848,14 @@
 //                    xmlhttp.send();
 
 
-                    modal2.style.display = "block";
+            modal2.style.display = "block";
 
-            }
+        }
 
 
-            function selectid(x) {
+        function selectid(x) {
 
-                btn1 = $(x).data('panel-id');
+            btn1 = $(x).data('panel-id');
 
             if(confirm("Do you want to delete?")) {
                 window.location="<?php echo base_url()?>Stockc/delete/"+btn1;
@@ -784,54 +863,59 @@
 
 
 
-            }
+        }
 
 
-            span.onclick = function() {
+        span.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal2) {
                 modal2.style.display = "none";
             }
+        }
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal2) {
-                    modal2.style.display = "none";
-                }
-            }
-
-        </script>
+    </script>
 
 
-        <!-- Vendor JS -->
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/tether/js/tether.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/bootstrap4/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/detectmobilebrowser/detectmobilebrowser.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/jquery.mousewheel.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/mwheelIntent.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/jquery.jscrollpane.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/morris/morris.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-world-mill.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/peity/jquery.peity.js"></script>
+    <!-- Vendor JS -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/tether/js/tether.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/bootstrap4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/detectmobilebrowser/detectmobilebrowser.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/mwheelIntent.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jscrollpane/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/morris/morris.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-world-mill.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/peity/jquery.peity.js"></script>
 
-        <!-- Neptune JS -->
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
-
-
+    <!-- Neptune JS -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
 
 
+    <!-- date picker  -->
+
+    <script src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
+    <script src="<?php echo base_url()?>js/datepicker.js"></script>
+    <script src="<?php echo base_url()?>js/main.js"></script>
+
+    <!-- date picker  -->
 
 
 

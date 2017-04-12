@@ -50,6 +50,14 @@
                 </a>
 
             </li>
+            <li class="with-sub">
+                <a href="<?php echo base_url()?>Expense" class="waves-effect  waves-light">
+                    <span class="s-caret"></span>
+                    <span class="s-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
+                    <span class="s-text">Expenses</span>
+                </a>
+
+            </li>
 
             <li class="with-sub">
                 <a href="#" class="waves-effect  waves-light">

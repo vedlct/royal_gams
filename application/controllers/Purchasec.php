@@ -5,6 +5,9 @@ class Purchasec extends CI_Controller{
     public function index()
     {
 
+
+        $this->load->model('Typem');
+        $this->data['gettype'] = $this->Typem->gettype();
         $this->load->model('Purchase');
         $this->data['showpd'] = $this->Purchase->view();
         $this->load->view('purchase', $this->data);

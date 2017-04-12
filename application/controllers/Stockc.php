@@ -20,6 +20,8 @@ class Stockc extends CI_Controller{
         }else{
             $this->load->model('Stock');
             $this->load->model('Salary');
+            $this->load->model('Typem');
+            $this->data['gettype'] = $this->Typem->gettype();
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showst'] = $this->Stock->showstock();
             $this->load->view('stock', $this->data);

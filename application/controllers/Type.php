@@ -7,7 +7,7 @@ class Type extends CI_Controller
     {
         $this->load->model('Typem');
         $this->data['gettype'] = $this->Typem->gettype();
-        $this->load->view('type',$this->data['gettype']);
+        $this->load->view('type',$this->data);
     }
     public function inserttype()
     {
@@ -15,8 +15,9 @@ class Type extends CI_Controller
 //        $this->load->view('type');
         $this->load->model('Typem');
         $this->data['inserttype'] = $this->Typem->inserttype();
-
+        $this->data['gettype'] = $this->Typem->gettype();
         redirect('Type');
+//        $this->load->view('type');
 
 
     }

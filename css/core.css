@@ -7963,7 +7963,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 select.form-control:not([size]):not([multiple]) {
-  height: 33px;
+  height: 50px;
 }
 
 .table-grey-head thead {
