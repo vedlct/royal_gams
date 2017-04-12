@@ -42,8 +42,9 @@ class Salaryc extends CI_Controller
         $this->load->model('Salary');
 
         $this->data['edit'] = $this->Salary->editsalary($id);
+        $this->load->view('edit_salary',$this->data);
 
-
+        /*
         foreach ($this->data['edit'] as $e) {
             echo "<form class=\"form-material material-primary\" method=\"post\" action=\"<?php base_url()?>Salaryc\edit\">
     <div class=\"form-group row \">
@@ -98,8 +99,9 @@ class Salaryc extends CI_Controller
         </div>
     </div>
 </form>";
+        */
 
-        }
+
     }
 }
 ?>
