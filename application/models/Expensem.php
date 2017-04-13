@@ -33,7 +33,7 @@ class Expensem extends CI_Model
     {
         /*$query = $this->db->query("SELECT * FROM `order` ORDER BY `date`");
         return $query->result();*/
-        $query = $this->db->query("SELECT `date`,`purpose`, SUM(`amount`) as amoun FROM `expense` WHERE DATE(`date`) BETWEEN STR_TO_DATE('$date_from', '%Y-%m-%d') AND STR_TO_DATE('$date_to', '%Y-%m-%d') GROUP BY `purpose`");
+        $query = $this->db->query("SELECT `date`,GROUP_CONCAT(`purpose`) as purpose, GROUP_CONCAT(`amount`) as amoun, SUM(`amount`) as rowtotal FROM `expense` WHERE DATE(`date`) BETWEEN STR_TO_DATE('$date_from', '%Y-%m-%d') AND STR_TO_DATE('$date_to', '%Y-%m-%d') GROUP BY `date` ");
         return $query->result();
     }
 

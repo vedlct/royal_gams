@@ -27,7 +27,7 @@ class Expense extends CI_Controller
             $this->data['gettotaltrans'] = $this->Expensem->gettotaltrans($date_from,$date_to);
 
             $this->load->view('expense',$this->data);
-            print_r($this->data['gettotaltrans']);
+//            print_r($this->data['gettotaltrans']);
 
         }
 

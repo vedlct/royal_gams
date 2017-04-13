@@ -587,12 +587,12 @@
                                                             <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
                                                         </div>
                                                     </div>
-                                                        <?php
-                                                        foreach ($showsl as $s ){
-
-                                                            echo $s->name;
-                                                        }
-                                                        ?>
+<!--                                                        --><?php
+//                                                        foreach ($showsl as $s ){
+//
+//                                                            echo $s->name;
+//                                                        }
+//                                                        ?>
                                                     </form>
 
                                                     <br>
