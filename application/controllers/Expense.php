@@ -5,8 +5,7 @@ class Expense extends CI_Controller
 
     public function index()
     {
-//        $this->load->model('Typem');
-//        $this->data['gettype'] = $this->Typem->gettype();
+
         if(!$this->input->post('generate')){
 
             $this->load->model('Expensem');
@@ -14,6 +13,7 @@ class Expense extends CI_Controller
 
             $this->data['gettotal'] = $this->Expensem->gettotal();
             $this->load->view('expense',$this->data);
+
 
         }
         else{
