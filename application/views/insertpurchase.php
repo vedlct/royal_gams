@@ -14,7 +14,7 @@
         <label  class="col-md-3 col-form-label"  >Type</label>
         <div class="col-md-7">
 <!--            <input type="text" class="form-control"  placeholder="Type" name="type" >-->
-            <select class="form-control" name="select_type" id="select_type"  >
+            <select class="form-control" name="type" id="type"  >
                 <option selected  >Select Type</option>
                 <!--            --><?php
                 foreach ($this->data['gettype'] as $p)

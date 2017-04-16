@@ -591,6 +591,7 @@
                                                             <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
                                                         </div>
                                                     </div>
+
                                                     </form>
 
                                                     <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_type">
@@ -614,6 +615,14 @@
                                                                 <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
                                                             </div>
                                                         </div>
+
+<!--                                                        --><?php
+//                                                        foreach ($showsl as $s ){
+//
+//                                                            echo $s->name;
+//                                                        }
+//                                                        ?>
+
                                                     </form>
 
                                                     <br>

@@ -36,6 +36,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <![endif]-->
 
+
+
     <style>
 
         @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
@@ -585,8 +587,12 @@
                                         <div class="col-md-12">
 
 
+
+
                                             <br>
                                             <h5 class="mb-1">Expence List</h5>
+
+
 
                                             <form method="post" action="<?php echo base_url()?>Expense">
                                                 <div class="col-md-3 col-sm-6" >
@@ -641,7 +647,7 @@
                                                         <td><?php echo $e->date ?></td>
                                                         <td><?php echo $e->purpose ?></td>
 
-                                                        <td><?php echo $e->amoun ?></td>
+                                                        <td><?php echo $e->amoun ?> = <?php echo $e->rowtotal ?> </td>
 
                                                     </tr>
 
@@ -788,13 +794,13 @@
         </div>
 
     </div>
-    <script type="text/javascript">
-
-        var text_input = document.getElementById ('p_id');
-        text_input.focus ();
-        text_input.select ();
-
-    </script>
+<!--    <script type="text/javascript">-->
+<!---->
+<!--        var text_input = document.getElementById ('p_id');-->
+<!--        text_input.focus ();-->
+<!--        text_input.select ();-->
+<!---->
+<!--    </script>-->
 
 
     <script>
@@ -908,7 +914,6 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
 
-
     <!-- date picker  -->
 
     <script src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
@@ -916,6 +921,9 @@
     <script src="<?php echo base_url()?>js/main.js"></script>
 
     <!-- date picker  -->
+
+
+
 
 
 
