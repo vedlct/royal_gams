@@ -1,8 +1,6 @@
 <?php
 class Stock extends CI_Model {
 
-
-
     function insertstock(){
         $p_id = $this->input->post('p_id');
         $type = $this->input->post('type');
@@ -23,13 +21,14 @@ class Stock extends CI_Model {
 
     function insert_stone(){
         $p_id = $this->input->post('p_id');
-        //$type = $this->input->post('type');
+        $sname = $this->input->post('s_name');
         $weight = $this->input->post('weight');
         $price = $this->input->post('price');
         $amount = $this->input->post('amount');
 
         $data = array(
             'product_id' => $p_id,
+            'stone_name' =>$sname,
             'weight' => $weight,
             'price' => $price,
             'amount' => $amount,
@@ -47,6 +46,22 @@ class Stock extends CI_Model {
         $this->db->insert('stock',$stonedata);
     }
 
+    public function get_products_autocomplete($q){
+
+        $this->db->select('product_id');
+        $this->db->like('product_id', $q,'after');
+        $query = $this->db->get('stock');
+        //$query=$this->db->query("SELECT type FROM `stock` WHERE `type` LIKE '%$q%' ");
+        // return $query->result();
+        if($query->num_rows() > 0){
+            foreach ($query->result_array() as $row){
+                $row_set[] = htmlentities(stripslashes($row['type'])); //build an array
+            }
+            echo json_encode($row_set); //format the array into json data
+        }
+    }
+
+
     function showstone(){
 
         $query = $this->db->query("SELECT * FROM `stone`");
@@ -56,6 +71,18 @@ class Stock extends CI_Model {
     function showstock(){
 
         $query = $this->db->query("SELECT * FROM `stock`");
+        return $query->result();
+    }
+
+    public function showstocktype(){
+
+        $query = $this->db->query("SELECT DISTINCT(type) FROM `stock` ");
+        return $query->result();
+    }
+
+    public function showstonetype(){
+
+        $query = $this->db->query("SELECT DISTINCT(stone_name) FROM `stone` ");
         return $query->result();
     }
 
@@ -96,12 +123,14 @@ class Stock extends CI_Model {
     function update_stone($id){
 
         $p_id = $this->input->post('p_id');
+        $sname = $this->input->post('s_name');
         $weight = $this->input->post('weight');
         $price = $this->input->post('price');
         $amount = $this->input->post('amount');
 
         $data = array(
             'product_id' => $p_id,
+            'stone_name' =>$sname,
             'weight' => $weight,
             'price' => $price,
             'amount' => $amount,
@@ -131,8 +160,25 @@ class Stock extends CI_Model {
         $type="";
         $query=$this->db->query("SELECT * FROM stock WHERE `product_id`= '$id'");
         return $query->result();
+    }
 
+    function search_stone_by_id($id){
 
+        $type="";
+        $query=$this->db->query("SELECT * FROM stone WHERE `product_id`= '$id'");
+        return $query->result();
+    }
+
+    function search_by_type($type){
+
+        $query=$this->db->query("SELECT * FROM stock WHERE `type`= '$type'");
+        return $query->result();
+    }
+
+    function search_stone_by_type($name){
+
+        $query=$this->db->query("SELECT * FROM stone WHERE `stone_name`= '$name'");
+        return $query->result();
     }
 }
 ?>

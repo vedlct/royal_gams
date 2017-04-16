@@ -442,6 +442,7 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <form class="form-material material-primary" id="cart_form" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
                                     <?php
                                     if(isset($_POST['psubmit'])){
 
@@ -452,15 +453,14 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-3 col-form-label">Product ID</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="inputEmail3" value="<?php echo $vp->product_id?>"
+                                                <input type="text" class="form-control" id="product_id" name="product_id" value="<?php echo $vp->product_id?>"
                                                        readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-3 col-form-label">Type</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="inputEmail3"
-                                                       value="<?php echo $vp->type?>"readonly>
+                                                <input type="text" class="form-control" id="type" name="type" value="<?php echo $vp->type?>"readonly>
                                             </div>
                                         </div>
 
@@ -468,24 +468,21 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-3 col-form-label">Weight</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="inputEmail3"
-                                                       placeholder="Success" value="<?php echo $vp->weight?>"readonly>
+                                                <input type="text" class="form-control" id="weight" name="weight" placeholder="Success" value="<?php echo $vp->weight?>"readonly>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-3 col-form-label">Price</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="inputEmail3"
-                                                       placeholder="Warning" value="<?php echo $vp->price?>" readonly>
+                                                <input type="text" class="form-control" id="price" name="price" placeholder="Warning" value="<?php echo $vp->price?>" readonly>
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-3 col-form-label">Amount</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="inputEmail3"
-                                                       placeholder="Danger" value="<?php echo $vp->amount?>" readonly>
+                                                <input type="text" class="form-control" id="amount" name="amount" placeholder="Danger" value="<?php echo $vp->amount?>" readonly>
                                             </div>
                                         </div>
 
@@ -493,7 +490,7 @@
                                     }
                                     }
                                     ?>
-
+                                    </form>
                                 </div>
                             </div>
 
@@ -513,19 +510,31 @@
                            // echo $p_id;
                         }
 
-
-                        foreach ($this->cart->contents() as $items){ ?>
+                        ?>
+                        <form class="form-material material-primary" id="" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
+                        <?php foreach ($this->cart->contents() as $items) { ?>
 
                             <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
-                                echo "ID: ".$items['id']."<br>";
-                                echo "Price: ".$items['price']."<br>"; ?>
+                                echo "ID: " . $items['id'] . "<br>";
+                                echo "Price: " . $items['price'] . "<br>"; ?>
                             </div> <br> <?php
-                        }
-                        $rows = "count: ".count($this->cart->contents());
-                        echo $rows."<br>";
 
+                            $rows = "count: " . count($this->cart->contents());
+                            echo $rows . "<br>";
+                        
                         ?>
-                        <a href="Home/removeall"> <button>Clear Cart</button></a>
+
+                            <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="<?php echo $items['id']?>">
+                            <input type="hidden" class="form-control" id="type" name="type" value="<?php echo $items['type']?>">
+                            <input type="hidden" class="form-control" id="weight" name="weight" value="<?php echo $items['weight']?>">
+                            <input type="hidden" class="form-control" id="price" name="price" value="<?php echo $items['price']?>">
+                            <input type="hidden" class="form-control" id="amount" name="amount" value="<?php echo $items['qty']?>">
+
+                            <a href="Home/removeall"> <button>Clear Cart</button></a>
+                            <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
+                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">
+                        </form>
+                        <?php } ?>
                     </div>
                 </div>
                 </div>
@@ -592,15 +601,20 @@
             function myfunc() {
 
 
-                $("#p_from").submit(function(e) {
+                $("#p_from").submit(function (e) {
 
-                   e.preventDefault();
+                    e.preventDefault();
 
                 });
 
-              )
+            }
         </script>
 
+        <script>
+            function cart_submit() {
+                document.getElementById("cart_form").submit();
+            }
+        </script>
 
 
 	</body>

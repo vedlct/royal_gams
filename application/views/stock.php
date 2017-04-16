@@ -13,6 +13,10 @@
     <!-- Title -->
     <title>Royal Gems</title>
 
+
+
+
+
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.css">
@@ -577,7 +581,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="Stockc/search_by_id">
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_id">
                                                     <div class="form-group row ">
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
@@ -587,15 +591,33 @@
                                                             <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
                                                         </div>
                                                     </div>
-                                                        <?php
-                                                        foreach ($showsl as $s ){
+                                                    </form>
 
-                                                            echo $s->name;
-                                                        }
-                                                        ?>
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_type">
+
+                                                        <div class="form-group row ">
+                                                            <div class="col-md-3">
+                                                                <select class="form-control" name="sp_type" id="sp_type"  >
+                                                                    <option selected  >Select Type</option>
+                                                                    <!--            --><?php
+                                                                    foreach ($showsttype as $st)
+                                                                    {
+                                                                        echo "<option  value='" . $st->type . "'>" . $st->type . "</option>";
+                                                                    }
+                                                                    ?>
+
+                                                                </select>
+                                                            </div>
+
+                                                            <br/>
+                                                            <div class="col-md-2">
+                                                                <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                            </div>
+                                                        </div>
                                                     </form>
 
                                                     <br>
+                                                    <div class="table table-responsive"
                                                     <h5 class="mb-1">Product List</h5>
                                                     <table class="table mb-md-0">
                                                         <thead>
@@ -630,6 +652,7 @@
                                                         ?>
                                                         </tbody>
                                                     </table>
+                                                </div>
                                                 </div>
                                             </div>
 
@@ -798,7 +821,19 @@
                 }
             }
 
+
+
         </script>
+
+<script>
+    //autocomplete
+    $(function(){
+        $("#p_id").autocomplete({
+            source: "<?php echo site_url('Stockc/get_products_autocomplete');?>" // path to the get_birds method
+        });
+    });
+</script>
+
 
 
         <!-- Vendor JS -->
@@ -829,7 +864,11 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
 
-
+        <!-- Auto Complete-->
+        <!-- Autocomplete-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="<?php echo base_url(); ?>js/jquery.js"></script>
+        <script src="<?php echo base_url(); ?>js/jqueryui.js"></script>
 
 
 

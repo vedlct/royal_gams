@@ -10,6 +10,13 @@ class Product extends CI_Model {
         return $query->result();
     }
 
+    function get_cart_prod($p_id)
+    {
+
+        $query = $this->db->query("SELECT * FROM `stock` WHERE `product_id`='$p_id'");
+        return $query->result();
+    }
+
 
 }
 ?>

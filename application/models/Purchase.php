@@ -32,6 +32,18 @@ class Purchase extends CI_Model {
         return $query->result();
     }
 
+    function show_purchase_by_type(){
+
+        $query=$this->db->query("SELECT DISTINCT(type) FROM purchase");
+        return $query->result();
+    }
+
+    function search_purchase_by_type($type){
+
+        $query=$this->db->query("SELECT * FROM purchase WHERE `type`='$type'");
+        return $query->result();
+    }
+
     public function editstock($id){
 
         $query=$this->db->query("SELECT * FROM `purchase` WHERE `id`= '$id'");

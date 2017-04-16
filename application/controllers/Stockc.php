@@ -2,12 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Stockc extends CI_Controller{
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model('Stock');
+        $this->load->model('Salary');
+        $this->load->model('Typem');
+    }
+
     public function index()
     {
 
         if(isset($_POST['psubmit'])){
 
-            $this->load->model('Stock');
+
             $this->Stock->insertstock();
 
             $this->load->model('Stock');
@@ -18,13 +27,21 @@ class Stockc extends CI_Controller{
 
 
         }else{
-            $this->load->model('Stock');
-            $this->load->model('Salary');
-            $this->load->model('Typem');
+
+
             $this->data['gettype'] = $this->Typem->gettype();
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showst'] = $this->Stock->showstock();
+            $this->data['showsttype'] = $this->Stock->showstocktype();
             $this->load->view('stock', $this->data);
+        }
+    }
+
+    public function get_products_autocomplete()
+    {
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+            $this->Stock->get_products_autocomplete($q);
         }
     }
 
@@ -66,7 +83,7 @@ class Stockc extends CI_Controller{
 
     function edit($id){
 
-        $this->load->model('Stock');
+
         $this->Stock->edit($id);
         redirect(Stockc);
 
@@ -75,7 +92,7 @@ class Stockc extends CI_Controller{
     function delete($id){
 
         //$id=$this->input->post('sp_id');
-        $this->load->model('Stock');
+
         $this->Stock->delete($id);
         redirect(Stockc);
 
@@ -85,8 +102,19 @@ class Stockc extends CI_Controller{
 
         $id=$this->input->post('sp_id');
        // $type=$this->uri->segment(4);
-        $this->load->model('Stock');
+
         $this->data['showst'] = $this->Stock->search_by_id($id);
+        $this->load->view('stock', $this->data);
+
+    }
+
+    public function search_by_type(){
+
+        $type=$this->input->post('sp_type');
+        // $type=$this->uri->segment(4);
+        $this->data['showsttype'] = $this->Stock->showstocktype();
+        $this->data['showst'] = $this->Stock->search_by_type($type);
+        //redirect('Stockc/index');
         $this->load->view('stock', $this->data);
 
     }
@@ -97,7 +125,7 @@ class Stockc extends CI_Controller{
     function showedit(){
 
     $id=$this->input->post('id');
-    $this->load->model('Stock');
+
 
     $this->data['edit'] = $this->Stock->editstock($id);
     $this->load->view('edit_stock',$this->data);

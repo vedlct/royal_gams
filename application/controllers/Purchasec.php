@@ -2,6 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Purchasec extends CI_Controller{
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model('Purchase');
+        $this->load->model('Salary');
+        $this->load->model('Typem');
+    }
+
     public function index()
     {
 
@@ -10,6 +19,7 @@ class Purchasec extends CI_Controller{
         $this->data['gettype'] = $this->Typem->gettype();
         $this->load->model('Purchase');
         $this->data['showpd'] = $this->Purchase->view();
+        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
         $this->load->view('purchase', $this->data);
       // $this->load->view('purchase');
     }
@@ -22,6 +32,16 @@ class Purchasec extends CI_Controller{
         $this->Purchase->insert();
 
         redirect(Purchasec);
+
+    }
+
+    public function search_by_type(){
+
+        $type=$this->input->post('sp_type');
+        // $type=$this->uri->segment(4);
+
+        $this->data['showpd'] = $this->Purchase->search_purchase_by_type($type);
+        $this->load->view('purchase', $this->data);
 
     }
 

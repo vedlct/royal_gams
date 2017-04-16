@@ -316,9 +316,32 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            <form class="form-material material-primary" method="post" action="Salaryc/search_by_name">
+
+                                                <div class="form-group row ">
+                                                    <div class="col-md-3">
+                                                        <select class="form-control" name="sp_type" id="sp_type"  >
+                                                            <option selected  >Select Type</option>
+                                                            <!--            --><?php
+                                                            foreach ($showslname as $st)
+                                                            {
+                                                                echo "<option  value='" . $st->name . "'>" . $st->name . "</option>";
+                                                            }
+                                                            ?>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <br/>
+                                                    <div class="col-md-2">
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
 
                                             <br>
                                             <h5 class="mb-1">Product List</h5>
+                                            <div class="table table-responsive">
                                             <table class="table mb-md-0">
 
                                                 <thead>
@@ -354,6 +377,7 @@
                                                 ?>
                                                 </tbody>
                                             </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -375,12 +399,12 @@
                                 </section>
                                 <?php
                                 //so you want to show the sidebar once submitted?
-                                if(isset($_POST['salsubmit'])){
+                                if(isset($_POST['submit'])){
 
                                     ?>
                                     <script>
 
-                                        //document.getElementById("tab3").checked = true;
+                                        document.getElementById("tab2").checked = true;
                                     </script>
 
                                     <?php

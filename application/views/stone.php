@@ -577,7 +577,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="Stockc/search_by_id">
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/search_by_id">
                                                     <div class="form-group row ">
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
@@ -587,21 +587,48 @@
                                                             <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
                                                         </div>
                                                     </div>
-                                                        <?php
-                                                        foreach ($showsl as $s ){
+<!--                                                        --><?php
+//                                                        foreach ($showsl as $s ){
+//
+//                                                            echo $s->name;
+//                                                        }
+//                                                        ?>
+                                                    </form>
 
-                                                            echo $s->name;
-                                                        }
-                                                        ?>
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/search_by_type">
+
+                                                        <div class="form-group row ">
+                                                            <div class="col-md-3">
+                                                                <select class="form-control" name="sp_type" id="sp_type"  >
+                                                                    <option selected  >Select Type</option>
+                                                                    <!--            --><?php
+                                                                    foreach ($showsttype as $st)
+                                                                    {
+                                                                        echo "<option  value='" . $st->stone_name . "'>" . $st->stone_name . "</option>";
+                                                                    }
+                                                                    ?>
+
+                                                                </select>
+                                                            </div>
+
+                                                            <br/>
+                                                            <div class="col-md-2">
+                                                                <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                            </div>
+                                                        </div>
+
+
                                                     </form>
 
                                                     <br>
                                                     <h5 class="mb-1">Product List</h5>
+                                                    <div class="table table-responsive">
                                                     <table class="table mb-md-0">
                                                         <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Product Id</th>
+                                                            <th>Stone Id</th>
+                                                            <th>Stone Name</th>
                                                             <th>Weight</th>
                                                             <th>Price</th>
                                                             <th>In Stock</th>
@@ -616,6 +643,7 @@
                                                         <tr>
                                                             <th scope="row"><?php echo $count?></th>
                                                             <td><?php echo $s->product_id?></td>
+                                                            <td><?php echo $s->stone_name?></td>
                                                             <td><?php echo $s->weight?></td>
                                                             <td><?php echo $s->price?></td>
                                                             <td><?php echo $s->amount?></td>
@@ -627,6 +655,7 @@
                                                         ?>
                                                         </tbody>
                                                     </table>
+                                                    </div>
                                                 </div>
                                             </div>
 

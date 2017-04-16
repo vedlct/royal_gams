@@ -6,6 +6,12 @@
     <input type="text" class="form-control"  placeholder="Product ID" name="p_id" id="p_id" value=" <?php echo $e->product_id ?>" >
 </div>
 </div>
+    <div class="form-group row ">
+        <label  class="col-md-3 col-form-label"  >Stone Name</label>
+        <div class="col-md-7">
+            <input type="text" class="form-control"  placeholder="Stone Name" name="s_name" id="s_name" value="<?php echo $e->stone_name ?>">
+        </div>
+    </div>
 <div class="form-group row ">
 <label  class="col-md-3 col-form-label"  >Type</label>
 <div class="col-md-7">

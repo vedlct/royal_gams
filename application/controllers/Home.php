@@ -2,6 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model('Stock');
+        $this->load->model('Salary');
+        $this->load->model('Typem');
+        $this->load->model('Sales');
+        $this->load->model('Product');
+    }
+
     public function index()
     {
 
@@ -10,16 +21,22 @@ class Home extends CI_Controller{
 
         $this->data['viewproduct'] = $this->Product->getprod(); // calling Post model method getPosts()
         // load the view file , we are passing $data array to view file
+           // print_r($this->data['viewproduct']);
         foreach ($this->data['viewproduct'] as $row)
         {
             $type=$row->type;
             $price=$row->price;
+            $weight = $row->weight;
+
+            $amount = $row->amount;
 
         }
         $id=$this->input->post('p_id');
         $data = array(
             'id' => $id,
-            'qty' => 1,
+            'qty' => $amount,
+            'weight' => $weight,
+            'type' => $type,
             'price' => $price,
             'name' => $type,
             'coupon' => 'XMAS-50OFF'
@@ -88,6 +105,43 @@ class Home extends CI_Controller{
         redirect(Home::get_instance());
     }
 
+    public function add_cart()
+    {
+        /*
+
+        foreach ($this->cart->contents() as $items) {
+
+            $p_id = $items['id'];
+            $type = $items['type'];
+            $weight = $items['weight'];
+            $price = $items['price'];
+            $amount = $items['qty'];
+        }
+        //print_r($p_id);
+        $this->Sales->add_cart($p_id,$type,$weight,$price,$amount);
+        */
+        foreach ($this->cart->contents() as $items) {
+            $p_id = $items['id'];
+        }
+        print_r($p_id);
+
+        $this->data['viewproduct'] = $this->Product->get_cart_prod($p_id);
+
+        foreach ($this->data['viewproduct'] as $items) {
+
+            $pr_id = $items->product_id;
+            $type = $items->type;
+            $weight = $items->weight;
+            $price = $items->price;
+            $amount = $items->amount;
+        }
+
+        $this->Sales->add_cart_data($pr_id,$type,$weight,$price,$amount);
+        //print_r($pr_id,$type);
+        $this->cart->destroy();
+        redirect('Home');
+
+    }
 
 
 }

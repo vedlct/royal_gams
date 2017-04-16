@@ -30,6 +30,18 @@ class Salary extends CI_Model {
         return $query->result();
     }
 
+    function show_salary_by_name(){
+
+        $query=$this->db->query("SELECT DISTINCT(name) FROM salary");
+        return $query->result();
+    }
+
+    function search_by_name($name){
+
+        $query=$this->db->query("SELECT * FROM salary WHERE `name`= '$name'");
+        return $query->result();
+    }
+
     public function editsalary($id){
 
         $query=$this->db->query("SELECT * FROM salary WHERE `id`= '$id'");
@@ -70,7 +82,7 @@ class Salary extends CI_Model {
     function search_by_id($id){
 
         $type="";
-        $query=$this->db->query("SELECT * FROM stock WHERE `product_id`= '$id'");
+        $query=$this->db->query("SELECT * FROM salary WHERE `product_id`= '$id'");
         return $query->result();
 
 

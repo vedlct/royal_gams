@@ -7,6 +7,7 @@ class Stonec extends CI_Controller{
         parent::__construct();
         $this->load->database();
         $this->load->model('Stock');
+        $this->load->model('Salary');
     }
 
     public function index()
@@ -23,11 +24,12 @@ class Stonec extends CI_Controller{
 
         }
         */
-            $this->load->model('Stock');
-            $this->load->model('Salary');
+
+            $this->data['showsttype'] = $this->Stock->showstonetype();
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showst'] = $this->Stock->showstone();
             $this->load->view('stone', $this->data);
+
 
 
 
@@ -95,8 +97,18 @@ class Stonec extends CI_Controller{
         $id=$this->input->post('sp_id');
        // $type=$this->uri->segment(4);
         $this->load->model('Stock');
-        $this->data['showst'] = $this->Stock->search_by_id($id);
-        $this->load->view('stock', $this->data);
+        $this->data['showsttype'] = $this->Stock->showstonetype();
+        $this->data['showst'] = $this->Stock->search_stone_by_id($id);
+        $this->load->view('stone', $this->data);
+    }
+
+    public function search_by_type(){
+
+        $name=$this->input->post('sp_type');
+        // $type=$this->uri->segment(4);
+        $this->data['showsttype'] = $this->Stock->showstonetype();
+        $this->data['showst'] = $this->Stock->search_stone_by_type($name);
+        $this->load->view('stone', $this->data);
 
     }
 

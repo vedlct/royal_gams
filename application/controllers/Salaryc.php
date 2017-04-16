@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Salaryc extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model('Purchase');
+        $this->load->model('Salary');
+        $this->load->model('Typem');
+    }
 
     public function index()
     {
@@ -20,6 +28,7 @@ class Salaryc extends CI_Controller
         } else {
             $this->load->model('Salary');
             $this->data['showsl'] = $this->Salary->showsalary();
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
             $this->load->view('salary', $this->data);
 
 
@@ -27,6 +36,25 @@ class Salaryc extends CI_Controller
 
     }
 
+    function search_by_id(){
+
+        $id=$this->input->post('sp_id');
+        // $type=$this->uri->segment(4);
+
+        $this->data['showst'] = $this->Salary->search_by_id($id);
+        $this->load->view('stock', $this->data);
+
+    }
+
+    public function search_by_name(){
+
+        $name=$this->input->post('sp_type');
+        // $type=$this->uri->segment(4);
+
+        $this->data['showsl'] = $this->Salary->search_by_name($name);
+        $this->load->view('salary', $this->data);
+
+    }
 
     public function delete($id)
     {

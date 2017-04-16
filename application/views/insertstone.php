@@ -1,9 +1,15 @@
 <!--    --><?php //echo form_open('stockc/insertstock', 'class="form-material material-primary"'); ?>
 <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/insert_stone">
     <div class="form-group row ">
-        <label  class="col-md-3 col-form-label"  >Product ID</label>
+        <label  class="col-md-3 col-form-label"  >Stone ID</label>
         <div class="col-md-7">
             <input type="text" class="form-control"  placeholder="Product ID" name="p_id" id="p_id">
+        </div>
+    </div>
+    <div class="form-group row ">
+        <label  class="col-md-3 col-form-label"  >Stone Name</label>
+        <div class="col-md-7">
+            <input type="text" class="form-control"  placeholder="Stone Name" name="s_name" id="s_name">
         </div>
     </div>
     <div class="form-group row ">

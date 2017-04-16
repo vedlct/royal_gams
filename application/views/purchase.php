@@ -308,6 +308,30 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            <form class="form-material material-primary" method="post" action="Purchasec/search_by_type">
+
+                                                <div class="form-group row ">
+                                                    <div class="col-md-3">
+                                                        <select class="form-control" name="sp_type" id="sp_type"  >
+                                                            <option selected  >Select Type</option>
+                                                            <!--            --><?php
+                                                            foreach ($showpdtype as $st)
+                                                            {
+                                                                echo "<option  value='" . $st->type . "'>" . $st->type . "</option>";
+                                                            }
+                                                            ?>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <br/>
+                                                    <div class="col-md-2">
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
 
                                             <br>
                                             <h5 class="mb-1">Product List</h5>
@@ -355,7 +379,7 @@
 
                                 <?php
                                 //so you want to show the sidebar once submitted?
-                                if(isset($_POST['psubmit'])){
+                                if(isset($_POST['submit'])){
 
                                     ?>
                                     <script>
