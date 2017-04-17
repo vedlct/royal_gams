@@ -103,7 +103,20 @@ class Stockc extends CI_Controller{
         $id=$this->input->post('sp_id');
        // $type=$this->uri->segment(4);
 
+        $this->data['showsttype'] = $this->Stock->showstocktype();
         $this->data['showst'] = $this->Stock->search_by_id($id);
+        $this->load->view('stock', $this->data);
+
+    }
+
+    function search_by_price(){
+
+        $price=$this->input->post('price');
+        // $type=$this->uri->segment(4);
+
+        //print_r($price);
+        $this->data['showsttype'] = $this->Stock->showstocktype();
+        $this->data['showst'] = $this->Stock->search_by_price($price);
         $this->load->view('stock', $this->data);
 
     }

@@ -50,6 +50,23 @@ class Purchase extends CI_Model {
         return $query->result();
     }
 
+    public function search_purchase_by_id($id){
+
+        $query=$this->db->query("SELECT * FROM `purchase` WHERE `product_id`= '$id'");
+        return $query->result();
+    }
+
+    function search_by_price($price){
+
+        $query=$this->db->query("SELECT * FROM purchase WHERE `price`>'$price' ORDER BY price ");
+        return $query->result();
+    }
+
+    function search_by_paid($paid){
+
+        $query=$this->db->query("SELECT * FROM purchase WHERE `paid`>='$paid' ORDER BY paid DESC");
+        return $query->result();
+    }
 
     function edit($id){
 

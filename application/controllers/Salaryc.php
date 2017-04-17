@@ -41,8 +41,24 @@ class Salaryc extends CI_Controller
         $id=$this->input->post('sp_id');
         // $type=$this->uri->segment(4);
 
-        $this->data['showst'] = $this->Salary->search_by_id($id);
-        $this->load->view('stock', $this->data);
+        //$this->data['showsl'] = $this->Salary->showsalary();
+        $this->data['showslname'] = $this->Salary->show_salary_by_name();
+        $this->data['showsl'] = $this->Salary->search_by_id($id);
+        $this->load->view('salary', $this->data);
+
+    }
+
+    function search_by_salary(){
+
+        $salary=$this->input->post('salary');
+        // $type=$this->uri->segment(4);
+
+        //print_r($price);
+
+        $this->data['showslname'] = $this->Salary->show_salary_by_name();
+        $this->data['showsl'] = $this->Salary->search_by_salary($salary);
+        print_r($this->data['showsl']);
+        //$this->load->view('salary', $this->data);
 
     }
 
@@ -51,6 +67,8 @@ class Salaryc extends CI_Controller
         $name=$this->input->post('sp_type');
         // $type=$this->uri->segment(4);
 
+        //$this->data['showsl'] = $this->Salary->showsalary();
+        $this->data['showslname'] = $this->Salary->show_salary_by_name();
         $this->data['showsl'] = $this->Salary->search_by_name($name);
         $this->load->view('salary', $this->data);
 

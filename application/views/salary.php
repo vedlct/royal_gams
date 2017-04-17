@@ -305,18 +305,29 @@
                                 <section id="content2">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form class="form-material material-primary" method="post" action="Stockc/search_by_id">
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_id">
                                                 <div class="form-group row ">
                                                     <div class="col-md-3">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
 
                                                     <div class="col-md-2">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form class="form-material material-primary" method="post" action="Salaryc/search_by_name">
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_salary">
+                                                <div class="form-group row ">
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control"  placeholder="Salary" name="salary" id="salary" >
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_name">
 
                                                 <div class="form-group row ">
                                                     <div class="col-md-3">
@@ -334,7 +345,7 @@
 
                                                     <br/>
                                                     <div class="col-md-2">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -353,7 +364,7 @@
                                                     <th>Phone Number</th>
                                                     <th>Address</th>
                                                     <th>Status</th>
-                                                    <th>Actoin</th>
+                                                    <th>Action</th>
 
                                                 </tr>
                                                 </thead>

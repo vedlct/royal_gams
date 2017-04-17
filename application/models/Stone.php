@@ -1,5 +1,5 @@
 <?php
-class Stock extends CI_Model {
+class Stone extends CI_Model {
 
     function insertstock(){
         $p_id = $this->input->post('p_id');
@@ -171,10 +171,16 @@ class Stock extends CI_Model {
         return $query->result();
         */
         $type="";
-        $query=$this->db->query("SELECT * FROM stock WHERE `price`>='$price'");
+        $query=$this->db->query("SELECT * FROM stone WHERE `price`>'$price'");
         return $query->result();
-
     }
+
+    function search_by_stock($stock){
+
+        $query=$this->db->query("SELECT * FROM stone WHERE `amount`>='$stock' ORDER BY amount  ");
+        return $query->result();
+    }
+
 
     function search_stone_by_id($id){
 

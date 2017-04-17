@@ -297,18 +297,43 @@
                                 <section id="content2">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form class="form-material material-primary" method="post" action="Stockc/search_by_id">
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Purchasec/search_by_id">
                                                 <div class="form-group row ">
                                                     <div class="col-md-3">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
 
                                                     <div class="col-md-2">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form class="form-material material-primary" method="post" action="Purchasec/search_by_type">
+
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Purchasec/search_by_price">
+                                                <div class="form-group row ">
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Purchasec/search_by_paid">
+                                                <div class="form-group row ">
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control"  placeholder="Paid" name="paid" id="paid" >
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Purchasec/search_by_type">
 
                                                 <div class="form-group row ">
                                                     <div class="col-md-3">
@@ -326,7 +351,7 @@
 
                                                     <br/>
                                                     <div class="col-md-2">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                     </div>
                                                 </div>
 

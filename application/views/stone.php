@@ -584,7 +584,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                            <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                         </div>
                                                     </div>
 <!--                                                        --><?php
@@ -595,12 +595,36 @@
 //                                                        ?>
                                                     </form>
 
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/search_by_price">
+                                                        <div class="form-group row ">
+                                                            <div class="col-md-3">
+                                                                <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/search_by_stock">
+                                                        <div class="form-group row ">
+                                                            <div class="col-md-3">
+                                                                <input type="text" class="form-control"  placeholder="Stock" name="stock" id="stock" >
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
                                                     <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/search_by_type">
 
                                                         <div class="form-group row ">
                                                             <div class="col-md-3">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
-                                                                    <option selected  >Select Type</option>
+                                                                    <option selected  >Select Stone Name</option>
                                                                     <!--            --><?php
                                                                     foreach ($showsttype as $st)
                                                                     {
@@ -613,7 +637,7 @@
 
                                                             <br/>
                                                             <div class="col-md-2">
-                                                                <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
+                                                                <button type="submit" class="btn btn-primary"  name="submit">Search</button>
                                                             </div>
                                                         </div>
 

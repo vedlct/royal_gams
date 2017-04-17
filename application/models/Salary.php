@@ -42,6 +42,12 @@ class Salary extends CI_Model {
         return $query->result();
     }
 
+    function search_by_salary($salary){
+
+        $query=$this->db->query("SELECT * FROM salary WHERE `salary`>='$salary'");
+        return $query->result();
+    }
+
     public function editsalary($id){
 
         $query=$this->db->query("SELECT * FROM salary WHERE `id`= '$id'");
@@ -82,7 +88,7 @@ class Salary extends CI_Model {
     function search_by_id($id){
 
         $type="";
-        $query=$this->db->query("SELECT * FROM salary WHERE `product_id`= '$id'");
+        $query=$this->db->query("SELECT * FROM salary WHERE `id`= '$id'");
         return $query->result();
 
 

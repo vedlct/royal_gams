@@ -35,11 +35,55 @@ class Purchasec extends CI_Controller{
 
     }
 
+    function search_by_id(){
+
+        $id=$this->input->post('sp_id');
+        // $type=$this->uri->segment(4);
+       // print_r($id);
+
+
+        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+        $this->data['showpd'] = $this->Purchase->search_purchase_by_id($id);
+        $this->load->view('purchase', $this->data);
+
+    }
+
+    function search_by_price(){
+
+        $price=$this->input->post('price');
+        // $type=$this->uri->segment(4);
+
+        //print_r($price);
+
+        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+        //$this->data['showpd'] = $this->Purchase->search_purchase_by_id($price);
+        $this->data['showpd'] = $this->Purchase->search_by_price($price);
+        $this->load->view('purchase', $this->data);
+
+    }
+
+    function search_by_paid(){
+
+        $paid=$this->input->post('paid');
+        // $type=$this->uri->segment(4);
+
+        //print_r($price);
+
+        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+        //$this->data['showpd'] = $this->Purchase->search_purchase_by_id($price);
+        $this->data['showpd'] = $this->Purchase->search_by_paid($paid);
+        $this->load->view('purchase', $this->data);
+
+    }
+
     public function search_by_type(){
 
         $type=$this->input->post('sp_type');
         // $type=$this->uri->segment(4);
 
+
+
+        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
         $this->data['showpd'] = $this->Purchase->search_purchase_by_type($type);
         $this->load->view('purchase', $this->data);
 
