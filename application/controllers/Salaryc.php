@@ -53,11 +53,11 @@ class Salaryc extends CI_Controller
         $salary=$this->input->post('salary');
         // $type=$this->uri->segment(4);
 
-        //print_r($price);
+        //print_r($salary);
 
         $this->data['showslname'] = $this->Salary->show_salary_by_name();
         $this->data['showsl'] = $this->Salary->search_by_salary($salary);
-
+//
         $this->load->view('salary', $this->data);
 
     }
