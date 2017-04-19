@@ -13,14 +13,66 @@ class Purchasec extends CI_Controller{
 
     public function index()
     {
+        if(isset($_POST['purcsubmit']))
+        {
+            $this->Purchase->insert();
+            redirect(Purchasec);
+        }
+        else if(isset($_POST['purc_id_search']))
+        {
+            $id=$this->input->post('sp_id');
+            // $type=$this->uri->segment(4);
+            // print_r($id);
 
 
-        $this->load->model('Typem');
-        $this->data['gettype'] = $this->Typem->gettype();
-        $this->load->model('Purchase');
-        $this->data['showpd'] = $this->Purchase->view();
-        $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
-        $this->load->view('purchase', $this->data);
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+            $this->data['showpd'] = $this->Purchase->search_purchase_by_id($id);
+            $this->load->view('purchase', $this->data);
+        }
+        else if(isset($_POST['purc_price_search']))
+        {
+            $price=$this->input->post('price');
+            // $type=$this->uri->segment(4);
+
+            //print_r($price);
+
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+            //$this->data['showpd'] = $this->Purchase->search_purchase_by_id($price);
+            $this->data['showpd'] = $this->Purchase->search_by_price($price);
+            $this->load->view('purchase', $this->data);
+        }
+        else if(isset($_POST['purc_paid_search']))
+        {
+            $paid=$this->input->post('paid');
+            // $type=$this->uri->segment(4);
+
+            //print_r($price);
+
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+            //$this->data['showpd'] = $this->Purchase->search_purchase_by_id($price);
+            $this->data['showpd'] = $this->Purchase->search_by_paid($paid);
+            $this->load->view('purchase', $this->data);
+        }
+        else if(isset($_POST['purc_type_search']))
+        {
+            $type=$this->input->post('sp_type');
+            // $type=$this->uri->segment(4);
+
+
+
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+            $this->data['showpd'] = $this->Purchase->search_purchase_by_type($type);
+            $this->load->view('purchase', $this->data);
+        }
+        else
+        {
+            $this->data['gettype'] = $this->Typem->gettype();
+            $this->data['showpd'] = $this->Purchase->view();
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+
+            $this->load->view('purchase', $this->data);
+        }
+
       // $this->load->view('purchase');
     }
 

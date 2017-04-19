@@ -3,7 +3,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Purchasec/insert">
+    <form class="form-material material-primary" method="post" action="">
     <div class="form-group row ">
         <label  class="col-md-3 col-form-label"  >Product ID</label>
         <div class="col-md-7">

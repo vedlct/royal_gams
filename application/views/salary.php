@@ -305,29 +305,29 @@
                                 <section id="content2">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_id">
+                                            <form class="form-material material-primary" method="post" action="">
                                                 <div class="form-group row ">
                                                     <div class="col-md-3">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
 
                                                     <div class="col-md-1">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                        <button type="submit" class="btn btn-primary"  name="sal_id_search">Search</button>
                                                     </div>
 
                                             </form>
-                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_salary">
+                                            <form class="form-material material-primary" method="post" action="">
 
                                                     <div class="col-md-3">
                                                         <input type="text" class="form-control"  placeholder="Salary" name="salary" id="salary" >
                                                     </div>
 
                                                     <div class="col-md-1">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                        <button type="submit" class="btn btn-primary"  name="sal_sal_search">Search</button>
                                                     </div>
 
                                             </form>
-                                            <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/search_by_name">
+                                            <form class="form-material material-primary" method="post" action="">
                                                     <div class="col-md-3">
                                                         <select class="form-control" name="sp_type" id="sp_type"  >
                                                             <option selected  >Select Type</option>
@@ -341,7 +341,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                        <button type="submit" class="btn btn-primary"  name="sal_name_search">Search</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -406,7 +406,7 @@
                                 </section>
                                 <?php
                                 //so you want to show the sidebar once submitted?
-                                if(isset($_POST['submit'])){
+                                if(isset($_POST['sal_name_search'])){
 
                                     ?>
                                     <script>
@@ -415,7 +415,28 @@
                                     </script>
 
                                     <?php
-                                }else {?>
+                                }
+                                else if(isset($_POST['sal_id_search'])){
+
+                                    ?>
+                                    <script>
+
+                                        document.getElementById("tab2").checked = true;
+                                    </script>
+
+                                    <?php
+                                }
+                                if(isset($_POST['sal_sal_search'])){
+
+                                    ?>
+                                    <script>
+
+                                        document.getElementById("tab2").checked = true;
+                                    </script>
+
+                                    <?php
+                                }
+                                else {?>
 
                                     <?php
 

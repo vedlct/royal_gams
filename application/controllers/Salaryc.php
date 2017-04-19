@@ -14,24 +14,51 @@ class Salaryc extends CI_Controller
 
     public function index()
     {
-
-
         if (isset($_POST['salsubmit'])) {
-            $this->load->model('Salary');
             $this->Salary->insertsalary();
-
-            $this->load->model('Salary');
             $this->data['showsl'] = $this->Salary->showsalary();
+
             $this->load->view('salary', $this->data);
+        }
 
+        else if (isset($_POST['sal_id_search'])) {
+            $id=$this->input->post('sp_id');
+            // $type=$this->uri->segment(4);
 
-        } else {
+            //$this->data['showsl'] = $this->Salary->showsalary();
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['showsl'] = $this->Salary->search_by_id($id);
+            $this->load->view('salary', $this->data);
+        }
+
+        else if (isset($_POST['sal_sal_search'])) {
+            $salary=$this->input->post('salary');
+            // $type=$this->uri->segment(4);
+
+            //print_r($salary);
+
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['showsl'] = $this->Salary->search_by_salary($salary);
+//
+            $this->load->view('salary', $this->data);
+        }
+
+        else if (isset($_POST['sal_name_search'])) {
+            $name=$this->input->post('sp_type');
+            // $type=$this->uri->segment(4);
+
+            //$this->data['showsl'] = $this->Salary->showsalary();
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['showsl'] = $this->Salary->search_by_name($name);
+            $this->load->view('salary', $this->data);
+        }
+
+        else {
             $this->load->model('Salary');
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showslname'] = $this->Salary->show_salary_by_name();
+
             $this->load->view('salary', $this->data);
-
-
         }
 
     }

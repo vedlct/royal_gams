@@ -581,27 +581,27 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_id">
+                                                    <form class="form-material material-primary" method="post" action="">
                                                     <div class="form-group row ">
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                         </div>
 
                                                         <div class="col-md-1">
-                                                            <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                            <button type="submit" class="btn btn-primary"  name="st_id_submit">Search</button>
                                                         </div>
                                                     </form>
-                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_price">
+                                                    <form class="form-material material-primary" method="post" action="">
 
                                                             <div class="col-md-3">
                                                                 <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
                                                             </div>
 
                                                             <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                                <button type="submit" class="btn btn-primary"  name="st_price_submit">Search</button>
                                                             </div>
                                                     </form>
-                                                    <form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stockc/search_by_type">
+                                                    <form class="form-material material-primary" method="post" action="">
                                                             <div class="col-md-3">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
                                                                     <option selected  >Select Type</option>
@@ -615,7 +615,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="submit">Search</button>
+                                                                <button type="submit" class="btn btn-primary"  name="st_type_submit">Search</button>
                                                             </div>
 
                                                     </div>
