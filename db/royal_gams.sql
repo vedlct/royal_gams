@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2017 at 01:16 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Generation Time: Apr 21, 2017 at 07:40 PM
+-- Server version: 5.5.39
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `royal_gams`
@@ -26,12 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `expense`
 --
 
-CREATE TABLE `expense` (
-  `id` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `expense` (
+`id` int(20) NOT NULL,
   `purpose` varchar(1000) NOT NULL,
   `amount` varchar(100) NOT NULL,
   `date` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `expense`
@@ -49,8 +49,8 @@ INSERT INTO `expense` (`id`, `purpose`, `amount`, `date`) VALUES
 -- Table structure for table `purchase`
 --
 
-CREATE TABLE `purchase` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `purchase` (
+`id` int(10) NOT NULL,
   `product_id` varchar(100) NOT NULL,
   `type` varchar(100) NOT NULL,
   `weight` varchar(100) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `purchase` (
   `paid` varchar(100) NOT NULL,
   `due` varchar(100) NOT NULL,
   `date` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `purchase`
@@ -76,15 +76,15 @@ INSERT INTO `purchase` (`id`, `product_id`, `type`, `weight`, `price`, `instock`
 -- Table structure for table `salary`
 --
 
-CREATE TABLE `salary` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `salary` (
+`id` int(10) NOT NULL,
   `name` varchar(100) NOT NULL,
   `desg` varchar(100) NOT NULL,
   `salary` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `salary`
@@ -94,7 +94,7 @@ INSERT INTO `salary` (`id`, `name`, `desg`, `salary`, `phone`, `address`, `statu
 (1, 'tom', 'executive ', '15000', '012546786654', 'mirpur ', 'Active'),
 (2, 'jerry', 'excutive', '15000', '1546452', 'Mirpur 10', 'Inactive'),
 (3, 'jerry', 'excutive', '15000', '1546452', 'Mirpur 10', 'Inactive'),
-(4, 'dsa', 'sada', '1400', 'asdsad', 'asdsad', 'dasdsa'),
+(4, 'dsa', 'sada', '1400', 'asdsad', 'asdsad', 'Active'),
 (5, 'as', 'asd', 'asd', 'asd', 'as', 'Active');
 
 -- --------------------------------------------------------
@@ -103,22 +103,26 @@ INSERT INTO `salary` (`id`, `name`, `desg`, `salary`, `phone`, `address`, `statu
 -- Table structure for table `salary_paid`
 --
 
-CREATE TABLE `salary_paid` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `salary_paid` (
+`id` int(10) NOT NULL,
+  `salary_id` varchar(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `amount` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL,
   `date` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `salary_paid`
 --
 
-INSERT INTO `salary_paid` (`id`, `name`, `amount`, `status`, `date`) VALUES
-(1, 'tom', '15000', 'Active', '2017-04-13'),
-(2, 'a', '200', 'Inactive', '2017-04-25'),
-(3, 'b', '10', 'inactive', '2017-04-13');
+INSERT INTO `salary_paid` (`id`, `salary_id`, `name`, `amount`, `status`, `date`) VALUES
+(1, '1', 'tom', '15000', 'Active', '2017-04-13'),
+(2, '2', 'a', '200', 'Inactive', '2017-04-25'),
+(3, '', 'b', '10', 'inactive', '2017-04-13'),
+(15, '5', 'as', 'asd', 'Active', '1492792536'),
+(18, '5', 'as', 'asd', 'Active', '2017-04-21'),
+(19, '3', 'jerry', '15000', 'Inactive', '2017-04-21');
 
 -- --------------------------------------------------------
 
@@ -126,15 +130,15 @@ INSERT INTO `salary_paid` (`id`, `name`, `amount`, `status`, `date`) VALUES
 -- Table structure for table `sales`
 --
 
-CREATE TABLE `sales` (
-  `id` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `sales` (
+`id` int(20) NOT NULL,
   `date` varchar(20) NOT NULL,
   `product_id` varchar(20) NOT NULL,
   `type` varchar(20) NOT NULL,
   `weight` varchar(20) NOT NULL,
   `amount` varchar(20) NOT NULL,
   `price` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `sales`
@@ -154,14 +158,14 @@ INSERT INTO `sales` (`id`, `date`, `product_id`, `type`, `weight`, `amount`, `pr
 -- Table structure for table `stock`
 --
 
-CREATE TABLE `stock` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `stock` (
+`id` int(10) NOT NULL,
   `product_id` varchar(10) NOT NULL,
   `type` varchar(50) NOT NULL,
   `weight` varchar(10) NOT NULL,
   `price` varchar(10) NOT NULL,
   `amount` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `stock`
@@ -228,14 +232,14 @@ INSERT INTO `stock` (`id`, `product_id`, `type`, `weight`, `price`, `amount`) VA
 -- Table structure for table `stone`
 --
 
-CREATE TABLE `stone` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `stone` (
+`id` int(10) NOT NULL,
   `product_id` varchar(10) NOT NULL,
   `stone_name` varchar(100) NOT NULL,
   `weight` varchar(10) NOT NULL,
   `price` varchar(10) NOT NULL,
   `amount` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `stone`
@@ -253,11 +257,11 @@ INSERT INTO `stone` (`id`, `product_id`, `stone_name`, `weight`, `price`, `amoun
 -- Table structure for table `type`
 --
 
-CREATE TABLE `type` (
-  `id` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `type` (
+`id` int(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `type`
@@ -276,49 +280,49 @@ INSERT INTO `type` (`id`, `name`, `date_time`) VALUES
 -- Indexes for table `expense`
 --
 ALTER TABLE `expense`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `salary`
 --
 ALTER TABLE `salary`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `salary_paid`
 --
 ALTER TABLE `salary_paid`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sales`
 --
 ALTER TABLE `sales`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `stock`
 --
 ALTER TABLE `stock`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `stone`
 --
 ALTER TABLE `stone`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `type`
 --
 ALTER TABLE `type`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -328,42 +332,42 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `expense`
 --
 ALTER TABLE `expense`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `salary_paid`
 --
 ALTER TABLE `salary_paid`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `stone`
 --
 ALTER TABLE `stone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

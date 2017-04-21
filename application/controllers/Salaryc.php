@@ -52,7 +52,15 @@ class Salaryc extends CI_Controller
             $this->data['showsl'] = $this->Salary->search_by_name($name);
             $this->load->view('salary', $this->data);
         }
+        else if (isset($_POST['find_salary'])) {
 
+            $this->data['month']=$this->input->post('month');
+
+            $this->data['showsl'] = $this->Salary->showsalary();
+            $this->load->view('salary', $this->data);
+//            print_r($this->data['month']);
+
+        }
         else {
             $this->load->model('Salary');
             $this->data['showsl'] = $this->Salary->showsalary();
@@ -72,6 +80,16 @@ class Salaryc extends CI_Controller
         $this->data['showslname'] = $this->Salary->show_salary_by_name();
         $this->data['showsl'] = $this->Salary->search_by_id($id);
         $this->load->view('salary', $this->data);
+
+    }
+
+    function pay_salary(){
+
+        $id=$this->input->post('id');
+
+        $this->data['paying'] = $this->Salary->pay_salary($id);
+//        $this->load->view('salary', $this->data);
+
 
     }
 

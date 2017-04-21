@@ -36,6 +36,11 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <![endif]-->
 
+    <!-- date picker      -->
+    <link rel="stylesheet" href="<?php echo base_url()?>css/datepicker.css">
+
+    <!-- date picker      -->
+
     <style>
 
         @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
@@ -391,7 +396,7 @@
 
                                 <section id="content3">
 
-                                    <h1>hellow</h1>
+                                    <?php $this->load->view('salary_management')?>
 
                                 </section>
 
@@ -426,7 +431,7 @@
 
                                     <?php
                                 }
-                                if(isset($_POST['sal_sal_search'])){
+                                else if(isset($_POST['sal_sal_search'])){
 
                                     ?>
                                     <script>
@@ -436,12 +441,14 @@
 
                                     <?php
                                 }
-                                else {?>
+                                else if (isset($_POST['find_salary'])) {?>
 
-                                    <?php
+                                    <script>
 
-                                }
-                                ?>
+                                        document.getElementById("tab3").checked = true;
+                                    </script>
+
+                                    <?php } ?>
 
                             </div>
                         </div>
@@ -558,6 +565,8 @@
         }
 
 
+
+
         function selectid(x) {
 
             btn1 = $(x).data('panel-id');
@@ -612,6 +621,15 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
+
+
+<!-- date picker  -->
+
+<script src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
+<script src="<?php echo base_url()?>js/datepicker.js"></script>
+<script src="<?php echo base_url()?>js/main.js"></script>
+
+<!-- date picker  -->
 
 
 
