@@ -34,7 +34,7 @@ class Home extends CI_Controller{
         $id=$this->input->post('p_id');
         $data = array(
             'id' => $id,
-            'qty' => $amount,
+            'qty' => 1,
             'weight' => $weight,
             'type' => $type,
             'price' => $price,
@@ -68,6 +68,48 @@ class Home extends CI_Controller{
 
 
     }
+
+    public function update_cart(){
+
+        $id = $this->input->post('id');
+        $amount = $this->input->post('amount');
+
+
+
+        $data = array(
+            'rowid'=>$id,
+            'qty' => $amount,
+
+        );
+
+        $this->cart->update($data);
+//        print_r($id);
+
+
+
+
+    }
+
+//    public function delete_from_cart(){
+//
+//        $id = $this->input->post('id');
+//        $amount = $this->input->post('amount');
+//
+//
+//
+//        $data = array(
+//            'rowid'=>$id,
+//            'qty' => $amount,
+//
+//        );
+//
+//        $this->cart->update($data);
+////        print_r($id);
+//
+//
+//
+//
+//    }
 
     public function addcart()
     {
@@ -122,21 +164,22 @@ class Home extends CI_Controller{
         */
         foreach ($this->cart->contents() as $items) {
             $p_id = $items['id'];
+
+            //print_r($p_id);
+
+            $this->data['viewproduct'] = $this->Product->get_cart_prod($p_id);
+
+            foreach ($this->data['viewproduct'] as $items) {
+
+                $pr_id = $items->product_id;
+                $type = $items->type;
+                $weight = $items->weight;
+                $price = $items->price;
+                $amount = $items->amount;
+            }
+
+            $this->Sales->add_cart_data($pr_id, $type, $weight, $price, $amount);
         }
-        print_r($p_id);
-
-        $this->data['viewproduct'] = $this->Product->get_cart_prod($p_id);
-
-        foreach ($this->data['viewproduct'] as $items) {
-
-            $pr_id = $items->product_id;
-            $type = $items->type;
-            $weight = $items->weight;
-            $price = $items->price;
-            $amount = $items->amount;
-        }
-
-        $this->Sales->add_cart_data($pr_id,$type,$weight,$price,$amount);
         //print_r($pr_id,$type);
         $this->cart->destroy();
         redirect('Home');

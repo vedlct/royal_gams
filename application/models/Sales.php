@@ -30,12 +30,16 @@ class Sales extends CI_Model
     public function add_cart_data($p_id,$type,$weight,$price,$amount)
     {
 
+        $query1=$this->db->query("SELECT CURDATE() as month");
+        foreach ($query1->result()as $r){$month=$r->month;}
+
         $data = array(
             'product_id' => $p_id,
             'type' => $type,
             'weight' => $weight,
             'price' => $price,
             'amount' => $amount,
+            'date'=>$month
         );
         $this->db->insert('sales',$data);
 
