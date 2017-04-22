@@ -22,27 +22,33 @@ class Home extends CI_Controller{
         $this->data['viewproduct'] = $this->Product->getprod(); // calling Post model method getPosts()
         // load the view file , we are passing $data array to view file
            // print_r($this->data['viewproduct']);
-        foreach ($this->data['viewproduct'] as $row)
-        {
-            $type=$row->type;
-            $price=$row->price;
-            $weight = $row->weight;
+            if ($this->data['viewproduct']!= null) {
 
-            $amount = $row->amount;
+                $this->data['msg']="";
+                foreach ($this->data['viewproduct'] as $row) {
+                    $type = $row->type;
+                    $price = $row->price;
+                    $weight = $row->weight;
 
-        }
-        $id=$this->input->post('p_id');
-        $data = array(
-            'id' => $id,
-            'qty' => 1,
-            'weight' => $weight,
-            'type' => $type,
-            'price' => $price,
-            'name' => $type,
-            'coupon' => 'XMAS-50OFF'
-        );
+                    $amount = $row->amount;
 
-        $this->cart->insert($data);
+                }
+                $id = $this->input->post('p_id');
+                $data = array(
+                    'id' => $id,
+                    'qty' => 1,
+                    'weight' => $weight,
+                    'type' => $type,
+                    'price' => $price,
+                    'name' => $type,
+                    'coupon' => 'XMAS-50OFF'
+                );
+
+                $this->cart->insert($data);
+            }else{
+
+                $this->data['msg']="no data found";
+            }
 
         $this->load->view('home', $this->data);
         // redirect($this->load->view('home', $this->data['viewproduct']));

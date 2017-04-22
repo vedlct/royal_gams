@@ -444,9 +444,11 @@
                                     </form>
                                     <form class="form-material material-primary" id="cart_form" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
                                     <?php
-                                    if(isset($_POST['psubmit'])){
+                                    if(isset($_POST['psubmit'])){?>
 
-                                    foreach ($viewproduct as $vp) {
+                                        <h3 style="text-align: center;color: #aa0000"><b><?php echo  $this->data['msg'];?></b></h3>
+
+                                    <?php foreach ($viewproduct as $vp) {
                                         ?>
 
                                         <br>
