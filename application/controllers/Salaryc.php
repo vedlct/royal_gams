@@ -56,8 +56,22 @@ class Salaryc extends CI_Controller
 
             $this->data['month']=$this->input->post('month');
 
-            $this->data['showsl'] = $this->Salary->showsalary();
-            $this->load->view('salary', $this->data);
+            if ($this->data['month']==null){
+
+                $query1=$this->db->query("SELECT CURDATE() as month");
+                foreach ($query1->result()as $r){$month=$r->month;}
+                $this->data['month']=$month;
+                $this->data['showsl'] = $this->Salary->showsalary();
+                $this->load->view('salary', $this->data);
+
+            }
+            else{
+                $this->data['showsl'] = $this->Salary->showsalary();
+                $this->load->view('salary', $this->data);
+
+            }
+
+
 //            print_r($this->data['month']);
 
         }
@@ -65,6 +79,7 @@ class Salaryc extends CI_Controller
             $this->load->model('Salary');
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['month']=$this->input->post('month');
 
             $this->load->view('salary', $this->data);
         }
@@ -86,6 +101,7 @@ class Salaryc extends CI_Controller
     function pay_salary(){
 
         $id=$this->input->post('id');
+
 
         $this->data['paying'] = $this->Salary->pay_salary($id);
 //        $this->load->view('salary', $this->data);

@@ -8,7 +8,8 @@
             <div class="form-group" >
 
                 <label for="date">Select Month</label>
-                <input type="text" class="form-control docs-date" name="month" placeholder="Pick a date">
+                <input type="text" class="form-control docs-date" id="month" name="month" placeholder="Pick a date">
+                <input type="hidden" class="form-control docs-date" id="month1" name="month1" placeholder="Pick a date" value="<?php $month=$this->data['month']; echo $month;?>">
             </div >
         </div>
 
@@ -114,12 +115,13 @@
         function selectid1(x) {
 
             btn = $(x).data('panel-id');
+            month1 = document.getElementById('month1').value;
             //alert(btn);
 
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url("Salaryc/pay_salary/")?>' + btn,
-                data: {'id': btn},
+                url: '<?php echo base_url("Salaryc/pay_salary/")?>' + btn+month1,
+                data: {'id': btn,'month1':month1},
                 cache: false,
                 success: function (data) {
 

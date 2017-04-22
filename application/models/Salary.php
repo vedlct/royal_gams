@@ -37,13 +37,26 @@ class Salary extends CI_Model {
         }
 
         $this->load->helper('date');
-        $data = array(
-            'name' => $name,
-            'amount' => $amount,
-            'salary_id' => $sal_id,
-            'date' => date("Y-m-d"),
-            'status' => $status,
-        );
+        $month=$this->input->post('month1');
+        if ($month==null) {
+            $data = array(
+                'name' => $name,
+                'amount' => $amount,
+                'salary_id' => $sal_id,
+                'date' => date("Y-m-d"),
+                'status' => $status,
+            );
+        }
+        else{
+            $data = array(
+                'name' => $name,
+                'amount' => $amount,
+                'salary_id' => $sal_id,
+                'date' => $month,
+                'status' => $status,
+            );
+
+        }
 
         $this->db->insert('salary_paid',$data);
     }
