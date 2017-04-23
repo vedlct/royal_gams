@@ -138,10 +138,12 @@ class Home extends CI_Controller{
                 $price = $items->price;
                 $amount = $items->amount;
             }
-            $this->Sales->add_cart_data($pr_id, $type, $weight, $price, $amount);
+            $y=$this->Sales->add_cart_data($pr_id, $type, $weight, $price, $amount);
+
+            print_r($y);
         }
         //print_r($pr_id,$type);
-        $this->cart->destroy();
-        redirect('Home');
+//        $this->cart->destroy();
+//        redirect('Home');
     }
 }
