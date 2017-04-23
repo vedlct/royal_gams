@@ -9,7 +9,7 @@
 
                 <label for="date">Select Month</label>
                 <input type="text" class="form-control docs-date" id="month" name="month" placeholder="Pick a date">
-                <input type="hidden" class="form-control docs-date" id="month1" name="month1" placeholder="Pick a date" value="<?php $month=$this->data['month']; echo $month;?>">
+                <input type="text" class="form-control docs-date" id="month1" name="month1" placeholder="Pick a date" value="<?php $month=$this->data['month']; echo $month;?>">
             </div >
         </div>
 
@@ -21,8 +21,8 @@
 
 
     <br>
-    <h5 style="text-align: center" class="mb-1">Show Status of <b style="color: #aa0000"><?php if ($this->input->post('find_salary')){$month=$this->data['month'];$query2=$this->db->query("SELECT MONTHNAME('$month') as month");
-            foreach ($query2->result() as $t){echo $t->month;}}
+    <h5 style="text-align: center" class="mb-1">Show Status of <b style="color: #aa0000"><?php if ($this->input->post('find_salary')){$month=$this->data['month'];$query2=$this->db->query("SELECT MONTHNAME('$month') as month,YEAR('$month') as year");
+            foreach ($query2->result() as $t){echo $t->month;echo " ".$t->year;}}
             else{$query3=$this->db->query("SELECT MONTHNAME(CURDATE()) as month");
             foreach ($query3->result() as $t){echo $t->month;}}?></b></h5>
     <div class="table table-responsive">
@@ -66,8 +66,10 @@
                     </td>
                     </tr>
                     <?php
-                    $count=$count+1;
-                }}
+
+                }
+                $count=$count+1;
+            }
             ?>
             </tbody>
             <?php }else{?>
