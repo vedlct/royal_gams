@@ -52,9 +52,24 @@ class Salaryc extends CI_Controller
             $this->data['showsl'] = $this->Salary->search_by_name($name);
             $this->load->view('salary', $this->data);
         }
+        else if (isset($_POST['increment_submit'])) {
+            $increment=$this->input->post('increment');
+            $salid=$this->input->post('sal_id');
+            $salary=$this->input->post('sal_amount');
+            $newsalary = $salary+$increment;
+
+            print_r($newsalary);
+
+            /*
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['showsl'] = $this->Salary->search_by_name($name);
+            $this->load->view('salary', $this->data);
+            */
+        }
 
         else {
-            $this->load->model('Salary');
+
+            $this->data['showslinc'] = $this->Salary->showsalaryincrement();
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showslname'] = $this->Salary->show_salary_by_name();
 
@@ -106,6 +121,21 @@ class Salaryc extends CI_Controller
         $this->load->model('Salary');
         $this->Salary->delete($id);
         redirect(Salaryc);
+    }
+
+    public function view_increment()
+    {
+        $id = $this->input->post('id');
+
+        $this->data['edit'] = $this->Salary->editsalary($id);
+        $this->load->view('add_increment',$this->data);
+    }
+
+    public function add_increment($id)
+    {
+
+        $this->Salary->insert_increment($id);
+        redirect('Salaryc');
     }
 
     function showedit()

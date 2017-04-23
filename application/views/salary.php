@@ -397,12 +397,13 @@
 
                                 <section id="content4">
 
-                                    <h1>hellow4</h1>
+                                    <?php $this->load->view('salary_increment');?>
+
                                 </section>
 
                                 <section id="content5">
 
-                                    <h1>hellow5</h1>
+                                    <?php $this->load->view('view_increment');?>
                                 </section>
                                 <?php
                                 //so you want to show the sidebar once submitted?

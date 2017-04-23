@@ -30,6 +30,12 @@ class Salary extends CI_Model {
         return $query->result();
     }
 
+    function showsalaryincrement(){
+
+        $query = $this->db->query("SELECT * FROM `increment`");
+        return $query->result();
+    }
+
     function show_salary_by_name(){
 
         $query=$this->db->query("SELECT DISTINCT(name) FROM salary");
@@ -45,6 +51,12 @@ class Salary extends CI_Model {
     function search_by_salary($salary){
 
         $query=$this->db->query("SELECT * FROM salary WHERE `salary` >= '$salary'");
+        return $query->result();
+    }
+
+    public function add_increment($id){
+
+        $query=$this->db->query("SELECT * FROM salary WHERE `id`= '$id'");
         return $query->result();
     }
 
@@ -73,6 +85,31 @@ class Salary extends CI_Model {
 
         $this->db->where('id', $id);
         $this->db->update('stock', $data);
+
+    }
+
+    function insert_increment($id){
+
+        $salary = $this->input->post('salary');
+        $name = $this->input->post('name');
+        $increment = $this->input->post('increment');
+        $newsalary = $salary+$increment;
+
+        $data = array(
+            'salary' => $newsalary
+        );
+
+        $incdata = array(
+            'salary_id' => $id,
+            'name' => $name,
+            'previous_salary' => $salary,
+            'current_salary' => $newsalary
+        );
+
+        $this->db->insert('increment',$incdata);
+
+        $this->db->where('id', $id);
+        $this->db->update('salary', $data);
 
     }
 
