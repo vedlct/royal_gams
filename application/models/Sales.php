@@ -33,15 +33,33 @@ class Sales extends CI_Model
         $query1=$this->db->query("SELECT CURDATE() as month");
         foreach ($query1->result()as $r){$month=$r->month;}
 
-        $data = array(
-            'product_id' => $p_id,
-            'type' => $type,
-            'weight' => $weight,
-            'price' => $price,
-            'amount' => $amount,
-            'date'=>$month
-        );
-        $this->db->insert('sales',$data);
+        $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$p_id' ");
+
+        foreach ($query2->result()as $t){$qun=$t->amount;
+        if ($qun>$amount){
+
+            $data = array(
+                'product_id' => $p_id,
+                'type' => $type,
+                'weight' => $weight,
+                'price' => $price,
+                'amount' => $amount,
+                'date'=>$month
+            );
+            $this->db->insert('sales',$data);
+
+            $data1 = array(
+
+                'amount' => $qun-$amount,
+                'date'=>$month
+            );
+            $this->db->where('product_id',$p_id);
+            $this->db->update('stock',$data1);
+
+        }else{ $false=1;
+            return $false;}}
+
+
 
     }
 
