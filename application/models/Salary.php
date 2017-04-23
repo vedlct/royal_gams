@@ -24,6 +24,44 @@ class Salary extends CI_Model {
     }
 
 
+    function pay_salary($id){
+
+        $query=$this->db->query("SELECT * FROM salary WHERE `id`= '$id'");
+//
+        foreach ($query->result() as $s){
+
+            $sal_id=$s->id;
+            $name=$s->name;
+            $amount=$s->salary;
+            $status=$s->status;
+        }
+
+        $this->load->helper('date');
+        $month=$this->input->post('month1');
+        if ($month==null) {
+            $data = array(
+                'name' => $name,
+                'amount' => $amount,
+                'salary_id' => $sal_id,
+                'date' => date("Y-m-d"),
+                'status' => $status,
+            );
+        }
+        else{
+            $data = array(
+                'name' => $name,
+                'amount' => $amount,
+                'salary_id' => $sal_id,
+                'date' => $month,
+                'status' => $status,
+            );
+
+        }
+
+        $this->db->insert('salary_paid',$data);
+    }
+
+
     function showsalary(){
 
         $query = $this->db->query("SELECT * FROM `salary`");

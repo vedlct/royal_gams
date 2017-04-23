@@ -444,9 +444,11 @@
                                     </form>
                                     <form class="form-material material-primary" id="cart_form" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
                                     <?php
-                                    if(isset($_POST['psubmit'])){
+                                    if(isset($_POST['psubmit'])){?>
 
-                                    foreach ($viewproduct as $vp) {
+                                        <h3 style="text-align: center;color: #aa0000"><b><?php echo  $this->data['msg'];?></b></h3>
+
+                                    <?php foreach ($viewproduct as $vp) {
                                         ?>
 
                                         <br>
@@ -496,7 +498,7 @@
 
 
 
-                <div class="col-lg-7">
+                <div class="col-lg-7" id="cart_table">
 
                     <div class="box box-block bg-white">
                         <h5>Cart</h5><br>
@@ -516,25 +518,38 @@
 
                             <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
                                 echo "ID: " . $items['id'] . "<br>";
-                                echo "Price: " . $items['price'] . "<br>"; ?>
+                                echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
+                                <input type="button"  class="btn btn-default" style="background:#ec008c; text-align: center; width:19px; color: #fff; font-weight: bold; padding:6px 0px;  border-radius:0px; float: left" data-panel-id="<?= $items['rowid'] ?>" onclick="minus(this)" value="-"/>
+<!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
+                                <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 20px; padding:6px 2px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
+                                <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 19px; padding: 6px 0px; float: left" value="+">
+
                             </div> <br> <?php
 
-                            $rows = "count: " . count($this->cart->contents());
-                            echo $rows . "<br>";
+
                         
                         ?>
+
 
                             <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="<?php echo $items['id']?>">
                             <input type="hidden" class="form-control" id="type" name="type" value="<?php echo $items['type']?>">
                             <input type="hidden" class="form-control" id="weight" name="weight" value="<?php echo $items['weight']?>">
-                            <input type="hidden" class="form-control" id="price" name="price" value="<?php echo $items['price']?>">
-                            <input type="hidden" class="form-control" id="amount" name="amount" value="<?php echo $items['qty']?>">
+                            <input type="hidden" class="form-control" id="price" name="price" value="<?php echo $items['price']*$items['qty'];?>">
+                            <input type="hidden" class="form-control" id="<?php echo $items['rowid']?>" name="amount" value="<?php echo $items['qty']?>">
 
-                            <a href="Home/removeall"> <button>Clear Cart</button></a>
-                            <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
-                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">
+
+
+
+<!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
+                        <?php }if($this->cart->contents()==null){ }else{
+                            $rows = "count: " . count($this->cart->contents());
+                            echo $rows . "<br>";?>
+
+                        <a href="Home/removeall"> <button>Clear Cart</button></a>
+                        <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
+                            <?php }?>
                         </form>
-                        <?php } ?>
+
                     </div>
                 </div>
                 </div>
@@ -614,6 +629,73 @@
             function cart_submit() {
                 document.getElementById("cart_form").submit();
             }
+
+            function plus(x) {
+
+                var btn = $(x).data('panel-id');
+                var x = parseInt(document.getElementById(btn).value);
+                var newx= x+1;
+
+//                document.getElementById('btn').value = newx;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
+                    data: {'id':btn,'amount':newx },
+                    cache: false,
+                    success: function (data) {
+                        // $('#txt').html(data);
+
+                    //alert(data);
+                    //alert(btn);
+                    }
+
+                });
+
+                $('#cart_table').load(document.URL +  ' #cart_table');
+//                $('#cart_table').load(document.URL +  ' #cart_table');
+
+            }
+
+            function minus(x) {
+
+                var btn = $(x).data('panel-id');
+                var x = parseInt(document.getElementById(btn).value);
+                var newx= x-1;
+
+                document.getElementById(btn).value = newx;
+//                if(newx=='1'){
+//
+//                    $.ajax({
+//                        type: 'POST',
+//                        url: '<?php //echo base_url("Home/delete_from_cart/")?>//' + btn,
+//                        data: {'id':btn, 'amount':newx },
+//                        cache: false,
+//                        success: function (data) {
+//                            // $('#txt').html(data);
+//                            //  alert(data);
+//
+//                        }
+//
+//                    });
+//
+//                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
+                    data: {'id':btn, 'amount':newx },
+                    cache: false,
+                    success: function (data) {
+                        // $('#txt').html(data);
+                        //  alert(data);
+
+                    }
+
+                });
+                    $('#cart_table').load(document.URL +  ' #cart_table');
+//                $('#total_table').load(document.URL +  ' #total_table');
+            }
+
         </script>
 
 
