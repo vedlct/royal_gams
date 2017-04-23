@@ -23,8 +23,8 @@
     <br>
     <h5 style="text-align: center" class="mb-1">Show Status of <b style="color: #aa0000"><?php if ($this->input->post('find_salary')){$month=$this->data['month'];$query2=$this->db->query("SELECT MONTHNAME('$month') as month,YEAR('$month') as year");
             foreach ($query2->result() as $t){echo $t->month;echo " ".$t->year;}}
-            else{$query3=$this->db->query("SELECT MONTHNAME(CURDATE()) as month");
-            foreach ($query3->result() as $t){echo $t->month;}}?></b></h5>
+            else{$query3=$this->db->query("SELECT MONTHNAME(CURDATE()) as month,YEAR(CURDATE()) as year");
+            foreach ($query3->result() as $t){echo $t->month;echo " ".$t->year;}}?></b></h5>
     <div class="table table-responsive">
         <table class="table mb-md-0">
 
@@ -100,8 +100,9 @@
                             </td>
                             </tr>
                             <?php
-                            $count=$count+1;
-                        }}
+
+                        }
+                $count=$count+1; }
             ?>
             </tbody>
 <?php } ?>
