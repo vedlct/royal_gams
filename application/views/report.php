@@ -288,8 +288,8 @@
                         <div class="col-lg-12">
                             <div class="box box-block bg-white" >
 
-                                <input id="tab1" type="radio" name="tabs" checked>
-                                <label for="tab1">Total Report</label>
+<!--                                <input id="tab1" type="radio" name="tabs" checked>-->
+<!--                                <label for="tab1">Total Report</label>-->
 
                                 <input id="tab2" type="radio" name="tabs">
                                 <label for="tab2">Sales</label>
@@ -303,11 +303,11 @@
                                 <input id="tab5" type="radio" name="tabs">
                                 <label for="tab5">Salary </label>
 
-                                <section id="content1">
-
-                                    <?php $this->load->view('totalreport');?>
-
-                                </section>
+<!--                                <section id="content1">-->
+<!---->
+<!--                                    --><?php //$this->load->view('totalreport');?>
+<!---->
+<!--                                </section>-->
 
                                 <section id="content2">
                                     <div class="row">
@@ -500,6 +500,13 @@
                                         document.getElementById("tab5").checked = true;
                                     </script>
 
+                                <?php }
+                                else
+                                {?>
+                                    <script>
+
+                                        document.getElementById("tab2").checked = true;
+                                    </script>
                                 <?php }?>
 
 
