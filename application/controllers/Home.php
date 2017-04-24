@@ -116,34 +116,57 @@ class Home extends CI_Controller{
     }
     public function add_cart()
     {
-        /*
+
         foreach ($this->cart->contents() as $items) {
-            $p_id = $items['id'];
+            $pr_id = $items['id'];
             $type = $items['type'];
             $weight = $items['weight'];
             $price = $items['price'];
-            $amount = $items['qty'];
-        }
-        //print_r($p_id);
-        $this->Sales->add_cart($p_id,$type,$weight,$price,$amount);
-        */
-        foreach ($this->cart->contents() as $items) {
-            $p_id = $items['id'];
+            $amount1 = $items['qty'];
+            $row_id = $items['rowid'];
             //print_r($p_id);
-            $this->data['viewproduct'] = $this->Product->get_cart_prod($p_id);
-            foreach ($this->data['viewproduct'] as $items) {
-                $pr_id = $items->product_id;
-                $type = $items->type;
-                $weight = $items->weight;
-                $price = $items->price;
-                $amount = $items->amount;
-            }
-            $y=$this->Sales->add_cart_data($pr_id, $type, $weight, $price, $amount);
+//        $this->Sales->add_cart($p_id,$type,$weight,$price,$amount);
 
-            print_r($y);
+
+//            $p_id = $items['id'];
+//            //print_r($p_id);
+//            $this->data['viewproduct'] = $this->Product->get_cart_prod($p_id);
+//            foreach ($this->data['viewproduct'] as $items) {
+//                $pr_id = $items->product_id;
+//                $type = $items->type;
+//                $weight = $items->weight;
+//                $price = $items->price;
+//                $amount1 = $items->amount;
+
+//                $pr_id = $this->input->post('product_id');
+//                $type = $this->input->post('type');
+//                $weight = $this->input->post('weight');
+//                $price = $this->input->post('price');
+//                $amount1 = $this->input->post('amount');
+
+
+            $id = $this->Sales->add_cart_data($pr_id, $type, $weight, $price, $amount1,$row_id);
+
+
+
+//            print_r($id);
+
+            if ($id['false']==1)
+                $id1=$id['id'];
+            print "<script type=\"text/javascript\">alert(' $id1 is not available for specified amount');</script>";
+
+                //redirect('Home');
+
+
+
+
+
+//                 //print_r($pr_id,$type);
+                    //$this->cart->destroy();
+                    //redirect('Home');
+
         }
-        //print_r($pr_id,$type);
-//        $this->cart->destroy();
-//        redirect('Home');
     }
+
+
 }

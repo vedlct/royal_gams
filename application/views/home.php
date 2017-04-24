@@ -290,7 +290,7 @@
         <nav class="navbar navbar-light">
             <div class="navbar-left">
                 <a class="navbar-brand" href="index.html">
-                    <div class="logo"></div>
+                    <div class="logo"> </div>
                 </a>
                 <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
                     <span class="hamburger"></span>
@@ -498,9 +498,10 @@
 
 
 
-                        <div class="col-lg-7" id="cart_table">
+                        <div class="col-lg-7" >
 
-                            <div class="box box-block bg-white">
+                            <div class="box box-block bg-white" >
+                                <span id="cart_table">
                                 <h5>Cart</h5><br>
 
                                 <?php
@@ -515,8 +516,8 @@
                                         <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
                                             echo "ID: " . $items['id'] ?>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  value="x"><br>
-                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";
-                                             echo "Amount:"?>
+                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
+                                             <?php echo "Amount:"?>
                                             <div style="margin-left: 90px;margin-top: -21px;">
                                             <input type="button"  class="btn btn-default" style="background:#ec008c; text-align: center; width:30px; color: #fff; font-weight: bold; padding:0px 0px;  border-radius:0px; float: left" data-panel-id="<?= $items['rowid'] ?>" onclick="minus(this)" value="-"/>
                                             <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
@@ -529,11 +530,11 @@
                                         ?>
 
 
-                                        <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="<?php echo $items['id']?>">
-                                        <input type="hidden" class="form-control" id="type" name="type" value="<?php echo $items['type']?>">
-                                        <input type="hidden" class="form-control" id="weight" name="weight" value="<?php echo $items['weight']?>">
-                                        <input type="hidden" class="form-control" id="price" name="price" value="<?php echo $items['price']*$items['qty'];?>">
-                                        <input type="hidden" class="form-control" id="<?php echo $items['rowid']?>" name="amount" value="<?php echo $items['qty']?>">
+<!--                                        <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="--><?php //echo $items['id']?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="type" name="type" value="--><?php //echo $items['type']?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="weight" name="weight" value="--><?php //echo $items['weight']?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="price" name="price" value="--><?php //echo $items['price']*$items['qty'];?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="--><?php //echo $items['rowid']?><!--" name="amount" value="--><?php //echo $items['qty']?><!--">-->
 
 
 
@@ -547,7 +548,7 @@
                                         <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
                                     <?php }?>
                                 </form>
-
+                            </span>
                             </div>
                         </div>
                     </div>

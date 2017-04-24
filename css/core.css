@@ -445,14 +445,15 @@ a:active {
 
 .site-header .navbar-brand .logo {
   width: 100px;
-  height: 25px;
-  background: url(../img/logo.png) no-repeat;
+  height: 20px;
+
+  background: url(../img/royal.png) no-repeat;
 }
 
 @media (min-width: 768px) {
   .compact-sidebar .site-header .navbar-brand .logo {
     width: 25px;
-    background: url(../img/logo-small.png) no-repeat;
+    background: url(../royal.png) no-repeat;
   }
 }
 
