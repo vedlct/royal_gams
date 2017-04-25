@@ -69,53 +69,53 @@
             </li>
 
 
-            <li class="with-sub">
-                <a href="#" class="waves-effect  waves-light">
-                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>
-                    <span class="s-icon"><i class="ti-new-window"></i></span>
-                    <span class="s-text">Frontend</span>
-                </a>
-
-            </li>
-            <li class="with-sub">
-                <a href="#" class="waves-effect  waves-light">
-                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>
-                    <span class="tag tag-info">6</span>
-                    <span class="s-icon"><i class="ti-bar-chart-alt"></i></span>
-                    <span class="s-text">Charts</span>
-                </a>
-
-            </li>
-            <li class="with-sub">
-                <a href="#" class="waves-effect  waves-light">
-                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>
-                    <span class="s-icon"><i class="ti-email"></i></span>
-                    <span class="s-text">Email Templates</span>
-                </a>
-
-            </li>
-            <li class="with-sub">
-                <a href="#" class="waves-effect  waves-light">
-                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>
-                    <span class="s-icon"><i class="ti-location-pin"></i></span>
-                    <span class="s-text">Maps</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="calendar.html" class="waves-effect  waves-light">
-                    <span class="s-icon"><i class="ti-calendar"></i></span>
-                    <span class="s-text">Calendar</span>
-                </a>
-            </li>
-            <li class="with-sub compact-hide">
-                <a href="javascript: void(0);" class="waves-effect  waves-light">
-                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>
-                    <span class="s-icon"><i class="ti-menu"></i></span>
-                    <span class="s-text">Menu Levels</span>
-                </a>
-
-            </li>
+<!--            <li class="with-sub">-->
+<!--                <a href="#" class="waves-effect  waves-light">-->
+<!--                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>-->
+<!--                    <span class="s-icon"><i class="ti-new-window"></i></span>-->
+<!--                    <span class="s-text">Frontend</span>-->
+<!--                </a>-->
+<!---->
+<!--            </li>-->
+<!--            <li class="with-sub">-->
+<!--                <a href="#" class="waves-effect  waves-light">-->
+<!--                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>-->
+<!--                    <span class="tag tag-info">6</span>-->
+<!--                    <span class="s-icon"><i class="ti-bar-chart-alt"></i></span>-->
+<!--                    <span class="s-text">Charts</span>-->
+<!--                </a>-->
+<!---->
+<!--            </li>-->
+<!--            <li class="with-sub">-->
+<!--                <a href="#" class="waves-effect  waves-light">-->
+<!--                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>-->
+<!--                    <span class="s-icon"><i class="ti-email"></i></span>-->
+<!--                    <span class="s-text">Email Templates</span>-->
+<!--                </a>-->
+<!---->
+<!--            </li>-->
+<!--            <li class="with-sub">-->
+<!--                <a href="#" class="waves-effect  waves-light">-->
+<!--                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>-->
+<!--                    <span class="s-icon"><i class="ti-location-pin"></i></span>-->
+<!--                    <span class="s-text">Maps</span>-->
+<!--                </a>-->
+<!---->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="calendar.html" class="waves-effect  waves-light">-->
+<!--                    <span class="s-icon"><i class="ti-calendar"></i></span>-->
+<!--                    <span class="s-text">Calendar</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="with-sub compact-hide">-->
+<!--                <a href="javascript: void(0);" class="waves-effect  waves-light">-->
+<!--                    <span class="s-caret"><i class="fa fa-angle-down"></i></span>-->
+<!--                    <span class="s-icon"><i class="ti-menu"></i></span>-->
+<!--                    <span class="s-text">Menu Levels</span>-->
+<!--                </a>-->
+<!---->
+<!--            </li>-->
 
         </ul>
     </div>

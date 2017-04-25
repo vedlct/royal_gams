@@ -28,7 +28,7 @@ class Sales extends CI_Model
         $query1=$this->db->query("SELECT CURDATE() as month");
         foreach ($query1->result()as $r){$month=$r->month;}
 
-        $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$pr_id' ");
+        $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$pr_id' GROUP BY `stock`.`product_id`");
 
 //        return $amount1;
 

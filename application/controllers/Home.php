@@ -29,11 +29,12 @@ class Home extends CI_Controller
                     $amount = $row->amount;
                 }
                 $id = $this->input->post('p_id');
-                foreach ($this->cart->contents() as $items) {
-                    $asd = $items['id'];
-                    $amount= $items['qty'];
+                if ($this->cart->contents()==null){
 
-                    if ($asd ==$id and $weight>=$amount){
+                    if ($amount <='0'){
+
+                        $this->data['msg'] = "We don't have suficient amount";
+                    }else{
 
                         $data = array(
                             'id' => $id,
@@ -47,8 +48,30 @@ class Home extends CI_Controller
                         $this->cart->insert($data);
 
                     }
-                    else{$this->data['msg'] = "We don't have suficient amount";}
 
+                }else {
+                    foreach ($this->cart->contents() as $items) {
+                        $asd = $items['id'];
+                        $amount1 = $items['qty'];
+
+                        if ($asd == $id and $amount >= $amount1) {
+
+                            $data = array(
+                                'id' => $id,
+                                'qty' => 1,
+                                'weight' => $weight,
+                                'type' => $type,
+                                'price' => $price,
+                                'name' => $type,
+                                'coupon' => 'XMAS-50OFF'
+                            );
+                            $this->cart->insert($data);
+
+                        } else {
+                            $this->data['msg'] = "We don't have suficient amount";
+                        }
+
+                    }
                 }
 
 
@@ -89,7 +112,7 @@ class Home extends CI_Controller
 
 
 
-            $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$p_id' ");
+            $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$p_id' GROUP BY `stock`.`product_id` ");
 
 
 

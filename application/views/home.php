@@ -46,7 +46,7 @@
 
 
 
-<!--    --><?php //$this->load->view('Menu');?>
+    <?php $this->load->view('Menu');?>
 
     <!-- Sidebar second -->
     <div class="site-sidebar-second custom-scroll custom-scroll-dark">
