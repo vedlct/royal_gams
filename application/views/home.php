@@ -46,7 +46,7 @@
 
 
 
-    <?php $this->load->view('Menu');?>
+<!--    --><?php //$this->load->view('Menu');?>
 
     <!-- Sidebar second -->
     <div class="site-sidebar-second custom-scroll custom-scroll-dark">
@@ -511,7 +511,8 @@
                                 }
                                 ?>
                                 <form class="form-material material-primary" id="" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
-                                    <?php foreach ($this->cart->contents() as $items) { ?>
+
+                                    <?php $total = 0; foreach ($this->cart->contents() as $items) { ?>
 
                                         <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
                                             echo "ID: " . $items['id'] ?>
@@ -523,6 +524,7 @@
                                             <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
                                             <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 30px; padding: 0px 0px; float: left" value="+">
+
                                             </div>
                                         </div>
                                         <br> <?php
@@ -530,7 +532,7 @@
                                         ?>
 
 
-<!--                                        <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="--><?php //echo $items['id']?><!--">-->
+                                        <input type="hidden" class="form-control" id="product_id" name="product_id" value="<?php echo $items['id']?>">
 <!--                                        <input type="hidden" class="form-control" id="type" name="type" value="--><?php //echo $items['type']?><!--">-->
 <!--                                        <input type="hidden" class="form-control" id="weight" name="weight" value="--><?php //echo $items['weight']?><!--">-->
 <!--                                        <input type="hidden" class="form-control" id="price" name="price" value="--><?php //echo $items['price']*$items['qty'];?><!--">-->
@@ -540,9 +542,11 @@
 
 
                                         <!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
-                                    <?php }if($this->cart->contents()==null){ }else{
+                                    <?php $total = $total+$items['subtotal'];}if($this->cart->contents()==null){ }else{
                                         $rows = "count: " . count($this->cart->contents());
                                         echo $rows . "<br>";?>
+
+                                        <b>Total :  <?php echo $total;?><br></b>
 
                                         <a href="Home/removeall"> <button>Clear Cart</button></a>
                                         <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
@@ -622,18 +626,21 @@
             }
             function plus(x) {
                 var btn = $(x).data('panel-id');
+                var p_id=document.getElementById('product_id').value;
                 var x = parseInt(document.getElementById(btn).value);
                 var newx= x+1;
 //                document.getElementById('btn').value = newx;
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
-                    data: {'id':btn,'amount':newx },
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn+p_id,
+                    data: {'id':btn,'amount':newx,'p_id':p_id },
                     cache: false,
                     success: function (data) {
-                        // $('#txt').html(data);
-                        //alert(data);
-                        //alert(btn);
+                        if(data == 1){
+
+                            alert("We don't have sufficent amount");
+                        }
+
                     }
                 });
                 $('#cart_table').load(document.URL +  ' #cart_table');
@@ -642,13 +649,14 @@
             function minus(x) {
                 var btn = $(x).data('panel-id');
                 var x = parseInt(document.getElementById(btn).value);
+                var p_id=document.getElementById('product_id').value;
                 var newx= x-1;
                 document.getElementById(btn).value = newx;
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
-                    data: {'id':btn, 'amount':newx },
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn+p_id,
+                    data: {'id':btn, 'amount':newx ,'p_id':p_id },
                     cache: false,
                     success: function (data) {
                         // $('#txt').html(data);

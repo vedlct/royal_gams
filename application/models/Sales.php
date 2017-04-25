@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 4/13/2017
- * Time: 6:11 PM
- */
+
 class Sales extends CI_Model
 {
     public function add_cart()
@@ -38,7 +33,7 @@ class Sales extends CI_Model
 //        return $amount1;
 
         foreach ($query2->result()as $t){$qun=$t->amount;
-        if ($qun >= $amount1){
+
 
             $data = array(
                 'product_id' => $pr_id,
@@ -71,17 +66,9 @@ class Sales extends CI_Model
                 $this->cart->update($data);
 
         }
-        else{
 
-            $data3 = array(
 
-            'false' => '1',
-            'id'=>$pr_id
-        );
-            return $data3;
-        }
 
-        }
 
 
 
