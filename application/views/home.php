@@ -354,8 +354,8 @@
                         <div class="box box-block bg-white tile tile-1 mb-2">
                             <div class="t-icon right"><span class="bg-danger"></span><i class="ti-shopping-cart-full"></i></div>
                             <div class="t-content">
-                                <h6 class="text-uppercase mb-1">Orders</h6>
-                                <h1 class="mb-1">1,325</h1>
+                                <h6 class="text-uppercase mb-1">Other Expense</h6>
+                                <h1 class="mb-1"><span id="other_expense"></h1>
                                 <span class="tag tag-danger mr-0-5">+17%</span>
                                 <span class="text-muted font-90">from previous period</span>
                             </div>
@@ -375,8 +375,8 @@
                         <div class="box box-block bg-white tile tile-1 mb-2">
                             <div class="t-icon right"><span class="bg-primary"></span><i class="ti-package"></i></div>
                             <div class="t-content">
-                                <h6 class="text-uppercase mb-1">Products</h6>
-                                <h1 class="mb-1">6,800</h1>
+                                <h6 class="text-uppercase mb-1">BUY</h6>
+                                <h1 class="mb-1"><span id="todaybuy"></h1>
                                 <span class="tag tag-primary mr-0-5">+125</span>
                                 <span class="text-muted font-90">arraving today</span>
                             </div>
@@ -387,7 +387,7 @@
                             <div class="t-icon right"><span class="bg-warning"></span><i class="ti-receipt"></i></div>
                             <div class="t-content">
                                 <h6 class="text-uppercase mb-1">Sold</h6>
-                                <h1 class="mb-1"><span id="todaysell"></span></h1>
+                                <h1 class="mb-1"><span id="todayssell"></span></h1>
                                 <div id="sparkline1"></div>
                             </div>
                         </div>
@@ -698,6 +698,24 @@
             var btn =0;
             $.ajax({
                 type:'POST',
+                url:'<?php echo base_url("Home/todaybuy/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#todaybuy').html(data);
+
+                   // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
+
+            $.ajax({
+                type:'POST',
                 url:'<?php echo base_url("Home/todayssell/")?>'+btn,
                 data:{id:btn},
                 cache: false,
@@ -705,9 +723,27 @@
 
                     //location.reload();
                     //alert(data);
-                    $('#todaysell').html(data);
+                    $('#todayssell').html(data);
 
-                   // $('#cart_table').load(document.URL +  ' #cart_table');
+                    // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
+
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Home/other_expense/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#other_expense').html(data);
+
+                    // $('#cart_table').load(document.URL +  ' #cart_table');
 
 
                 }
