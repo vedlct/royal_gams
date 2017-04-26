@@ -103,5 +103,13 @@ class Purchase extends CI_Model {
 
     }
 
+    public function todaybuy() {
+
+        $date=date("Y-m-d");
+
+        $query = $this->db->query("SELECT SUM(`price`) as todaybuy FROM `purchase` WHERE `date` = '$date'");
+        return $query->result();
+    }
+
 }
 ?>

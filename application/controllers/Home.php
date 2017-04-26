@@ -11,6 +11,8 @@ class Home extends CI_Controller
         $this->load->model('Typem');
         $this->load->model('Sales');
         $this->load->model('Product');
+        $this->load->model('Purchase');
+        $this->load->model('Expensem');
     }
 
     public function index()
@@ -220,5 +222,23 @@ class Home extends CI_Controller
        foreach ($this->data['todaysell'] as $r){
            echo $r->totalsell;
        }
+    }
+
+    public function todaybuy () {
+
+        $this->data['todaybuy'] = $this->Purchase->todaybuy();
+
+        foreach ($this->data['todaybuy'] as $r){
+            echo $r->todaybuy;
+        }
+    }
+
+    public function other_expense() {
+
+        $this->data['other_expense'] = $this->Expensem->other_expense();
+
+        foreach ($this->data['other_expense'] as $r){
+            echo $r->other_expense;
+        }
     }
 }
