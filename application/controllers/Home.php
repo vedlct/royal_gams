@@ -212,4 +212,13 @@ class Home extends CI_Controller
         $this->cart->destroy();
         redirect('Home');
     }
+
+    public function todayssell () {
+
+       $this->data['todaysell'] = $this->Sales->todaysell();
+
+       foreach ($this->data['todaysell'] as $r){
+           echo $r->totalsell;
+       }
+    }
 }

@@ -387,7 +387,7 @@
                             <div class="t-icon right"><span class="bg-warning"></span><i class="ti-receipt"></i></div>
                             <div class="t-content">
                                 <h6 class="text-uppercase mb-1">Sold</h6>
-                                <h1 class="mb-1">1,682</h1>
+                                <h1 class="mb-1"><span id="todaysell"></span></h1>
                                 <div id="sparkline1"></div>
                             </div>
                         </div>
@@ -690,6 +690,29 @@
 
                 });
             }
+
+        </script>
+
+        <script>
+
+            var btn =0;
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Home/todayssell/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#todaysell').html(data);
+
+                   // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
 
         </script>
 

@@ -74,6 +74,14 @@ class Sales extends CI_Model
 
     }
 
+    public function todaysell() {
+
+        $date=date("Y-m-d");
+
+        $query = $this->db->query("SELECT SUM(`price`) as totalsell FROM `sales` WHERE `date` = '$date'");
+        return $query->result();
+    }
+
 }
 
 ?>
