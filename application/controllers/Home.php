@@ -77,9 +77,9 @@ class Home extends CI_Controller
 
                             } else {
                                 $this->data['msg'] = "We don't have suficient amount";
-                                 print_r($amount1);
+                                 //print_r($amount1);
                             }
-                        } elseif ($cart_id != $id) {
+                        } else{
 
                             if ($amount <= '0') {
 
@@ -107,7 +107,7 @@ class Home extends CI_Controller
             } else {
                 $this->data['msg'] = "no data found";
             }
-            //$this->load->view('home', $this->data);
+            $this->load->view('home', $this->data);
             // redirect($this->load->view('home', $this->data['viewproduct']));
             //$this->session->set_flashdata('key',$this->data['viewproduct']);
             //redirect(Home, $this->data);
