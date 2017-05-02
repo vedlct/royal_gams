@@ -632,6 +632,7 @@
                 var btn = $(x).data('panel-id');
                 var p_id=document.getElementById('product_id').value;
                 var x = parseInt(document.getElementById(btn).value);
+                alert(x);
                 var newx= x+1;
 //                document.getElementById('btn').value = newx;
                 $.ajax({
