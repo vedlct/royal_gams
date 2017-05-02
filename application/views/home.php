@@ -290,7 +290,7 @@
         <nav class="navbar navbar-light">
             <div class="navbar-left">
                 <a class="navbar-brand" href="index.html">
-                    <div class="logo"></div>
+                    <div class="logo"> </div>
                 </a>
                 <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
                     <span class="hamburger"></span>
@@ -354,8 +354,8 @@
                         <div class="box box-block bg-white tile tile-1 mb-2">
                             <div class="t-icon right"><span class="bg-danger"></span><i class="ti-shopping-cart-full"></i></div>
                             <div class="t-content">
-                                <h6 class="text-uppercase mb-1">Orders</h6>
-                                <h1 class="mb-1">1,325</h1>
+                                <h6 class="text-uppercase mb-1">Other Expense</h6>
+                                <h1 class="mb-1"><span id="other_expense"></h1>
                                 <span class="tag tag-danger mr-0-5">+17%</span>
                                 <span class="text-muted font-90">from previous period</span>
                             </div>
@@ -375,8 +375,8 @@
                         <div class="box box-block bg-white tile tile-1 mb-2">
                             <div class="t-icon right"><span class="bg-primary"></span><i class="ti-package"></i></div>
                             <div class="t-content">
-                                <h6 class="text-uppercase mb-1">Products</h6>
-                                <h1 class="mb-1">6,800</h1>
+                                <h6 class="text-uppercase mb-1">BUY</h6>
+                                <h1 class="mb-1"><span id="todaybuy"></h1>
                                 <span class="tag tag-primary mr-0-5">+125</span>
                                 <span class="text-muted font-90">arraving today</span>
                             </div>
@@ -387,7 +387,7 @@
                             <div class="t-icon right"><span class="bg-warning"></span><i class="ti-receipt"></i></div>
                             <div class="t-content">
                                 <h6 class="text-uppercase mb-1">Sold</h6>
-                                <h1 class="mb-1">1,682</h1>
+                                <h1 class="mb-1"><span id="todayssell"></span></h1>
                                 <div id="sparkline1"></div>
                             </div>
                         </div>
@@ -498,9 +498,10 @@
 
 
 
-                        <div class="col-lg-7" id="cart_table">
+                        <div class="col-lg-7" >
 
-                            <div class="box box-block bg-white">
+                            <div class="box box-block bg-white" >
+                                <span id="cart_table">
                                 <h5>Cart</h5><br>
 
                                 <?php
@@ -510,18 +511,20 @@
                                 }
                                 ?>
                                 <form class="form-material material-primary" id="" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
-                                    <?php foreach ($this->cart->contents() as $items) { ?>
+
+                                    <?php $total = 0; foreach ($this->cart->contents() as $items) { ?>
 
                                         <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
                                             echo "ID: " . $items['id'] ?>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  value="x"><br>
-                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";
-                                             echo "Amount:"?>
+                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
+                                             <?php echo "Amount:"?>
                                             <div style="margin-left: 90px;margin-top: -21px;">
                                             <input type="button"  class="btn btn-default" style="background:#ec008c; text-align: center; width:30px; color: #fff; font-weight: bold; padding:0px 0px;  border-radius:0px; float: left" data-panel-id="<?= $items['rowid'] ?>" onclick="minus(this)" value="-"/>
                                             <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
                                             <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 30px; padding: 0px 0px; float: left" value="+">
+
                                             </div>
                                         </div>
                                         <br> <?php
@@ -529,25 +532,27 @@
                                         ?>
 
 
-                                        <input type="hidden" class="form-control" id="inputEmail3" name="product_id" value="<?php echo $items['id']?>">
-                                        <input type="hidden" class="form-control" id="type" name="type" value="<?php echo $items['type']?>">
-                                        <input type="hidden" class="form-control" id="weight" name="weight" value="<?php echo $items['weight']?>">
-                                        <input type="hidden" class="form-control" id="price" name="price" value="<?php echo $items['price']*$items['qty'];?>">
-                                        <input type="hidden" class="form-control" id="<?php echo $items['rowid']?>" name="amount" value="<?php echo $items['qty']?>">
+                                        <input type="hidden" class="form-control" id="product_id" name="product_id" value="<?php echo $items['id']?>">
+<!--                                        <input type="hidden" class="form-control" id="type" name="type" value="--><?php //echo $items['type']?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="weight" name="weight" value="--><?php //echo $items['weight']?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="price" name="price" value="--><?php //echo $items['price']*$items['qty'];?><!--">-->
+<!--                                        <input type="hidden" class="form-control" id="--><?php //echo $items['rowid']?><!--" name="amount" value="--><?php //echo $items['qty']?><!--">-->
 
 
 
 
                                         <!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
-                                    <?php }if($this->cart->contents()==null){ }else{
+                                    <?php $total = $total+$items['subtotal'];}if($this->cart->contents()==null){ }else{
                                         $rows = "count: " . count($this->cart->contents());
                                         echo $rows . "<br>";?>
+
+                                        <b>Total :  <?php echo $total;?><br></b>
 
                                         <a href="Home/removeall"> <button>Clear Cart</button></a>
                                         <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
                                     <?php }?>
                                 </form>
-
+                            </span>
                             </div>
                         </div>
                     </div>
@@ -621,18 +626,21 @@
             }
             function plus(x) {
                 var btn = $(x).data('panel-id');
+                var p_id=document.getElementById('product_id').value;
                 var x = parseInt(document.getElementById(btn).value);
                 var newx= x+1;
 //                document.getElementById('btn').value = newx;
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
-                    data: {'id':btn,'amount':newx },
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn+p_id,
+                    data: {'id':btn,'amount':newx,'p_id':p_id },
                     cache: false,
                     success: function (data) {
-                        // $('#txt').html(data);
-                        //alert(data);
-                        //alert(btn);
+                        if(data == 1){
+
+                            alert("We don't have sufficent amount");
+                        }
+
                     }
                 });
                 $('#cart_table').load(document.URL +  ' #cart_table');
@@ -641,13 +649,14 @@
             function minus(x) {
                 var btn = $(x).data('panel-id');
                 var x = parseInt(document.getElementById(btn).value);
+                var p_id=document.getElementById('product_id').value;
                 var newx= x-1;
                 document.getElementById(btn).value = newx;
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url("Home/update_cart/")?>' + btn,
-                    data: {'id':btn, 'amount':newx },
+                    url: '<?php echo base_url("Home/update_cart/")?>' + btn+p_id,
+                    data: {'id':btn, 'amount':newx ,'p_id':p_id },
                     cache: false,
                     success: function (data) {
                         // $('#txt').html(data);
@@ -681,6 +690,65 @@
 
                 });
             }
+
+        </script>
+
+        <script>
+
+            var btn =0;
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Home/todaybuy/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#todaybuy').html(data);
+
+                   // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
+
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Home/todayssell/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#todayssell').html(data);
+
+                    // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
+
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Home/other_expense/")?>'+btn,
+                data:{id:btn},
+                cache: false,
+                success:function(data) {
+
+                    //location.reload();
+                    //alert(data);
+                    $('#other_expense').html(data);
+
+                    // $('#cart_table').load(document.URL +  ' #cart_table');
+
+
+                }
+
+            });
 
         </script>
 

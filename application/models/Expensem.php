@@ -72,4 +72,12 @@ class Expensem extends CI_Model
         return $query->result();
 
     }
+
+    public function other_expense() {
+
+        $date=date("Y-m-d");
+
+        $query = $this->db->query("SELECT SUM(`amount`) as other_expense FROM `expense` WHERE `date` = '$date'");
+        return $query->result();
+    }
 }

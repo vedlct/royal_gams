@@ -196,5 +196,7 @@ class Stock extends CI_Model {
         $query=$this->db->query("SELECT * FROM stone WHERE `stone_name`= '$name'");
         return $query->result();
     }
+
+
 }
 ?>

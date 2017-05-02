@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 4/13/2017
- * Time: 6:11 PM
- */
+
 class Sales extends CI_Model
 {
     public function add_cart()
@@ -27,40 +22,64 @@ class Sales extends CI_Model
 
     }
 
-    public function add_cart_data($p_id,$type,$weight,$price,$amount)
+    public function add_cart_data($pr_id,$type,$weight,$price,$amount1,$row_id)
     {
 
         $query1=$this->db->query("SELECT CURDATE() as month");
         foreach ($query1->result()as $r){$month=$r->month;}
 
-        $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$p_id' ");
+        $query2=$this->db->query("SELECT * FROM `stock` WHERE `stock`.`product_id`='$pr_id' GROUP BY `stock`.`product_id`");
+
+//        return $amount1;
 
         foreach ($query2->result()as $t){$qun=$t->amount;
-        if ($qun>$amount){
+
 
             $data = array(
-                'product_id' => $p_id,
+                'product_id' => $pr_id,
                 'type' => $type,
                 'weight' => $weight,
                 'price' => $price,
-                'amount' => $amount,
+                'amount' => $amount1,
                 'date'=>$month
             );
             $this->db->insert('sales',$data);
 
             $data1 = array(
 
-                'amount' => $qun-$amount,
-                'date'=>$month
+                'amount' => $qun-$amount1,
+
             );
-            $this->db->where('product_id',$p_id);
+            $this->db->where('product_id',$pr_id);
             $this->db->update('stock',$data1);
 
-        }else{ $false=1;
-            return $false;}}
 
 
 
+
+                $data = array(
+                    'rowid'=>$row_id,
+                    'qty'=>0
+
+                );
+
+                $this->cart->update($data);
+
+        }
+
+
+
+
+
+
+    }
+
+    public function todaysell() {
+
+        $date=date("Y-m-d");
+
+        $query = $this->db->query("SELECT SUM(`price`) as totalsell FROM `sales` WHERE `date` = '$date'");
+        return $query->result();
     }
 
 }
