@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/morris/morris.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
+    <!-- ti icon-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Neptune CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/core.css">
 

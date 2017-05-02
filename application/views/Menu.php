@@ -4,22 +4,22 @@
             <li class="menu-title">Main</li>
             <li class="with-sub">
                 <a href="<?php base_url()?>Home" class="waves-effect  waves-light">
-                    <span class="s-caret"></span>
-                    <span class="s-icon"><i class="ti-anchor"></i></span>
+                    <span class=""></span>
+                    <span class="s-icon"><i class="fa fa-home" aria-hidden="true"></i></span>
                     <span class="s-text">Home</span>
                 </a>
 
             </li>
             <li>
                 <a href="<?php base_url()?>Stockc" class="waves-effect  waves-light">
-                    <span class="s-icon"><i class="ti-layout-tab"></i></span>
+                    <span class="s-icon"><i class="fa fa-database" aria-hidden="true"></i></span>
                     <span class="s-text">Stock</span>
                 </a>
             </li>
 
             <li>
                 <a href="<?php echo base_url()?>Stonec" class="waves-effect  waves-light">
-                    <span class="s-icon"><i class="ti-palette"></i></span>
+                    <span class="s-icon"><i class="fa fa-diamond" aria-hidden="true"></i></span>
                     <span class="s-text">Stone</span>
                 </a>
             </li>
@@ -45,7 +45,7 @@
             <li class="with-sub">
                 <a href="<?php echo base_url()?>Type" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
-                    <span class="s-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
+                    <span class="s-icon"><i class="fa fa-clone" aria-hidden="true"></i></span>
                     <span class="s-text">Type</span>
                 </a>
 
@@ -62,7 +62,7 @@
             <li class="with-sub">
                 <a href="<?php echo base_url()?>Report" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
-                    <span class="s-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
+                    <span class="s-icon"><i class="ti-stats-up" aria-hidden="true"></i></span>
                     <span class="s-text">Report</span>
                 </a>
 
