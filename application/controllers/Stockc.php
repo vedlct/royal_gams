@@ -45,6 +45,20 @@ class Stockc extends CI_Controller{
             $this->load->view('stock', $this->data);
         }
 
+        else if(isset($_POST['st_price_less_submit'])){
+
+            $price=$this->input->post('price');
+            // $type=$this->uri->segment(4);
+
+            //print_r($price);
+
+            $this->data['showsttype'] = $this->Stock->showstocktype();
+            $this->data['showst'] = $this->Stock->search_by_price_less($price);
+            //print_r($this->data['showst']);
+            $this->load->view('stock', $this->data);
+
+        }
+
         else if(isset($_POST['st_type_submit'])){
 
             $type=$this->input->post('sp_type');
@@ -54,6 +68,7 @@ class Stockc extends CI_Controller{
             //redirect('Stockc/index');
             $this->load->view('stock', $this->data);
         }
+
 
         else{
             $this->data['gettype'] = $this->Typem->gettype();

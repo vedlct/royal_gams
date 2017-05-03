@@ -574,69 +574,7 @@
 
                                     <section id="content1">
 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="">
-                                                    <div class="form-group row ">
-                                                        <div class="col-md-2">
-                                                            <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
-                                                        </div>
 
-                                                        <div class="col-md-1">
-                                                            <button type="submit" class="btn btn-primary"  name="stone_id_search">Search</button>
-                                                        </div>
-<!--                                                        --><?php
-//                                                        foreach ($showsl as $s ){
-//
-//                                                            echo $s->name;
-//                                                        }
-//                                                        ?>
-                                                    </form>
-
-                                                    <form class="form-material material-primary" method="post" action="">
-
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
-                                                            </div>
-
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_price_search">Search</button>
-
-                                                        </div>
-                                                    </form>
-
-                                                    <form class="form-material material-primary" method="post" action="">
-
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control"  placeholder="Stock" name="stock" id="stock" >
-                                                            </div>
-
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_stock_search">Search</button>
-                                                            </div>
-
-                                                    </form>
-
-                                                    <form class="form-material material-primary" method="post" action="">
-                                                            <div class="col-md-2">
-                                                                <select class="form-control" name="sp_type" id="sp_type"  >
-                                                                    <option selected  >Select Stone Name</option>
-                                                                    <!--            --><?php
-                                                                    foreach ($showsttype as $st)
-                                                                    {
-                                                                        echo "<option  value='" . $st->stone_name . "'>" . $st->stone_name . "</option>";
-                                                                    }
-                                                                    ?>
-
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_name_search">Search</button>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </form>
 
                                                     <br>
                                                     <h5 class="mb-1">Product List</h5>

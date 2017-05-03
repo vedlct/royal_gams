@@ -587,7 +587,7 @@
                                                 <div class="col-md-12">
                                                     <form class="form-material material-primary" method="post" action="">
                                                     <div class="form-group row ">
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                             <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                         </div>
 
@@ -597,8 +597,8 @@
                                                     </form>
                                                     <form class="form-material material-primary" method="post" action="">
 
-                                                            <div class="col-md-3">
-                                                                <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
+                                                            <div class="col-md-2">
+                                                                <input type="text" class="form-control"  placeholder="Price Greater than" name="price" id="price" >
                                                             </div>
 
                                                             <div class="col-md-1">
@@ -606,7 +606,17 @@
                                                             </div>
                                                     </form>
                                                     <form class="form-material material-primary" method="post" action="">
-                                                            <div class="col-md-3">
+
+                                                        <div class="col-md-2">
+                                                            <input type="text" class="form-control"  placeholder="Price Less than" name="price" id="price" >
+                                                        </div>
+
+                                                        <div class="col-md-1">
+                                                            <button type="submit" class="btn btn-primary"  name="st_price_less_submit">Search</button>
+                                                        </div>
+                                                    </form>
+                                                    <form class="form-material material-primary" method="post" action="">
+                                                            <div class="col-md-2">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
                                                                     <option selected  >Select Type</option>
                                                                     <!--            --><?php

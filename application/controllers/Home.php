@@ -74,12 +74,13 @@ class Home extends CI_Controller
                                     'coupon' => 'XMAS-50OFF'
                                 );
                                 $this->cart->insert($data);
+                                //print_r($amount);
 
                             } else {
                                 $this->data['msg'] = "We don't have suficient amount";
-                                // print_r($amount1);
+                                 print_r($amount);
                             }
-                        } elseif ($cart_id != $id) {
+                        } else {
 
                             if ($amount <= '0') {
 

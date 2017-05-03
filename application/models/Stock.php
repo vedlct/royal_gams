@@ -171,9 +171,14 @@ class Stock extends CI_Model {
         return $query->result();
         */
         $type="";
-        $query=$this->db->query("SELECT * FROM stock WHERE `price`>='$price'");
+        $query=$this->db->query("SELECT * FROM stock WHERE `price`>'$price'");
         return $query->result();
+    }
 
+    function search_by_price_less($price){
+
+        $query=$this->db->query("SELECT * FROM stock WHERE `price`<'$price'");
+        return $query->result();
     }
 
     function search_stone_by_id($id){

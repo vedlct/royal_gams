@@ -42,6 +42,17 @@ class Salaryc extends CI_Controller
 //
             $this->load->view('salary', $this->data);
         }
+        else if (isset($_POST['sal_sal_less_search'])) {
+            $salary=$this->input->post('salary');
+            // $type=$this->uri->segment(4);
+
+            //print_r($salary);
+
+            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+            $this->data['showsl'] = $this->Salary->search_by_salary_less($salary);
+//
+            $this->load->view('salary', $this->data);
+        }
 
         else if (isset($_POST['sal_name_search'])) {
             $name=$this->input->post('sp_type');

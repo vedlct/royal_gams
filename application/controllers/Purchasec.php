@@ -41,6 +41,18 @@ class Purchasec extends CI_Controller{
             $this->data['showpd'] = $this->Purchase->search_by_price($price);
             $this->load->view('purchase', $this->data);
         }
+        else if(isset($_POST['purc_price_less_search']))
+        {
+            $price=$this->input->post('price');
+            // $type=$this->uri->segment(4);
+
+            //print_r($price);
+
+            $this->data['showpdtype'] = $this->Purchase->show_purchase_by_type();
+            //$this->data['showpd'] = $this->Purchase->search_purchase_by_id($price);
+            $this->data['showpd'] = $this->Purchase->search_by_price_less($price);
+            $this->load->view('purchase', $this->data);
+        }
         else if(isset($_POST['purc_paid_search']))
         {
             $paid=$this->input->post('paid');
