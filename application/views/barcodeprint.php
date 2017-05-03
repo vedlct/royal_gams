@@ -5,12 +5,13 @@
 
 $limit=($sto-$sfrom)+1;
 
-
+$show=$sfrom;
 for ($i=1;$i<=$limit;$i++) {
+
     ?>
 
     <img class="barcode"
-         jsbarcode-value="<?php echo $pid.$i?>"
+         jsbarcode-value="<?php echo $pid.$show?>"
 
          jsbarcode-textmargin="0"
          jsbarcode-textAlign="left"
@@ -21,6 +22,7 @@ for ($i=1;$i<=$limit;$i++) {
 
     <?php
 
+    $show=$show+1;
 }
 ?>
 
