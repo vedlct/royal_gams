@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/morris/morris.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
+    <!-- ti icon-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Neptune CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/core.css">
 
@@ -361,16 +365,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="box box-block bg-white tile tile-1 mb-2">
-                            <div class="t-icon right"><span class="bg-success"></span><i class="ti-bar-chart"></i></div>
-                            <div class="t-content">
-                                <h6 class="text-uppercase mb-1">Revenue</h6>
-                                <h1 class="mb-1">$ 47,855</h1>
-                                <i class="fa fa-caret-up text-success mr-0-5"></i><span>12,350</span>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="col-lg-3 col-md-6 col-xs-12">-->
+<!--                        <div class="box box-block bg-white tile tile-1 mb-2">-->
+<!--                            <div class="t-icon right"><span class="bg-success"></span><i class="ti-bar-chart"></i></div>-->
+<!--                            <div class="t-content">-->
+<!--                                <h6 class="text-uppercase mb-1">Revenue</h6>-->
+<!--                                <h1 class="mb-1">$ 47,855</h1>-->
+<!--                                <i class="fa fa-caret-up text-success mr-0-5"></i><span>12,350</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="col-lg-3 col-md-6 col-xs-12">
                         <div class="box box-block bg-white tile tile-1 mb-2">
                             <div class="t-icon right"><span class="bg-primary"></span><i class="ti-package"></i></div>
@@ -498,7 +502,7 @@
 
 
 
-                        <div class="col-lg-7" >
+                        <div class="col-lg-5" >
 
                             <div class="box box-block bg-white" >
                                 <span id="cart_table">
@@ -516,16 +520,18 @@
 
                                         <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
                                             echo "ID: " . $items['id'] ?>
-                                            <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  value="x"><br>
-                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
-                                             <?php echo "Amount:"?>
-                                            <div style="margin-left: 90px;margin-top: -21px;">
+                                            <i style="alignment: right" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  class="fa fa-trash-o" aria-hidden="true"></i>
+                                            <?php echo "<br>"."Amount:"?>
+
+                                            <div style="margin-left: 70px;margin-top: -21px;">
                                             <input type="button"  class="btn btn-default" style="background:#ec008c; text-align: center; width:30px; color: #fff; font-weight: bold; padding:0px 0px;  border-radius:0px; float: left" data-panel-id="<?= $items['rowid'] ?>" onclick="minus(this)" value="-"/>
-                                            <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
-                                            <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
+                                                <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
+                                                <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 30px; padding: 0px 0px; float: left" value="+">
 
                                             </div>
+                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
+
                                         </div>
                                         <br> <?php
 
@@ -628,6 +634,7 @@
                 var btn = $(x).data('panel-id');
                 var p_id=document.getElementById('product_id').value;
                 var x = parseInt(document.getElementById(btn).value);
+                //alert(x);
                 var newx= x+1;
 //                document.getElementById('btn').value = newx;
                 $.ajax({
