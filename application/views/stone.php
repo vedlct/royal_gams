@@ -587,24 +587,12 @@
                                                             <option  value="2" >Price</option>
                                                             <option  value="3" >Stock</option>
                                                             <option  value="4" >Stone Name</option>
-
-
                                                         </select>
                                                         </div>
-
-
                                                             <div class="form-group row ">
                                                                 <div class="col-md-3" id="seacrchin"style="display: block">
                                                                     <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                                 </div>
-
-
-
-
-
-
-
-
                                                             <div class="col-md-3" id="seacrchin1" style="display: none">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
                                                                     <option selected  >Select Stone Name</option>
@@ -622,20 +610,7 @@
                                                         <button type="submit" class="btn btn-primary"  name="search_from">Search</button>
 
                                                 </form>
-
-
-
-
-
-
-
-
-
                                                 </div>
-
-
-
-
                                                     <br>
                                                     <h5 class="mb-1">Product List</h5>
                                                     <div class="table table-responsive">
