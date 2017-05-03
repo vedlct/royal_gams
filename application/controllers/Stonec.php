@@ -44,12 +44,27 @@ class Stonec extends CI_Controller{
         }
         else if(isset($_POST['stone_stock_search'])){
             $stock=$this->input->post('stock');
+            $stock_type=$this->input->post('stock_type');
+
             // $type=$this->uri->segment(4);
 
-            //print_r($price);
+            //print_r($stock_type);
+            if ($stock_type==null){
+                $this->data['showsttype'] = $this->Stone->showstonetype();
+                $this->data['showst'] = $this->Stone->search_by_stock($stock);
 
-            $this->data['showsttype'] = $this->Stone->showstonetype();
-            $this->data['showst'] = $this->Stone->search_by_stock($stock);
+            }
+            elseif($stock_type==1){
+                $this->data['showsttype'] = $this->Stone->showstonetype();
+                $this->data['showst'] = $this->Stone->search_by_stock_less($stock);
+
+            }
+            else{
+
+                $this->data['showsttype'] = $this->Stone->showstonetype();
+                $this->data['showst'] = $this->Stone->search_by_stock_greater($stock);
+            }
+
             $this->load->view('stone', $this->data);
         }
         else if(isset($_POST['stone_name_search'])){

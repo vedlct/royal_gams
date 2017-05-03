@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
     <!-- ti icon-->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Neptune CSS -->
@@ -37,7 +37,9 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+
+    </script>
     <![endif]-->
 
 <style>
@@ -585,12 +587,7 @@
                                                         <div class="col-md-1">
                                                             <button type="submit" class="btn btn-primary"  name="stone_id_search">Search</button>
                                                         </div>
-<!--                                                        --><?php
-//                                                        foreach ($showsl as $s ){
-//
-//                                                            echo $s->name;
-//                                                        }
-//                                                        ?>
+
                                                     </form>
 
                                                     <form class="form-material material-primary" method="post" action="">
@@ -609,7 +606,14 @@
 
                                                             <div class="col-md-2">
                                                                 <input type="text" class="form-control"  placeholder="Stock" name="stock" id="stock" >
+                                                                <input style="display: inline-block" type="radio" name="stock_type" value="1"> Less Then <br>
+                                                                <input style="display: inline-block" type="radio" name="stock_type" value="2"> greater then
+
                                                             </div>
+
+
+
+
 
                                                             <div class="col-md-1">
                                                                 <button type="submit" class="btn btn-primary"  name="stone_stock_search">Search</button>
@@ -637,6 +641,15 @@
 
 
                                                     </form>
+
+
+
+
+
+
+                                                </div>
+
+
 
                                                     <br>
                                                     <h5 class="mb-1">Product List</h5>
@@ -675,9 +688,9 @@
                                                     </table>
                                                     </div>
                                                 </div>
-                                            </div>
-
                                     </section>
+
+
 
                                 <section id="content2">
                                     <?php $this->load->view('insertstone');?>
