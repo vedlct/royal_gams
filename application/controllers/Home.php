@@ -60,47 +60,46 @@ class Home extends CI_Controller
                         $cart_id = $t['id'];
                         $amount1 = $t['qty'];
                     }
-                        if ($cart_id == $id) {
+                    if ($cart_id == $id) {
 
-                            if ($amount >= $amount1) {
+                        if ($amount >= $amount1) {
 
-                                $data = array(
-                                    'id' => $id,
-                                    'qty' => 1,
-                                    'weight' => $weight,
-                                    'type' => $type,
-                                    'price' => $price,
-                                    'name' => $type,
-                                    'coupon' => 'XMAS-50OFF'
-                                );
-                                $this->cart->insert($data);
-                                //print_r($amount);
+                            $data = array(
+                                'id' => $id,
+                                'qty' => 1,
+                                'weight' => $weight,
+                                'type' => $type,
+                                'price' => $price,
+                                'name' => $type,
+                                'coupon' => 'XMAS-50OFF'
+                            );
+                            $this->cart->insert($data);
 
-                            } else {
-                                $this->data['msg'] = "We don't have suficient amount";
-                                 print_r($amount);
-                            }
+                        } else {
+                            $this->data['msg'] = "We don't have suficient amount";
+                            //print_r($amount1);
+                        }
+                    } else{
+
+                        if ($amount <= '0') {
+
+                            $this->data['msg'] = "We don't have suficient amount";
                         } else {
 
-                            if ($amount <= '0') {
-
-                                $this->data['msg'] = "We don't have suficient amount";
-                            } else {
-
-                                $data = array(
-                                    'id' => $id,
-                                    'qty' => 1,
-                                    'weight' => $weight,
-                                    'type' => $type,
-                                    'price' => $price,
-                                    'name' => $type,
-                                    'coupon' => 'XMAS-50OFF'
-                                );
-                                $this->cart->insert($data);
-
-                            }
+                            $data = array(
+                                'id' => $id,
+                                'qty' => 1,
+                                'weight' => $weight,
+                                'type' => $type,
+                                'price' => $price,
+                                'name' => $type,
+                                'coupon' => 'XMAS-50OFF'
+                            );
+                            $this->cart->insert($data);
 
                         }
+
+                    }
 
                 }
 
@@ -116,7 +115,6 @@ class Home extends CI_Controller
             $this->load->view('home');
         }
     }
-
     public function hello()
     {
         $this->load->view('home');

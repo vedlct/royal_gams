@@ -183,6 +183,18 @@ class Stone extends CI_Model {
 
     function search_by_stock($stock){
 
+        $query=$this->db->query("SELECT * FROM stone WHERE `amount`='$stock' ORDER BY amount  ");
+        return $query->result();
+    }
+
+    function search_by_stock_less($stock){
+
+        $query=$this->db->query("SELECT * FROM stone WHERE `amount`<='$stock' ORDER BY amount  ");
+        return $query->result();
+    }
+
+    function search_by_stock_greater($stock){
+
         $query=$this->db->query("SELECT * FROM stone WHERE `amount`>='$stock' ORDER BY amount  ");
         return $query->result();
     }
