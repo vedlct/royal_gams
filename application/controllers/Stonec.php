@@ -14,26 +14,97 @@ class Stonec extends CI_Controller{
     public function index()
     {
 
-        if(isset($_POST['ssubmit'])){
+//        if(isset($_POST['ssubmit'])){
+//
+//            $this->Stone->insert_stone();
+//            //redirect('Stonec');
+//            $this->data['showsttype'] = $this->Stock->showstonetype();
+//            $this->data['showst'] = $this->Stone->showstone();
+//
+//            $this->load->view('stone', $this->data);
+//
+//        }
+//        else if(isset($_POST['stone_id_search'])){
+//            $id=$this->input->post('sp_id');
+//            // $type=$this->uri->segment(4);
+//            $this->data['showsttype'] = $this->Stock->showstonetype();
+//            $this->data['showst'] = $this->Stock->search_stone_by_id($id);
+//
+//            $this->load->view('stone', $this->data);
+//        }
+//        else if(isset($_POST['stone_price_search'])){
+//            $price=$this->input->post('price');
+//            // $type=$this->uri->segment(4);
+//
+//            //print_r($price);
+//
+//            $this->data['showsttype'] = $this->Stone->showstonetype();
+//            $this->data['showst'] = $this->Stone->search_by_price($price);
+//            $this->load->view('stone', $this->data);
+//        }
+//        else if(isset($_POST['stone_stock_search'])){
+//            $stock=$this->input->post('stock');
+//            $stock_type=$this->input->post('stock_type');
+//
+//            // $type=$this->uri->segment(4);
+//
+//            //print_r($stock_type);
+//            if ($stock_type==null){
+//                $this->data['showsttype'] = $this->Stone->showstonetype();
+//                $this->data['showst'] = $this->Stone->search_by_stock($stock);
+//
+//            }
+//            elseif($stock_type==1){
+//                $this->data['showsttype'] = $this->Stone->showstonetype();
+//                $this->data['showst'] = $this->Stone->search_by_stock_less($stock);
+//
+//            }
+//            else{
+//
+//                $this->data['showsttype'] = $this->Stone->showstonetype();
+//                $this->data['showst'] = $this->Stone->search_by_stock_greater($stock);
+//            }
+//
+//            $this->load->view('stone', $this->data);
+//        }
+//        else if(isset($_POST['stone_name_search'])){
+//            $name=$this->input->post('sp_type');
+//            // $type=$this->uri->segment(4);
+//            $this->data['showsttype'] = $this->Stone->showstonetype();
+//            $this->data['showst'] = $this->Stone->search_stone_by_type($name);
+//            $this->load->view('stone', $this->data);
+//        }
+        if (isset($_POST['search_from'])){
 
-            $this->Stone->insert_stone();
-            //redirect('Stonec');
-            $this->data['showsttype'] = $this->Stock->showstonetype();
-            $this->data['showst'] = $this->Stone->showstone();
 
+
+
+            $from=$this->input->post('get_search_from');
+
+            //print_r($from);
+
+            if ($from == 4){
+
+                $name=$this->input->post('sp_type');
+            // $type=$this->uri->segment(4);
+            $this->data['showsttype'] = $this->Stone->showstonetype();
+            $this->data['showst'] = $this->Stone->search_stone_by_type($name);
             $this->load->view('stone', $this->data);
 
-        }
-        else if(isset($_POST['stone_id_search'])){
-            $id=$this->input->post('sp_id');
+            }
+            elseif ($from == 1){
+
+                $id=$this->input->post('sp_id');
             // $type=$this->uri->segment(4);
             $this->data['showsttype'] = $this->Stock->showstonetype();
             $this->data['showst'] = $this->Stock->search_stone_by_id($id);
 
             $this->load->view('stone', $this->data);
-        }
-        else if(isset($_POST['stone_price_search'])){
-            $price=$this->input->post('price');
+
+            }
+            elseif ($from == '2'){
+
+                $price=$this->input->post('sp_id');
             // $type=$this->uri->segment(4);
 
             //print_r($price);
@@ -41,10 +112,11 @@ class Stonec extends CI_Controller{
             $this->data['showsttype'] = $this->Stone->showstonetype();
             $this->data['showst'] = $this->Stone->search_by_price($price);
             $this->load->view('stone', $this->data);
-        }
-        else if(isset($_POST['stone_stock_search'])){
-            $stock=$this->input->post('stock');
-            $stock_type=$this->input->post('stock_type');
+            }
+            elseif ($from == '3'){
+
+                $stock=$this->input->post('sp_id');
+                $stock_type=$this->input->post('stock_type');
 
             // $type=$this->uri->segment(4);
 
@@ -66,18 +138,16 @@ class Stonec extends CI_Controller{
             }
 
             $this->load->view('stone', $this->data);
-        }
-        else if(isset($_POST['stone_name_search'])){
-            $name=$this->input->post('sp_type');
-            // $type=$this->uri->segment(4);
-            $this->data['showsttype'] = $this->Stone->showstonetype();
-            $this->data['showst'] = $this->Stone->search_stone_by_type($name);
-            $this->load->view('stone', $this->data);
+
+            }
+
         }
         else {
             $this->data['showsttype'] = $this->Stock->showstonetype();
             $this->data['showsl'] = $this->Salary->showsalary();
             $this->data['showst'] = $this->Stock->showstone();
+//            $this->data['showst'] = $this->Stone->gettablename();
+
             $this->load->view('stone', $this->data);
         }
 

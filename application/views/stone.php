@@ -578,51 +578,33 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="form-material material-primary" method="post" action="">
-                                                    <div class="form-group row ">
-                                                        <div class="col-md-2">
-                                                            <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
+                                                    <form class="form-material material-primary" method="post" action="" >
+                                                        <div class="col-md-6">
+                                                        <select class="form-control" name="get_search_from" id="get_search_from" onchange="getsearchfrom(this)">
+                                                            <option selected  >Search From</option>
+                                                            <option  value="1" >Product ID</option>
+                                                            <option  value="2" >Price</option>
+                                                            <option  value="3" >Stock</option>
+                                                            <option  value="4" >Stone Name</option>
+
+
+                                                        </select>
                                                         </div>
 
-                                                        <div class="col-md-1">
-                                                            <button type="submit" class="btn btn-primary"  name="stone_id_search">Search</button>
-                                                        </div>
 
-                                                    </form>
-
-                                                    <form class="form-material material-primary" method="post" action="">
-
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
-                                                            </div>
-
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_price_search">Search</button>
-
-                                                        </div>
-                                                    </form>
-
-                                                    <form class="form-material material-primary" method="post" action="">
-
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control"  placeholder="Stock" name="stock" id="stock" >
-                                                                <input style="display: inline-block" type="radio" name="stock_type" value="1"> Less Then <br>
-                                                                <input style="display: inline-block" type="radio" name="stock_type" value="2"> greater then
-
-                                                            </div>
+                                                            <div class="form-group row ">
+                                                                <div class="col-md-3" id="seacrchin"style="display: block">
+                                                                    <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
+                                                                </div>
 
 
 
 
 
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_stock_search">Search</button>
-                                                            </div>
 
-                                                    </form>
 
-                                                    <form class="form-material material-primary" method="post" action="">
-                                                            <div class="col-md-2">
+
+                                                            <div class="col-md-3" id="seacrchin1" style="display: none">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
                                                                     <option selected  >Select Stone Name</option>
                                                                     <!--            --><?php
@@ -633,14 +615,15 @@
                                                                     ?>
 
                                                                 </select>
+
                                                             </div>
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary"  name="stone_name_search">Search</button>
                                                             </div>
-                                                        </div>
+                                                        <button type="submit" class="btn btn-primary"  name="search_from">Search</button>
+
+                                                </form>
 
 
-                                                    </form>
+
 
 
 
@@ -852,6 +835,22 @@
             window.onclick = function(event) {
                 if (event.target == modal2) {
                     modal2.style.display = "none";
+                }
+            }
+
+            function getsearchfrom(x){
+
+                var search_from = document.getElementById('get_search_from').value;
+
+                if(search_from == '4'){
+                    document.getElementById('seacrchin').style.display = 'none';
+                    document.getElementById('seacrchin1').style.display = 'block';
+
+                }
+                else {
+
+                    document.getElementById('seacrchin').style.display = 'block';
+                    document.getElementById('seacrchin1').style.display = 'none';
                 }
             }
 
