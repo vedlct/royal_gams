@@ -171,6 +171,12 @@ class Stock extends CI_Model {
         return $query->result();
         */
         $type="";
+        $query=$this->db->query("SELECT * FROM stock WHERE `price`='$price'");
+        return $query->result();
+    }
+
+    function search_by_price_greater($price){
+
         $query=$this->db->query("SELECT * FROM stock WHERE `price`>'$price'");
         return $query->result();
     }
@@ -192,13 +198,31 @@ class Stock extends CI_Model {
 
     function search_by_type($type){
 
-        $query=$this->db->query("SELECT * FROM stock WHERE `type`= '$type'");
+        $query=$this->db->query("SELECT * FROM stock WHERE `type`= '$type' ");
         return $query->result();
     }
 
     function search_stone_by_type($name){
 
         $query=$this->db->query("SELECT * FROM stone WHERE `stone_name`= '$name'");
+        return $query->result();
+    }
+
+    function search_by_stock($stock){
+
+        $query=$this->db->query("SELECT * FROM stock WHERE `amount`='$stock' ORDER BY amount  ");
+        return $query->result();
+    }
+
+    function search_by_stock_less($stock){
+
+        $query=$this->db->query("SELECT * FROM stock WHERE `amount`<'$stock' ORDER BY amount  ");
+        return $query->result();
+    }
+
+    function search_by_stock_greater($stock){
+
+        $query=$this->db->query("SELECT * FROM stock WHERE `amount`>'$stock' ORDER BY amount  ");
         return $query->result();
     }
 

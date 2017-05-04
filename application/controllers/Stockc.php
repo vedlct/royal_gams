@@ -14,6 +14,7 @@ class Stockc extends CI_Controller{
     public function index()
     {
 
+        /*
         if(isset($_POST['psubmit'])){
 
 
@@ -77,6 +78,100 @@ class Stockc extends CI_Controller{
             $this->data['showsttype'] = $this->Stock->showstocktype();
             $this->load->view('stock', $this->data);
         }
+
+        */
+        if (isset($_POST['search_from'])) {
+
+
+            $from = $this->input->post('get_search_from');
+
+            //print_r($from);
+            if ($from == 8) {
+
+                $name = $this->input->post('sp_type');
+                // $type=$this->uri->segment(4);
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_type($name);
+                $this->load->view('stock', $this->data);
+
+            } elseif ($from == 1) {
+
+                $id = $this->input->post('sp_id');
+                // $type=$this->uri->segment(4);
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_id($id);
+                $this->load->view('stock', $this->data);
+
+            } elseif ($from == 2) {
+
+                $price = $this->input->post('sp_id');
+                // $type=$this->uri->segment(4);
+
+                //print_r($price);
+
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_price($price);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 3) {
+
+                $price = $this->input->post('sp_id');
+                // $type=$this->uri->segment(4);
+
+                //print_r($price);
+
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_price_less($price);
+                //print_r($this->data['showst']);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 4) {
+
+                $price = $this->input->post('sp_id');
+                // $type=$this->uri->segment(4);
+
+                //print_r($price);
+
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_price_greater($price);
+                //print_r($this->data['showst']);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 5) {
+                $stock = $this->input->post('sp_id');
+
+                $this->data['showsttype'] = $this->Stock->showstocktype();
+                $this->data['showst'] = $this->Stock->search_by_stock($stock);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 6) {
+                $stock = $this->input->post('sp_id');
+
+                $this->data['showsttype'] = $this->Stock->showstonetype();
+                $this->data['showst'] = $this->Stock->search_by_stock_less($stock);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 7) {
+                $stock = $this->input->post('sp_id');
+
+                $this->data['showsttype'] = $this->Stock->showstonetype();
+                $this->data['showst'] = $this->Stock->search_by_stock_greater($stock);
+                $this->load->view('stock', $this->data);
+            } elseif ($from == 0) {
+
+                $this->data['showsttype'] = $this->Stock->showstonetype();
+                $this->data['showsl'] = $this->Salary->showsalary();
+                $this->data['showst'] = $this->Stock->showstone();
+//            $this->data['showst'] = $this->Stone->gettablename();
+
+                $this->load->view('stock', $this->data);
+            }
+
+
+        } else {
+            $this->data['gettype'] = $this->Typem->gettype();
+            $this->data['showsl'] = $this->Salary->showsalary();
+            $this->data['showst'] = $this->Stock->showstock();
+            $this->data['showsttype'] = $this->Stock->showstocktype();
+            $this->load->view('stock', $this->data);
+
+        }
+
     }
 
     public function get_products_autocomplete()
