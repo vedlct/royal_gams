@@ -318,17 +318,16 @@
 										<img src="img/avatars/1.jpg" alt="">
 									</span>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right animated fadeInUp">
-                            <a class="dropdown-item" href="#">
-                                <i class="ti-email mr-0-5"></i> Inbox
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="ti-user mr-0-5"></i> Profile
+
+                            <a class="dropdown-item" href="" ><button data-toggle="modal" data-target="forgot_pass"></button>
+                                <i class="ti-user mr-0-5"></i> Change Password
                             </a>
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>
-                            <a class="dropdown-item" href="#"><i class="ti-power-off mr-0-5"></i> Sign out</a>
+<!--                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>-->
+                            <a class="dropdown-item" href="<?php base_url()?>Login/logout"><i class="ti-power-off mr-0-5"></i> Sign out</a>
                         </div>
                     </li>
                 </ul>

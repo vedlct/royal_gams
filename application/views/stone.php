@@ -859,6 +859,7 @@
 
         <!-- Vendor JS -->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/tether/js/tether.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/bootstrap4/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/detectmobilebrowser/detectmobilebrowser.js"></script>
@@ -868,7 +869,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
+
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
@@ -881,6 +882,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/peity/jquery.peity.js"></script>
 
         <!-- Neptune JS -->
+
         <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>

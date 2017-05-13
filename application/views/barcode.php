@@ -286,7 +286,7 @@
                             <div class="box box-block bg-white" >
 
 
-<h3>Insert Barcode</h3>
+                                <h3>Insert Barcode</h3>
                                 <br>
                                 <br>
 

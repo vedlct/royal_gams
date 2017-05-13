@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
     <!-- ti icon-->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Neptune CSS -->
@@ -564,13 +564,13 @@
         </div>
 
     </div>
-    <script type="text/javascript">
-
-        var text_input = document.getElementById ('p_id');
-        text_input.focus ();
-        text_input.select ();
-
-    </script>
+<!--    <script type="text/javascript">-->
+<!---->
+<!--        var text_input = document.getElementById ('p_id');-->
+<!--        text_input.focus ();-->
+<!--        text_input.select ();-->
+<!---->
+<!--    </script>-->
 
 
     <script>
@@ -687,6 +687,7 @@
     <!-- date picker  -->
 
     <script src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
+
     <script src="<?php echo base_url()?>js/datepicker.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>
 

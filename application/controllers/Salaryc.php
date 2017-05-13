@@ -59,7 +59,7 @@ class Salaryc extends CI_Controller
             $salary=$this->input->post('sal_amount');
             $newsalary = $salary+$increment;
 
-            print_r($newsalary);
+            //print_r($newsalary);
 
             /*
             $this->data['showslname'] = $this->Salary->show_salary_by_name();
@@ -75,7 +75,7 @@ class Salaryc extends CI_Controller
 
                 $query1=$this->db->query("SELECT CURDATE() as month");
                 foreach ($query1->result()as $r){$month=$r->month;$year=$r->year;}
-                print_r($month,$year);
+                //print_r($month,$year);
 
                 $this->data['month']=$month;
                 $this->data['year']=$year;

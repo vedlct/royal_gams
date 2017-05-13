@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
     <!-- ti icon-->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Neptune CSS -->
@@ -682,12 +682,7 @@
                                     </script>
 
                                     <?php
-                                }else {?>
-
-                                    <?php
-
-                                }
-                                ?>
+                                }?>
 
                             </div>
                         </div>
@@ -834,14 +829,14 @@
 
         </script>
 
-<script>
-    //autocomplete
-    $(function(){
-        $("#p_id").autocomplete({
-            source: "<?php echo site_url('Stockc/get_products_autocomplete');?>" // path to the get_birds method
-        });
-    });
-</script>
+<!--<script>-->
+<!--    //autocomplete-->
+<!--    $(function(){-->
+<!--        $("#p_id").autocomplete({-->
+<!--            source: "--><?php //echo site_url('Stockc/get_products_autocomplete');?>//" // path to the get_birds method
+//        });
+//    });
+//</script>
 
 
 

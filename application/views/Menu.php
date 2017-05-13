@@ -70,7 +70,7 @@
             <li class="with-sub">
                 <a href="<?php echo base_url()?>Barcode" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
-                    <span class="s-icon"><i class="ti-stats-up" aria-hidden="true"></i></span>
+                    <span class="s-icon"><i class="fa fa-barcode" aria-hidden="true"></i></span>
                     <span class="s-text">Barcode</span>
                 </a>
 
