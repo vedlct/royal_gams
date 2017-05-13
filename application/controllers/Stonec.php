@@ -42,6 +42,26 @@ class Stonec extends CI_Controller{
 //            $this->data['showst'] = $this->Stone->search_by_price($price);
 //            $this->load->view('stone', $this->data);
 //        }
+
+//        else if(isset($_POST['stone_price_less_search'])){
+//            $price=$this->input->post('price');
+//            // $type=$this->uri->segment(4);
+//
+//            //print_r($price);
+//
+//            $this->data['showsttype'] = $this->Stone->showstonetype();
+//            $this->data['showst'] = $this->Stone->search_by_price_less($price);
+//            $this->load->view('stone', $this->data);
+//        }
+//        else if(isset($_POST['stone_stock_search'])){
+//            $stock=$this->input->post('stock');
+//            // $type=$this->uri->segment(4);
+//
+//            //print_r($price);
+//
+//            $this->data['showsttype'] = $this->Stone->showstonetype();
+//            $this->data['showst'] = $this->Stone->search_by_stock($stock);
+
 //        else if(isset($_POST['stone_stock_search'])){
 //            $stock=$this->input->post('stock');
 //            $stock_type=$this->input->post('stock_type');
@@ -65,6 +85,7 @@ class Stonec extends CI_Controller{
 //                $this->data['showst'] = $this->Stone->search_by_stock_greater($stock);
 //            }
 //
+
 //            $this->load->view('stone', $this->data);
 //        }
 //        else if(isset($_POST['stone_name_search'])){
@@ -74,19 +95,20 @@ class Stonec extends CI_Controller{
 //            $this->data['showst'] = $this->Stone->search_stone_by_type($name);
 //            $this->load->view('stone', $this->data);
 //        }
+
+//        else {
+//            $this->data['showsttype'] = $this->Stock->showstonetype();
+//            $this->data['showsl'] = $this->Salary->showsalary();
+//            $this->data['showst'] = $this->Stock->showstone();
+//            $this->load->view('stone', $this->data);
+//        }
+
         if (isset($_POST['search_from'])){
-
-
 
 
             $from=$this->input->post('get_search_from');
 
             //print_r($from);
-
-
-
-
-
             if ($from == 8){
 
                 $name=$this->input->post('sp_type');
@@ -183,6 +205,7 @@ class Stonec extends CI_Controller{
 
             $this->load->view('stone', $this->data);
         }
+
 
 
 

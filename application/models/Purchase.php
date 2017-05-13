@@ -62,6 +62,12 @@ class Purchase extends CI_Model {
         return $query->result();
     }
 
+    function search_by_price_less($price){
+
+        $query=$this->db->query("SELECT * FROM purchase WHERE `price`<'$price' ORDER BY price ");
+        return $query->result();
+    }
+
     function search_by_paid($paid){
 
         $query=$this->db->query("SELECT * FROM purchase WHERE `paid`>='$paid' ORDER BY paid DESC");

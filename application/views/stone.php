@@ -576,6 +576,7 @@
 
                                     <section id="content1">
 
+
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <form class="form-material material-primary" method="post" action="" >
@@ -584,6 +585,8 @@
                                                             <option value="0" selected  >Search From</option>
                                                             <option  value="1" >Product ID</option>
                                                             <option  value="2" >Price</option>
+
+
                                                             <option  value="3" >Price less then</option>
                                                             <option  value="4" >Price greater then</option>
                                                             <option  value="5" >Stock</option>
@@ -596,10 +599,12 @@
                                                         </div>
 
                                                             <br/>
+
                                                             <div class="form-group row ">
                                                                 <div class="col-md-3" id="seacrchin"style="display: block">
                                                                     <input type="text" class="form-control"  placeholder="Enter here" name="sp_id" id="p_id" >
                                                                 </div>
+
 
                                                             <div class="col-md-3" id="seacrchin1" style="display: none">
                                                                 <select class="form-control" name="sp_type" id="sp_type"  >
@@ -621,19 +626,7 @@
                                                             </div>
 
                                                 </form>
-
-
-
-
-
-
-
-
-
                                                 </div>
-
-
-
                                                     <br>
                                                     <h5 style="text-align: center" class="mb-1">Product List</h5>
                                                     <div class="table table-responsive">

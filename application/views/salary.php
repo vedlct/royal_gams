@@ -316,7 +316,7 @@
                                         <div class="col-md-12">
                                             <form class="form-material material-primary" method="post" action="">
                                                 <div class="form-group row ">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
 
@@ -327,8 +327,8 @@
                                             </form>
                                             <form class="form-material material-primary" method="post" action="">
 
-                                                    <div class="col-md-3">
-                                                        <input type="text" class="form-control"  placeholder="Salary" name="salary" id="salary" >
+                                                    <div class="col-md-2">
+                                                        <input type="text" class="form-control"  placeholder="Salary Greater" name="salary" id="salary" >
                                                     </div>
 
                                                     <div class="col-md-1">
@@ -337,7 +337,18 @@
 
                                             </form>
                                             <form class="form-material material-primary" method="post" action="">
-                                                    <div class="col-md-3">
+
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control"  placeholder="Salary Less" name="salary" id="salary" >
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <button type="submit" class="btn btn-primary"  name="sal_sal_less_search">Search</button>
+                                                </div>
+
+                                            </form>
+                                            <form class="form-material material-primary" method="post" action="">
+                                                    <div class="col-md-2">
                                                         <select class="form-control" name="sp_type" id="sp_type"  >
                                                             <option selected  >Select Type</option>
                                                             <!--            --><?php
@@ -445,6 +456,16 @@
                                     </script>
 
                                     <?php
+                                }
+                                else if(isset($_POST['sal_sal_less_search'])){
+
+                                    ?>
+                                    <script>
+
+                                        document.getElementById("tab2").checked = true;
+                                    </script>
+
+                                <?php
                                 }
                                 else if (isset($_POST['find_salary'])) {?>
 

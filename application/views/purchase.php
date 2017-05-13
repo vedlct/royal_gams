@@ -303,7 +303,7 @@
                                         <div class="col-md-12">
                                             <form class="form-material material-primary" method="post" action="">
                                                 <div class="form-group row ">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-1">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
 
@@ -315,8 +315,8 @@
 
                                             <form class="form-material material-primary" method="post" action="">
 
-                                                    <div class="col-md-2">
-                                                        <input type="text" class="form-control"  placeholder="Price" name="price" id="price" >
+                                                    <div class="col-md-1">
+                                                        <input type="text" class="form-control"  placeholder="Price Greater" name="price" id="price" >
                                                     </div>
 
                                                     <div class="col-md-1">
@@ -327,7 +327,19 @@
 
                                             <form class="form-material material-primary" method="post" action="">
 
-                                                    <div class="col-md-2">
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control"  placeholder="Price Less" name="price" id="price" >
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <button type="submit" class="btn btn-primary"  name="purc_price_less_search">Search</button>
+                                                </div>
+
+                                            </form>
+
+                                            <form class="form-material material-primary" method="post" action="">
+
+                                                    <div class="col-md-1">
                                                         <input type="text" class="form-control"  placeholder="Paid" name="paid" id="paid" >
                                                     </div>
 
