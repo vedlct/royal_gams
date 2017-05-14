@@ -61,10 +61,27 @@ class Login extends CI_Controller
 
     }
 
-    public function change_pass(){
+    public function password_change(){
 
 
-        $this->load->view('password_change');
+        //$this->load->view('password_change');
+       $username= $this->input->post('username');
+        $email=$this->input->post('email');
+       $new_pass= $this->input->post('new_pass');
+        $con_pass=$this->input->post('con_pass');
+        if ($new_pass==$con_pass){
+
+            $this->data['pass_change'] = $this->Loginm->pass_change($username,$email,$con_pass);
+            redirect('Home');
+
+        }else{
+
+            echo "<script>
+                        alert('wrong password and Confirm password does not match' );
+                        window.location=\"/royal_gams/Home\";  
+					
+                    </script>";
+        }
 
     }
 

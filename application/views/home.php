@@ -13,6 +13,50 @@
     <!-- Title -->
     <title>Royal Gems</title>
 
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: -10px;
+            top: 0;
+
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.css">
@@ -30,6 +74,8 @@
 
     <!-- Neptune CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/core.css">
+
+
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -321,9 +367,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right animated fadeInUp">
 
-                            <a class="dropdown-item" href="" ><button data-toggle="modal" data-target="forgot_pass"></button>
-                                <i class="ti-user mr-0-5"></i> Change Password
-                            </a>
+                            <a class="dropdown-item btn" data-toggle="modal" data-target="#forgot_pass" ><i class="ti-user mr-0-5"></i> Change Password</a>
 
                             <div class="dropdown-divider"></div>
 <!--                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>-->
@@ -582,6 +626,9 @@
             </div>
 
         </div>
+
+        <?php $this->load->view('password_change');?>
+
         <script type="text/javascript">
             var text_input = document.getElementById ('p_id');
             text_input.focus ();

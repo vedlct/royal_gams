@@ -19,4 +19,17 @@ class Loginm extends CI_Model
         $query=$this->db->query("SELECT CONCAT(`first_name`,' ', `last_name`) AS name FROM `user` WHERE `id`='$id'");
         return $query->result();
     }
+
+    public function pass_change($username,$email,$con_pass)
+    {
+        $data = array(
+
+            'password' => $con_pass
+
+        );
+
+        $this->db->where('username', $username);
+        $this->db->where('email', $email);
+        $this->db->update('user', $data);
+    }
 }
