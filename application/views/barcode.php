@@ -13,6 +13,8 @@
     <!-- Title -->
     <title>Royal Gems</title>
 
+
+
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.css">
@@ -28,6 +30,8 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
     <!-- Neptune CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/core.css">
 
@@ -39,6 +43,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <![endif]-->
+
+
 
     <style>
 
@@ -148,8 +154,6 @@
         }
     </style>
 
-
-
     <style>
         /* The Modal (background) */
         .modal {
@@ -173,7 +177,7 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 40%;
+            width: 100%;
             border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0,0,0,.5);
         }
@@ -194,6 +198,10 @@
         }
     </style>
 
+
+
+
+
 </head>
 <body class="fixed-sidebar fixed-header skin-default content-appear">
 <div class="wrapper">
@@ -209,61 +217,7 @@
     <!-- Sidebar second -->
 
     <!-- Header -->
-    <div class="site-header">
-        <nav class="navbar navbar-light">
-            <div class="navbar-left">
-                <a class="navbar-brand" href="index.html">
-                    <div class="logo"></div>
-                </a>
-                <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
-                    <span class="hamburger"></span>
-                </div>
-                <div class="toggle-button-second dark float-xs-right hidden-md-up">
-                    <i class="ti-arrow-left"></i>
-                </div>
-                <div class="toggle-button dark float-xs-right hidden-md-up" data-toggle="collapse" data-target="#collapse-1">
-                    <span class="more"></span>
-                </div>
-            </div>
-            <div class="navbar-right navbar-toggleable-sm collapse" id="collapse-1">
-                <div class="toggle-button light sidebar-toggle-second float-xs-left hidden-sm-down">
-                    <span class="hamburger"></span>
-                </div>
-
-                <ul class="nav navbar-nav float-md-right">
-
-                    <li class="nav-item dropdown hidden-sm-down">
-                        <a href="#" data-toggle="dropdown" aria-expanded="false">
-									<span class="avatar box-32">
-										<img src="img/avatars/1.jpg" alt="">
-									</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right animated fadeInUp">
-                            <a class="dropdown-item" href="#">
-                                <i class="ti-email mr-0-5"></i> Inbox
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="ti-user mr-0-5"></i> Profile
-                            </a>
-
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>
-                            <a class="dropdown-item" href="#"><i class="ti-power-off mr-0-5"></i> Sign out</a>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="nav-item hidden-sm-down">
-                        <a class="nav-link toggle-fullscreen" href="#">
-                            <i class="ti-fullscreen"></i>
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </nav>
-    </div>
+    <?php $this->load->view('top_header');?>
 
 
     <div class="site-content">

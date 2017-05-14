@@ -16,13 +16,13 @@
                         <div class="form-group" >
 
                             <label >User Name</label >
-                            <input class="form-control" type="text" name="username" >
+                            <input class="form-control" type="text" name="username" required >
                         </div >
                     </div >
                     <div class="col-md-6 col-sm-6" >
                         <div class="form-group" >
                             <label>Email</label>
-                            <input class="form-control" type="text" name="email" >
+                            <input class="form-control" type="text" name="email" required>
                         </div >
                     </div >
                 </div >
@@ -32,13 +32,13 @@
                         <div class="form-group" >
 
                             <label>New Password</label>
-                            <input class="form-control" type="text" name="new_pass"  >
+                            <input class="form-control" type="text" name="new_pass" required >
                         </div >
                     </div >
                     <div class="col-md-6 col-sm-6" >
                         <div class="form-group">
                             <label>Confirm Password</label>
-                            <input class="form-control" type="text" name="con_pass" >
+                            <input class="form-control" type="text" name="con_pass" required >
                         </div>
                     </div >
                 </div >
