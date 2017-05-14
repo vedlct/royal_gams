@@ -18,4 +18,32 @@ class Typem extends CI_Model {
         return $query->result();
 
     }
+
+    public function edittype($id){
+
+        $query=$this->db->query("SELECT * FROM type WHERE `id`= '$id'");
+        return $query->result();
+    }
+
+    function edit($id){
+
+        $type_name = $this->input->post('t_name');
+
+
+        $data = array(
+
+            'name' => $type_name,
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('type', $data);
+
+    }
+    function delete($id){
+
+        $this->db->where('id', $id);
+        $this->db->delete('type');
+
+
+    }
 }

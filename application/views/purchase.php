@@ -13,6 +13,8 @@
     <!-- Title -->
     <title>Royal Gems</title>
 
+
+
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/themify-icons/themify-icons.css">
@@ -39,6 +41,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <![endif]-->
+
+
 
     <style>
 
@@ -149,7 +153,6 @@
     </style>
 
 
-
     <style>
         /* The Modal (background) */
         .modal {
@@ -193,6 +196,10 @@
             cursor: pointer;
         }
     </style>
+
+
+
+
 
 </head>
 <body class="fixed-sidebar fixed-header skin-default content-appear">
@@ -451,10 +458,12 @@
         // var modal = document.getElementById('myModal');
         var modal2 = document.getElementById('myModal2');
 
+
         // Get the button that opens the modal
         //var btn = document.getElementById("myBtn");
 
         var span = document.getElementsByClassName("close")[0];
+
 
         // When the user clicks the button, open the modal
         // btn = $(x).data('panel-name');
@@ -475,27 +484,7 @@
                 }
 
             });
-
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
-
-
-            modal2.style.display = "block";
+       modal2.style.display = "block";
 
         }
 
@@ -516,6 +505,8 @@
         span.onclick = function() {
             modal2.style.display = "none";
         }
+
+
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {

@@ -60,6 +60,10 @@ class Login extends CI_Controller
         redirect('Login');
 
     }
+    public function chnage_pass(){
+        $this->load->view('password_change');
+
+    }
 
     public function password_change(){
 

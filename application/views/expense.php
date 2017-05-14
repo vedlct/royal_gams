@@ -527,7 +527,7 @@
                                 <label for="tab1">View</label>
 
                                 <input id="tab2" type="radio" name="tabs">
-                                <label for="tab2">Insert Stock</label>
+                                <label for="tab2">Add expense</label>
 
 
 

@@ -520,7 +520,7 @@
                                 <label for="tab1">View</label>
 
                                 <input id="tab2" type="radio" name="tabs">
-                                <label for="tab2">Insert Stock</label>
+                                <label for="tab2">Insert Type</label>
 
 
 
@@ -606,11 +606,7 @@
                                 <span class="close">×</span>
 
                                 <h2>Edit </h2>
-                                <div id="txtHint"><?php
-
-                                    //$this->data['edit'] = $this->data['ev'];
-                                    //$this->load->view('editview', $this->data);
-                                    //$this->load->view('editview'); ?></div>
+                                <div id="txtHint"></div>
 
 
 
@@ -678,7 +674,7 @@
 
             $.ajax({
                 type:'POST',
-                url:'<?php echo base_url("Stockc/showedit/")?>'+btn,
+                url:'<?php echo base_url("Type/edittype/")?>'+btn,
                 data:{'id':btn},
                 cache: false,
                 success:function(data)
@@ -687,26 +683,6 @@
                 }
 
             });
-
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
-
-
             modal2.style.display = "block";
 
         }
@@ -717,7 +693,7 @@
             btn1 = $(x).data('panel-id');
 
             if(confirm("Do you want to delete?")) {
-                window.location="<?php echo base_url()?>Stockc/delete/"+btn1;
+                window.location="<?php echo base_url()?>Type/delete/"+btn1;
             }
 
 

@@ -83,39 +83,30 @@
         </table>
     </div>
 
-    <div id="myModal2" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">×</span>
-
-            <h2>Edit </h2>
-            <div id="txtHint"><?php
-
-                ?></div>
 
 
+</div>
+</div>
+
+<div id="myModal2" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">×</span>
+
+        <h2>Edit </h2>
+        <div id="txtHint"></div>
 
 
-        </div>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        </table>
+
 
     </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    </table>
 
 </div>
-</div>
-<script type="text/javascript">
 
-    var text_input = document.getElementById ('p_id');
-    text_input.focus ();
-    text_input.select ();
-
-</script>
 <script>
-
-    var modal2 = document.getElementById('myModal2');
-    var span = document.getElementsByClassName("close")[0];
 
     function selectid3(x) {
 
@@ -133,14 +124,5 @@
         });
         modal2.style.display = "block";
     }
-        span.onclick = function() {
-            modal2.style.display = "none";
-        }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
-        }
 </script>

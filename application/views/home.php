@@ -36,7 +36,7 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 100%;
+            width: 40%;
             border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0,0,0,.5);
         }
@@ -553,6 +553,29 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="myModal2" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">×</span>
+
+                        <h2>Edit </h2>
+                        <div id="txtHint"><?php
+
+                            //$this->data['edit'] = $this->data['ev'];
+                            //$this->load->view('editview', $this->data);
+                            //$this->load->view('editview'); ?></div>
+
+
+
+
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    </table>
+
+                </div>
+
                 <!-- Footer -->
                 <footer class="footer">
                     <div class="container-fluid">
@@ -749,6 +772,36 @@
                 }
 
             });
+
+        </script>
+
+        <script>
+
+
+            // Get the modal
+            // var modal = document.getElementById('myModal');
+            var modal2 = document.getElementById('myModal2');
+
+            // Get the button that opens the modal
+            //var btn = document.getElementById("myBtn");
+
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            // btn = $(x).data('panel-name');
+
+            span.onclick = function() {
+                modal2.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                }
+            }
+
+
 
         </script>
 

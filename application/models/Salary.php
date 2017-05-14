@@ -174,5 +174,28 @@ class Salary extends CI_Model {
 
 
     }
+
+    function salarycedit($id){
+
+        $name = $this->input->post('name');
+        $degn = $this->input->post('degn');
+        $salary = $this->input->post('salary');
+        $pnumber = $this->input->post('pnumber');
+        $address = $this->input->post('address');
+        $status = $this->input->post('status');
+
+        $data = array(
+            'name' => $name,
+            'desg' => $degn,
+            'salary' => $salary,
+            'phone' => $pnumber,
+            'address' => $address,
+            'status' => $status,
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('salary', $data);
+
+    }
 }
 ?>

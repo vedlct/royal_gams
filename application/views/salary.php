@@ -342,7 +342,7 @@
                                                         <td><?php echo $s->phone ?></td>
                                                         <td><?php echo $s->address ?></td>
                                                         <td><?php echo $s->status ?></td>
-                                                        <td>  <i data-panel-id="<?= $s->id ?>"  onclick="selectid2(this)"  class="fa fa-edit" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<i data-panel-id="<?= $s->id ?>" onclick="selectid(this)"  class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</td>
+                                                        <td>  <i data-panel-id="<?= $s->id ?>"onclick="selectid2(this)"class="fa fa-edit" aria-hidden="true"></i> &nbsp &nbsp<i data-panel-id="<?= $s->id ?>" onclick="selectid(this)"  class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</td>
                                                     </tr>
                                                     <?php
                                                     $count=$count+1;
@@ -426,27 +426,27 @@
                         </div>
 
 
-                        <div id="myModal2" class="modal">
 
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">×</span>
-
-                                <h2>Edit </h2>
-                                <div id="txtHint"><?php
-
-                                   ?></div>
-
-
-
-
-                            </div>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            </table>
-
-                        </div>
 
                     </div>
+
+                <div id="myModal3" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">×</span>
+
+                        <h2>Edit </h2>
+                        <div id="txtHint1"></div>
+
+
+
+
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    </table>
+
+                </div>
 
 
 
@@ -487,11 +487,15 @@
         // Get the modal
         // var modal = document.getElementById('myModal');
         var modal2 = document.getElementById('myModal2');
+        var modal3 = document.getElementById('myModal3');
+
 
         // Get the button that opens the modal
         //var btn = document.getElementById("myBtn");
 
         var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementsByClassName("close")[1];
+
 
         // When the user clicks the button, open the modal
         // btn = $(x).data('panel-name');
@@ -499,7 +503,7 @@
         function selectid2(x) {
 
             btn = $(x).data('panel-id');
-
+            //alert(btn);
 
             $.ajax({
                 type:'POST',
@@ -508,31 +512,12 @@
                 cache: false,
                 success:function(data)
                 {
-                    $('#txtHint').html(data);
+                    $('#txtHint1').html(data);
+                    //alert(data);
                 }
 
             });
-
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
-
-
-            modal2.style.display = "block";
+            modal3.style.display = "block";
 
         }
 
@@ -556,12 +541,19 @@
             modal2.style.display = "none";
         }
 
+        span1.onclick = function() {
+            modal3.style.display = "none";
+        }
+
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-            if (event.target == modal2) {
-                modal2.style.display = "none";
+            if (event.target == modal3) {
+                modal3.style.display = "none";
             }
         }
+
+
+
 
     </script>
 

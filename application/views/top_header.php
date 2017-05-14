@@ -1,9 +1,4 @@
 
-
-
-
-<?php $this->load->view('password_change');?>
-
 <div class="site-header">
     <nav class="navbar navbar-light">
         <div class="navbar-left">
@@ -35,7 +30,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right animated fadeInUp">
 
-                        <a class="dropdown-item btn" data-toggle="modal" data-target="#forgot_pass" ><i class="ti-user mr-0-5"></i> Change Password</a>
+                        <a class="dropdown-item btn" onclick="selectid100(this)" ><i class="ti-user mr-0-5"></i> Change Password</a>
 
                         <div class="dropdown-divider"></div>
                         <!--                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>-->
@@ -57,6 +52,28 @@
 
         </div>
     </nav>
+
+    <script>
+
+        function selectid100(x) {
+
+            //btn = $(x).data('panel-id');
+
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("Login/chnage_pass/")?>',
+                data: {},
+                cache: false,
+                success: function (data) {
+                    $('#txtHint').html(data);
+                }
+
+            });
+            modal2.style.display = "block";
+        }
+
+    </script>
 
 
 </div>

@@ -1,5 +1,5 @@
 <!--    --><?php //echo form_open('stockc/insertstock', 'class="form-material material-primary"'); ?>
-<form class="form-material material-primary" method="post" action="">
+<form class="form-material material-primary" method="post" action="<?php echo base_url()?>Stonec/insert_stone">
     <div class="form-group row ">
         <label  class="col-md-3 col-form-label"  >Stone ID</label>
         <div class="col-md-7">

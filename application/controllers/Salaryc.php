@@ -17,6 +17,8 @@ class Salaryc extends CI_Controller
         if (isset($_POST['salsubmit'])) {
             $this->Salary->insertsalary();
             $this->data['showsl'] = $this->Salary->showsalary();
+            $this->data['showslinc'] = $this->Salary->showsalaryincrement();
+            $this->data['month']=$this->input->post('month');
 
             $this->load->view('salary', $this->data);
         }
@@ -64,20 +66,20 @@ class Salaryc extends CI_Controller
             $this->load->view('salary', $this->data);
         }
 
-        else if (isset($_POST['increment_submit'])) {
-            $increment=$this->input->post('increment');
-            $salid=$this->input->post('sal_id');
-            $salary=$this->input->post('sal_amount');
-            $newsalary = $salary+$increment;
-
-            //print_r($newsalary);
-
-            /*
-            $this->data['showslname'] = $this->Salary->show_salary_by_name();
-            $this->data['showsl'] = $this->Salary->search_by_name($name);
-            $this->load->view('salary', $this->data);
-            */
-        }
+//        else if (isset($_POST['increment_submit'])) {
+//            $increment=$this->input->post('increment');
+//            $salid=$this->input->post('sal_id');
+//            $salary=$this->input->post('sal_amount');
+//            $newsalary = $salary+$increment;
+//
+//            //print_r($newsalary);
+//
+//            /*
+//            $this->data['showslname'] = $this->Salary->show_salary_by_name();
+//            $this->data['showsl'] = $this->Salary->search_by_name($name);
+//            $this->load->view('salary', $this->data);
+//            */
+//        }
 
         else if (isset($_POST['find_salary'])) {
             $this->data['month']=$this->input->post('month');
@@ -178,6 +180,7 @@ class Salaryc extends CI_Controller
 
         $this->data['edit'] = $this->Salary->editsalary($id);
         $this->load->view('add_increment',$this->data);
+
     }
 
     public function add_increment($id)
@@ -191,67 +194,20 @@ class Salaryc extends CI_Controller
     {
 
         $id = $this->input->post('id');
-        $this->load->model('Salary');
-
+//        $this->load->model('Salary');
+//
         $this->data['edit'] = $this->Salary->editsalary($id);
         $this->load->view('edit_salary',$this->data);
 
-        /*
-        foreach ($this->data['edit'] as $e) {
-            echo "<form class=\"form-material material-primary\" method=\"post\" action=\"<?php base_url()?>Salaryc\edit\">
-    <div class=\"form-group row \">
-        <label  class=\"col-md-3 col-form-label\"  >Name</label>
-        <div class=\"col-md-7\">
-            <input type=\"text\" class=\"form-control\"  placeholder=\"Name\" name=\"name\" id=\"p_id\"  value=\" $e->name \">
-        </div>
-    </div>
-    <div class=\"form-group row \">
-        <label  class=\"col-md-3 col-form-label\"  >Designation</label>
-        <div class=\"col-md-7\">
-            <input type=\"text\" class=\"form-control\"  placeholder=\"Designation\" name=\"degn\"  value=\" $e->desg\">
-        </div>
-    </div>
-    <div class=\"form-group row \">
-        <label  class=\"col-md-3 col-form-label\"  >Salary</label>
-        <div class=\"col-md-7\">
-            <input type=\"text\" class=\"form-control\"  placeholder=\"Salary\" name=\"salary\" id=\"p_id\" value=\"  $e->salary \">
-        </div>
-    </div>
-    <div class=\"form-group row \">
-        <label  class=\"col-md-3 col-form-label\"  >Phone Number</label>
-        <div class=\"col-md-7\">
-            <input type=\"text\" class=\"form-control\"  placeholder=\"Phone Number\" name=\"pnumber\"  value=\" $e->phone \">
-        </div>
-    </div>
 
-    <div class=\"form-group row \">
-        <label  class=\"col-md-3 col-form-label\"  >Address</label>
-        <div class=\"col-md-7\">
-            <input type=\"text\" class=\"form-control\"  placeholder=\"Address\" name=\"address\" value=\" $e->address \">
-        </div>
-    </div>
-    <div class=\"form-group row \" >
-        <label  class=\"col-md-3 col-form-label\" >Status</label >
-        <div class=\"col-md-7\" >
-            <select name=\"status\">
-                <option value=\"$e->status\">$e->status</option>
-                <option value=\"Active\">Active</option>
-                <option value=\"Inactive\">Inactive</option>
+    }
 
-            </select>
-        </div>
-    </div>
-  
-    <br>
-    <div class=\"form-group row\">
-        <div class=\"col-md-2\"></div>
-        <div class=\" col-md-10\">
-            <button type=\"submit\" class=\"btn btn-primary\"  name=\"salsubmit\">Submit</button>
+    function salarycedit($id)
+    {
 
-        </div>
-    </div>
-</form>";
-        */
+
+        $this->data['edit'] = $this->Salary->salarycedit($id);
+        redirect('Salaryc');
 
 
     }

@@ -1,4 +1,4 @@
-<style></style>
+
 <form class="form-material material-primary" method="post" action="<?php base_url()?>Salaryc">
     <div class="form-group row ">
         <label  class="col-md-3 col-form-label"  >Name</label>

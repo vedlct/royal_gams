@@ -177,7 +177,7 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 100%;
+            width: 40%;
             border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0,0,0,.5);
         }
@@ -310,6 +310,19 @@
 
 
             </div>
+
+                <div id="myModal2" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">×</span>
+
+                        <h2>Edit </h2>
+                        <div id="txtHint"></div>
+
+                    </div>
+
+
         </div>
         <!-- Footer -->
         <footer class="footer">
@@ -372,23 +385,6 @@
 
         });
 
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
 
 
         modal2.style.display = "block";

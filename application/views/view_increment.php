@@ -123,7 +123,7 @@
         modal2.style.display = "block";
     }
         span.onclick = function() {
-            modal2.style.display = "none";
+            modal5.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it

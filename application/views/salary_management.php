@@ -9,7 +9,7 @@
 
                 <label for="date">Select Month</label>
                 <input type="text" class="form-control docs-date" id="month" name="month" placeholder="Pick a date">
-                <input type="text" class="form-control docs-date" id="month1" name="month1" placeholder="Pick a date" value="<?php $month=$this->data['month']; echo $month;?>">
+                <input type="hidden" class="form-control docs-date" id="month1" name="month1" placeholder="Pick a date" value="<?php $month=$this->data['month']; echo $month;?>">
             </div >
         </div>
 

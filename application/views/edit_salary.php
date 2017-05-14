@@ -1,5 +1,5 @@
 <?php foreach ($this->data['edit'] as $e) {?>
-<form class="form-material material-primary" method="post" action="<?php base_url()?>Salarycedit">
+<form class="form-material material-primary" method="post" action="<?php echo base_url()?>Salaryc/salarycedit/<?php echo $e->id ?>">
 <div class="form-group row ">
 <label  class="col-md-3 col-form-label"  >Name</label>
 <div class="col-md-7">
@@ -48,7 +48,9 @@
 <div class="col-md-2"></div>
 <div class=" col-md-10">
 <button type="submit" class="btn btn-primary"  name="salsubmit">Submit</button>
+
+</div>
+</div>
+</form>
+
 <?php } ?>
-</div>
-</div>
-</form>"

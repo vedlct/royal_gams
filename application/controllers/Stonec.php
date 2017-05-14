@@ -213,7 +213,7 @@ class Stonec extends CI_Controller{
 
     public function insert_stone()
     {
-        $this->Stock->insert_stone();
+        $this->Stone->insert_stone();
         redirect('Stonec');
     }
 
