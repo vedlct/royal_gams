@@ -814,10 +814,10 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.resize.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/CurvedLines/curvedLines.js"></script>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
@@ -829,13 +829,9 @@
         <!-- Neptune JS -->
         <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
-        <!-- Auto Complete-->
-        <!-- Autocomplete-->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="<?php echo base_url(); ?>js/jquery.js"></script>
-        <script src="<?php echo base_url(); ?>js/jqueryui.js"></script>
+
 
 
 

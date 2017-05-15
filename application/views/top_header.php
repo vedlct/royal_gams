@@ -24,7 +24,7 @@
                 <li class="nav-item dropdown hidden-sm-down">
                     <a href="#" data-toggle="dropdown" aria-expanded="false">
 									<span class="avatar box-32">
-										<img src="img/avatars/1.jpg" alt="">
+										<img src="<?php echo base_url()?>img/avatars/1_2.jpg" alt="">
 									</span>
                     </a>
 

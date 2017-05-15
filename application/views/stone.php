@@ -809,9 +809,9 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
 
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.resize.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/CurvedLines/curvedLines.js"></script>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
@@ -824,7 +824,7 @@
 
         <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
 
 

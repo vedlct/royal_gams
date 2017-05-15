@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
     <!-- ti icon-->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Neptune CSS -->
@@ -837,7 +837,9 @@
 
 
     <!-- Vendor JS -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/jquery/jquery-1.12.3.min.js"></script>-->
+    <script type="text/javascript" src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
+
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/tether/js/tether.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/bootstrap4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/detectmobilebrowser/detectmobilebrowser.js"></script>
@@ -847,10 +849,10 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.min.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.resize.min.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>-->
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/CurvedLines/curvedLines.js"></script>-->
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
@@ -862,11 +864,11 @@
     <!-- Neptune JS -->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
+<!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
     <!-- date picker  -->
 
-    <script src="<?php echo base_url()?>js/jquery-1.12.4.js"></script>
+<!--    <script src="--><?php //echo base_url()?><!--js/jquery-1.12.4.js"></script>-->
     <script src="<?php echo base_url()?>js/datepicker.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>
 

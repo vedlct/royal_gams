@@ -2,7 +2,7 @@
     <div class="custom-scroll custom-scroll-light">
         <ul class="sidebar-menu">
             <li class="menu-title">Main</li>
-            <li class="with-sub">
+            <li >
                 <a href="<?php base_url()?>Home" class="waves-effect  waves-light">
                     <span class=""></span>
                     <span class="s-icon"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -24,7 +24,7 @@
                 </a>
             </li>
 
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Purchasec" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
@@ -33,7 +33,7 @@
 
             </li>
 
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Salaryc" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
@@ -42,7 +42,7 @@
 
             </li>
 
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Type" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="fa fa-clone" aria-hidden="true"></i></span>
@@ -50,7 +50,7 @@
                 </a>
 
             </li>
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Expense" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
@@ -59,7 +59,7 @@
 
             </li>
 
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Report" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="ti-stats-up" aria-hidden="true"></i></span>
@@ -67,7 +67,7 @@
                 </a>
 
             </li>
-            <li class="with-sub">
+            <li >
                 <a href="<?php echo base_url()?>Barcode" class="waves-effect  waves-light">
                     <span class="s-caret"></span>
                     <span class="s-icon"><i class="fa fa-barcode" aria-hidden="true"></i></span>

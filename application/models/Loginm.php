@@ -20,6 +20,13 @@ class Loginm extends CI_Model
         return $query->result();
     }
 
+    public function get_user($u_id)
+    {
+        $query=$this->db->query("SELECT * FROM `user` WHERE `id`='$u_id'");
+        return $query->result();
+
+    }
+
     public function pass_change($username,$email,$con_pass)
     {
         $data = array(

@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
     <!-- ti icon-->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Neptune CSS -->
@@ -127,7 +127,7 @@
                         <div class="float-xs-right">
                             <strong>Jonathan Mel</strong>
                             <div class="avatar box-32">
-                                <img src="img/avatars/5.jpg" alt="">
+                                <img src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                 <span class="status bg-success top right"></span>
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <div class="avatar box-48">
-                                        <img class="b-a-radius-circle" src="img/avatars/1.jpg" alt="">
+                                        <img class="b-a-radius-circle" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         <span class="n-icon bg-danger"><i class="ti-pin-alt"></i></span>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <div class="avatar box-48">
-                                        <img class="b-a-radius-circle" src="img/avatars/3.jpg" alt="">
+                                        <img class="b-a-radius-circle" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         <span class="n-icon bg-success"><i class="ti-comment"></i></span>
                                     </div>
                                 </div>
@@ -191,7 +191,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <div class="avatar box-48">
-                                        <img class="b-a-radius-circle" src="img/avatars/2.jpg" alt="">
+                                        <img class="b-a-radius-circle" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         <span class="n-icon bg-danger"><i class="ti-email"></i></span>
                                     </div>
                                 </div>
@@ -199,13 +199,13 @@
                                     <div class="n-text"><a class="text-black" href="#">Ron Carran</a> <span class="text-muted">send you files</span></div>
                                     <div class="row row-sm my-0-5">
                                         <div class="col-xs-4">
-                                            <img class="img-fluid" src="img/photos-1/1.jpg" alt="">
+                                            <img class="img-fluid" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-fluid" src="img/photos-1/2.jpg" alt="">
+                                            <img class="img-fluid" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         </div>
                                         <div class="col-xs-4">
-                                            <img class="img-fluid" src="img/photos-1/3.jpg" alt="">
+                                            <img class="img-fluid" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         </div>
                                     </div>
                                     <div class="text-muted font-90">30 minutes ago</div>
@@ -216,7 +216,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <div class="avatar box-48">
-                                        <img class="b-a-radius-circle" src="img/avatars/4.jpg" alt="">
+                                        <img class="b-a-radius-circle" src="<?php echo base_url()?>img/avatars/royal.png" alt="">
                                         <span class="n-icon bg-primary"><i class="ti-plus"></i></span>
                                     </div>
                                 </div>
@@ -615,10 +615,10 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/waves/waves.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/switchery/dist/switchery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.resize.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>vendor/CurvedLines/curvedLines.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot/jquery.flot.resize.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>-->
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--vendor/CurvedLines/curvedLines.js"></script>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/TinyColor/tinycolor.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/sparkline/jquery.sparkline.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/raphael/raphael.min.js"></script>
@@ -630,7 +630,7 @@
         <!-- Neptune JS -->
         <script type="text/javascript" src="<?php echo base_url(); ?>js/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/index.js"></script>
+<!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
 
 

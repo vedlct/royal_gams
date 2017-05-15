@@ -93,10 +93,12 @@ class Salaryc extends CI_Controller
                 $this->data['month']=$month;
                 $this->data['year']=$year;
                 $this->data['showsl'] = $this->Salary->showsalary();
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
                 $this->load->view('salary', $this->data);
 
             }
             else{
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
                 $this->data['showsl'] = $this->Salary->showsalary();
                 $this->load->view('salary', $this->data);
 

@@ -73,17 +73,41 @@ class Login extends CI_Controller
         $email=$this->input->post('email');
        $new_pass= $this->input->post('new_pass');
         $con_pass=$this->input->post('con_pass');
-        if ($new_pass==$con_pass){
 
-            $this->data['pass_change'] = $this->Loginm->pass_change($username,$email,$con_pass);
-            redirect('Home');
 
+        $u_id=$this->session->userdata('id');
+        $this->data['user']= $this->Loginm->get_user($u_id);
+
+       // print_r($this->data['user']);
+        foreach ($this->data['user'] as $r){$u_name=$r->username;$u_email=$r->email;
+
+
+        }
+
+
+
+        if ($u_name==$username && $u_email==$email) {
+
+
+            if ($new_pass == $con_pass) {
+
+                $this->data['pass_change'] = $this->Loginm->pass_change($username, $email, $con_pass);
+                redirect('Home');
+
+            } else {
+
+                echo "<script>
+                        alert('wrong password and Confirm password does not match' );
+                        window.location=\"/royal_gams/Home\";
+
+                    </script>";
+            }
         }else{
 
             echo "<script>
-                        alert('wrong password and Confirm password does not match' );
-                        window.location=\"/royal_gams/Home\";  
-					
+                        alert('wrong Username or Email' );
+                        window.location=\"/royal_gams/Home\";
+
                     </script>";
         }
 
