@@ -350,8 +350,8 @@
                             <div class="t-content">
                                 <h6 class="text-uppercase mb-1">Other Expense</h6>
                                 <h1 class="mb-1"><span id="other_expense"></h1>
-                                <span class="tag tag-danger mr-0-5">+17%</span>
-                                <span class="text-muted font-90">from previous period</span>
+<!--                                <span class="tag tag-danger mr-0-5">+17%</span>-->
+<!--                                <span class="text-muted font-90">from previous period<-->
                             </div>
                         </div>
                     </div>
@@ -371,8 +371,8 @@
                             <div class="t-content">
                                 <h6 class="text-uppercase mb-1">BUY</h6>
                                 <h1 class="mb-1"><span id="todaybuy"></h1>
-                                <span class="tag tag-primary mr-0-5">+125</span>
-                                <span class="text-muted font-90">arraving today</span>
+<!--                                <span class="tag tag-primary mr-0-5">+125</span>-->
+<!--                                <span class="text-muted font-90">arraving today</span>-->
                             </div>
                         </div>
                     </div>

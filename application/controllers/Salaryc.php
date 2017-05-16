@@ -29,6 +29,8 @@ class Salaryc extends CI_Controller
                 //$this->data['showsl'] = $this->Salary->showsalary();
                 $this->data['showslname'] = $this->Salary->show_salary_by_name();
                 $this->data['showsl'] = $this->Salary->search_by_id($id);
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
+                $this->data['month'] = $this->input->post('month');
                 $this->load->view('salary', $this->data);
             } else if (isset($_POST['sal_sal_search'])) {
                 $salary = $this->input->post('salary');
@@ -38,7 +40,8 @@ class Salaryc extends CI_Controller
 
                 $this->data['showslname'] = $this->Salary->show_salary_by_name();
                 $this->data['showsl'] = $this->Salary->search_by_salary($salary);
-//
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
+                $this->data['month'] = $this->input->post('month');
                 $this->load->view('salary', $this->data);
             } else if (isset($_POST['sal_sal_less_search'])) {
                 $salary = $this->input->post('salary');
@@ -48,6 +51,8 @@ class Salaryc extends CI_Controller
 
                 $this->data['showslname'] = $this->Salary->show_salary_by_name();
                 $this->data['showsl'] = $this->Salary->search_by_salary_less($salary);
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
+                $this->data['month'] = $this->input->post('month');
 //
                 $this->load->view('salary', $this->data);
             } else if (isset($_POST['sal_name_search'])) {
@@ -57,6 +62,8 @@ class Salaryc extends CI_Controller
                 //$this->data['showsl'] = $this->Salary->showsalary();
                 $this->data['showslname'] = $this->Salary->show_salary_by_name();
                 $this->data['showsl'] = $this->Salary->search_by_name($name);
+                $this->data['showslinc'] = $this->Salary->showsalaryincrement();
+                $this->data['month'] = $this->input->post('month');
                 $this->load->view('salary', $this->data);
             }
 

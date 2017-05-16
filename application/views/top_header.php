@@ -2,8 +2,8 @@
 <div class="site-header">
     <nav class="navbar navbar-light">
         <div class="navbar-left">
-            <a class="navbar-brand" href="index.html">
-                <div class="logo"> </div>
+            <a class="navbar-brand" >
+                <div class="logo" style="color:white ">Royal Gems </div>
             </a>
             <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
                 <span class="hamburger"></span>

@@ -447,7 +447,7 @@ a:active {
   width: 100px;
   height: 20px;
 
-  background: url(../img/royal.png) no-repeat;
+  /*background: url(../img/RoyalGems.png) no-repeat;*/
 }
 
 @media (min-width: 768px) {
