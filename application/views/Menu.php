@@ -1,7 +1,7 @@
 <div class="site-sidebar">
     <div class="custom-scroll custom-scroll-light">
         <ul class="sidebar-menu">
-            <li class="menu-title">Main</li>
+<!--            <li class="menu-title">Main</li>-->
             <li >
                 <a href="<?php base_url()?>Home" class="waves-effect  waves-light">
                     <span class=""></span>

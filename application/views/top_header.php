@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light">
         <div class="navbar-left">
             <a class="navbar-brand" >
-                <div class="logo" style="color:white ">Royal Gems </div>
+                <div class="logo" style="color:white ;text-align: center" >Royal Gems </div>
             </a>
             <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
                 <span class="hamburger"></span>

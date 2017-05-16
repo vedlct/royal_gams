@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>Login/Logout animation concept</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width" />
 
 
 
 
-
+    <link rel="stylesheet" href="<?php echo base_url(); ?>vendor/bootstrap4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
 
@@ -20,6 +22,17 @@
     <link rel="stylesheet" href="<?php echo base_url()?>css/animate.css">
 
 
+    <style>
+        .logoimg{
+            height: 219px;width: 320px;
+        }
+        @media screen and (max-width: 415px) {
+            .logoimg {
+                height: 219px;
+                width: 250px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -31,7 +44,7 @@
 
         <div class="demo animated zoomIn">
             <div class="login" style="height: 100%" >
-                <div class="" style="padding: 25px; padding-top: 20px; margin-top: -70px"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><img src="<?php echo base_url()?>img/logo.png"></div>
+                <div ><img class="logoimg"  src="<?php echo base_url()?>img/logo.png" ></div>
                 <div class="login__form ">
 
                     <form method="post" action="<?php echo base_url()?>Login/check_user"" >

@@ -88,23 +88,7 @@
 </div>
 </div>
 
-<div id="myModal2" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">×</span>
-
-        <h2>Edit </h2>
-        <div id="txtHint"></div>
-
-
-
-
-    </div>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    </table>
-
-</div>
 
 <script>
 
