@@ -4,23 +4,32 @@ class Barcode extends CI_Controller
 {
     public function index()
     {
+        if ($this->session->userdata('type') == "Admin") {
+            $this->load->view('barcode');
+        }
+        else {
 
-        $this->load->view('barcode');
+            redirect('Login');
+        }
     }
 
     public function printbarcode()
     {
+        if ($this->session->userdata('type') == "Admin") {
+            $this->data['pid'] = $this->input->post('pid');
+            $this->data['sfrom'] = $this->input->post('sfrom');
+            $this->data['sto'] = $this->input->post('sto');
+            $this->data['heightt'] = $this->input->post('heightt');
+            $this->data['widthh'] = $this->input->post('widthh');
 
-        $this->data['pid']=$this->input->post('pid');
-        $this->data['sfrom']=$this->input->post('sfrom');
-        $this->data['sto']=$this->input->post('sto');
-        $this->data['heightt']=$this->input->post('heightt');
-        $this->data['widthh']=$this->input->post('widthh');
 
+            $this->load->view('barcodeprint', $this->data);
 
+        }
+        else {
 
-        $this->load->view('barcodeprint', $this->data);
-
+            redirect('Login');
+        }
     }
 }
 ?>
