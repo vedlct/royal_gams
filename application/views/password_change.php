@@ -21,8 +21,8 @@
                 </div >
                 <div class="col-md-6 col-sm-6" >
                     <div class="form-group" >
-                        <label>Email</label>
-                        <input class="form-control" type="text" name="email" required>
+                        <label>Old Password</label>
+                        <input class="form-control" type="password" name="old_password" required>
                     </div >
                 </div >
             </div >
@@ -32,13 +32,13 @@
                     <div class="form-group" >
 
                         <label>New Password</label>
-                        <input class="form-control" type="text" name="new_pass" required >
+                        <input class="form-control" type="password" name="new_pass" required >
                     </div >
                 </div >
                 <div class="col-md-6 col-sm-6" >
                     <div class="form-group">
                         <label>Confirm Password</label>
-                        <input class="form-control" type="text" name="con_pass" required >
+                        <input class="form-control" type="password" name="con_pass" required >
                     </div>
                 </div >
             </div >

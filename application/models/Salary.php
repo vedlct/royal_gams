@@ -94,7 +94,7 @@ class Salary extends CI_Model {
 
     function search_by_salary_less($salary){
 
-        $query=$this->db->query("SELECT * FROM salary WHERE `salary` < '$salary'");
+        $query=$this->db->query("SELECT * FROM salary WHERE `salary` <= '$salary'");
         return $query->result();
     }
 

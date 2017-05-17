@@ -281,8 +281,8 @@
                                                 <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 30px; padding: 0px 0px; float: left" value="+">
 
-                                            </div>
-                                            <?php echo "Price: " .  $items['price']*$items['qty'] . "<br>";?>
+                                            </div><br>
+                                            <?php echo "Price: " ."    ".  $items['price']*$items['qty'] . "<br>";?>
 
                                         </div>
                                         <br> <?php
@@ -302,7 +302,8 @@
                                         <!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
                                     <?php $total = $total+$items['subtotal'];}if($this->cart->contents()==null){ }else{
                                         $rows = "count: " . count($this->cart->contents());
-                                        echo $rows . "<br>";?>
+//                                        echo $rows . "<br>";
+                                        ?>
 
                                         <b>Total :  <?php echo $total;?><br></b>
 

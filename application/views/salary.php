@@ -285,7 +285,7 @@
                                             <form class="form-material material-primary" method="post" action="">
 
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control"  placeholder="Salary Less" name="salary" id="salary" >
+                                                    <input type="text" class="form-control"  placeholder="Salary Less or Equal" name="salary" id="salary" >
                                                 </div>
 
                                                 <div class="col-md-1">

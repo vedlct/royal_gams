@@ -58,7 +58,7 @@ class Purchase extends CI_Model {
 
     function search_by_price($price){
 
-        $query=$this->db->query("SELECT * FROM purchase WHERE `price`>'$price' ORDER BY price ");
+        $query=$this->db->query("SELECT * FROM purchase WHERE `price`>='$price' ORDER BY price ");
         return $query->result();
     }
 

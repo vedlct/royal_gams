@@ -27,7 +27,7 @@ class Loginm extends CI_Model
 
     }
 
-    public function pass_change($username,$email,$con_pass)
+    public function pass_change($username,$con_pass)
     {
         $data = array(
 
@@ -36,7 +36,7 @@ class Loginm extends CI_Model
         );
 
         $this->db->where('username', $username);
-        $this->db->where('email', $email);
+
         $this->db->update('user', $data);
     }
 }

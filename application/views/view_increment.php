@@ -1,45 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <form class="form-material material-primary" method="post" action="">
-            <div class="form-group row ">
-                <div class="col-md-3">
-                    <input type="text" class="form-control"  placeholder="Employee ID" name="sp_id" id="p_id" >
-                </div>
 
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary"  name="sal_id_search">Search</button>
-                </div>
-
-        </form>
-        <form class="form-material material-primary" method="post" action="">
-
-            <div class="col-md-3">
-                <input type="text" class="form-control"  placeholder="Salary" name="salary" id="salary" >
-            </div>
-
-            <div class="col-md-1">
-                <button type="submit" class="btn btn-primary"  name="sal_sal_search">Search</button>
-            </div>
-
-        </form>
-        <form class="form-material material-primary" method="post" action="">
-            <div class="col-md-3">
-                <select class="form-control" name="sp_type" id="sp_type"  >
-                    <option selected  >Select Name</option>
-                    <!--            --><?php
-                    foreach ($showslname as $st)
-                    {
-                        echo "<option  value='" . $st->name . "'>" . $st->name . "</option>";
-                    }
-                    ?>
-
-                </select>
-            </div>
-            <div class="col-md-1">
-                <button type="submit" class="btn btn-primary"  name="sal_name_search">Search</button>
-            </div>
-    </div>
-    </form>
 
     <br>
     <h5 class="mb-1">Employee List</h5>

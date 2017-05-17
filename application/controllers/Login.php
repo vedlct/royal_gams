@@ -70,7 +70,7 @@ class Login extends CI_Controller
 
         //$this->load->view('password_change');
        $username= $this->input->post('username');
-        $email=$this->input->post('email');
+        $old_pass=$this->input->post('old_password');
        $new_pass= $this->input->post('new_pass');
         $con_pass=$this->input->post('con_pass');
 
@@ -79,25 +79,25 @@ class Login extends CI_Controller
         $this->data['user']= $this->Loginm->get_user($u_id);
 
        // print_r($this->data['user']);
-        foreach ($this->data['user'] as $r){$u_name=$r->username;$u_email=$r->email;
+        foreach ($this->data['user'] as $r){$u_name=$r->username;$u_email=$r->email;$old_password=$r->password;
 
 
         }
 
 
 
-        if ($u_name==$username && $u_email==$email) {
+        if ($u_name==$username && $old_pass==$old_password) {
 
 
             if ($new_pass == $con_pass) {
 
-                $this->data['pass_change'] = $this->Loginm->pass_change($username, $email, $con_pass);
+                $this->data['pass_change'] = $this->Loginm->pass_change($username, $con_pass);
                 redirect('Home');
 
             } else {
 
                 echo "<script>
-                        alert('wrong password and Confirm password does not match' );
+                        alert('Password and Confirm password does not match' );
                         window.location=\"/royal_gams/Home\";
 
                     </script>";
@@ -105,7 +105,7 @@ class Login extends CI_Controller
         }else{
 
             echo "<script>
-                        alert('wrong Username or Email' );
+                        alert('Wrong Username or Old Password' );
                         window.location=\"/royal_gams/Home\";
 
                     </script>";

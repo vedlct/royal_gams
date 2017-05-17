@@ -268,8 +268,8 @@
 
                                             <form class="form-material material-primary" method="post" action="">
 
-                                                    <div class="col-md-1">
-                                                        <input type="text" class="form-control"  placeholder="Price Greater" name="price" id="price" >
+                                                    <div class="col-md-2">
+                                                        <input type="text" class="form-control"  placeholder="Price Greater or Equal" name="price" id="price" >
                                                     </div>
 
                                                     <div class="col-md-1">
@@ -307,7 +307,7 @@
 
                                                     <div class="col-md-2">
                                                         <select class="form-control" name="sp_type" id="sp_type"  >
-                                                            <option selected  >Select Type</option>
+                                                            <option selected  >Select Name</option>
                                                             <!--            --><?php
                                                             foreach ($showpdtype as $st)
                                                             {

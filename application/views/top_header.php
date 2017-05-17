@@ -30,7 +30,9 @@
 
                     <div class="dropdown-menu dropdown-menu-right animated fadeInUp">
 
-                        <a class="dropdown-item btn" onclick="selectid100(this)" ><i class="ti-user mr-0-5"></i> Change Password</a>
+                        <a class="dropdown-item btn" onclick="selectid101(this)" ><i class="ti-user mr-0-5"></i> Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item btn" onclick="selectid100(this)" ><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
 
                         <div class="dropdown-divider"></div>
                         <!--                            <a class="dropdown-item" href="#"><i class="ti-help mr-0-5"></i> Help</a>-->
@@ -63,6 +65,24 @@
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url("Login/chnage_pass/")?>',
+                data: {},
+                cache: false,
+                success: function (data) {
+                    $('#txtHint').html(data);
+                }
+
+            });
+            modal2.style.display = "block";
+        }
+
+        function selectid101(x) {
+
+            //btn = $(x).data('panel-id');
+
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("Profile/show/")?>',
                 data: {},
                 cache: false,
                 success: function (data) {
