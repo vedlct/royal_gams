@@ -509,14 +509,7 @@
 
         </script>
 
-<!--<script>-->
-<!--    //autocomplete-->
-<!--    $(function(){-->
-<!--        $("#p_id").autocomplete({-->
-<!--            source: "--><?php //echo site_url('Stockc/get_products_autocomplete');?>//" // path to the get_birds method
-//        });
-//    });
-//</script>
+
 
 
 
