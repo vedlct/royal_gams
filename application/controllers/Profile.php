@@ -17,7 +17,8 @@ class Profile extends CI_Controller
 
     public function show()
     {
-        $this->data['userinfo'] = $this->Userm->show();
+        $id=$this->session->userdata('id');
+        $this->data['userinfo'] = $this->Userm->show_profile($id);
         $this->load->view('profile',$this->data);
     }
 

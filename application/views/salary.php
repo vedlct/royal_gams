@@ -460,10 +460,6 @@
 
                         <h2>Edit </h2>
                         <div id="txtHint"></div>
-
-
-
-
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     </table>
@@ -551,14 +547,14 @@
     // Get the modal
     // var modal = document.getElementById('myModal');
     var modal2 = document.getElementById('myModal2');
-    var modal3 = document.getElementById('myModal3');
+    //var modal3 = document.getElementById('myModal3');
 
 
     // Get the button that opens the modal
     //var btn = document.getElementById("myBtn");
 
-    var span = document.getElementsByClassName("close")[0];
-    var span1 = document.getElementsByClassName("close")[1];
+    var span = document.getElementsByClassName("close")[1];
+   // var span1 = document.getElementsByClassName("close")[1];
 
 
     // When the user clicks the button, open the modal
@@ -576,12 +572,12 @@
             cache: false,
             success:function(data)
             {
-                $('#txtHint1').html(data);
+                $('#txtHint').html(data);
                 //alert(data);
             }
 
         });
-        modal3.style.display = "block";
+        modal2.style.display = "block";
 
     }
 
@@ -605,16 +601,16 @@
         modal2.style.display = "none";
     }
 
-    span1.onclick = function() {
-        modal3.style.display = "none";
-    }
+//    span1.onclick = function() {
+//        modal3.style.display = "none";
+//    }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal3) {
-            modal3.style.display = "none";
-        }
-    }
+//    window.onclick = function(event) {
+//        if (event.target == modal3) {
+//            modal3.style.display = "none";
+//        }
+//    }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {

@@ -9,6 +9,12 @@ class Userm extends CI_Model
         return $query->result();
     }
 
+    function show_profile($id)
+    {
+        $query=$this->db->query("SELECT * FROM `user` WHERE `id`='$id'");
+        return $query->result();
+    }
+
     function edit($id)
     {
         $username = $this->input->post('username');
