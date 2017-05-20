@@ -22,7 +22,7 @@ class Purchase extends CI_Model {
             'due' => $due,
             'date' => $date,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('purchase',$data);
     }
 
@@ -95,7 +95,7 @@ class Purchase extends CI_Model {
             'due' => $due,
             'date' => $date,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('purchase', $data);
 

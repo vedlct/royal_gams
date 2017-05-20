@@ -19,7 +19,7 @@ class Salary extends CI_Model {
             'address' => $address,
             'status' => $status,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('salary',$data);
     }
 
@@ -57,7 +57,7 @@ class Salary extends CI_Model {
             );
 
         }
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('salary_paid',$data);
     }
 
@@ -126,7 +126,7 @@ class Salary extends CI_Model {
             'price' => $price,
             'amount' => $amount,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('stock', $data);
 
@@ -149,9 +149,10 @@ class Salary extends CI_Model {
             'previous_salary' => $salary,
             'current_salary' => $newsalary
         );
-
+        $incdata = $this->security->xss_clean($incdata);
         $this->db->insert('increment',$incdata);
 
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('salary', $data);
 
@@ -192,7 +193,7 @@ class Salary extends CI_Model {
             'address' => $address,
             'status' => $status,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('salary', $data);
 

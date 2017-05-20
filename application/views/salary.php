@@ -267,6 +267,7 @@
                                                     </div>
 
                                                     <div class="col-md-1">
+                                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="sal_id_search">Search</button>
                                                     </div>
 
@@ -278,6 +279,7 @@
                                                     </div>
 
                                                     <div class="col-md-1">
+                                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="sal_sal_search">Search</button>
                                                     </div>
 
@@ -289,6 +291,7 @@
                                                 </div>
 
                                                 <div class="col-md-1">
+                                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                     <button type="submit" class="btn btn-primary"  name="sal_sal_less_search">Search</button>
                                                 </div>
 
@@ -307,6 +310,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-1">
+                                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="sal_name_search">Search</button>
                                                     </div>
                                                 </div>
@@ -499,88 +503,7 @@
     </script>
 
 
-    <script>
 
-
-        // Get the modal
-        // var modal = document.getElementById('myModal');
-        var modal2 = document.getElementById('myModal2');
-        var modal3 = document.getElementById('myModal3');
-
-
-        // Get the button that opens the modal
-        //var btn = document.getElementById("myBtn");
-
-        var span = document.getElementsByClassName("close")[0];
-        var span1 = document.getElementsByClassName("close")[1];
-
-
-        // When the user clicks the button, open the modal
-        // btn = $(x).data('panel-name');
-
-        function selectid2(x) {
-
-            btn = $(x).data('panel-id');
-            //alert(btn);
-
-            $.ajax({
-                type:'POST',
-                url:'<?php echo base_url("Salaryc/showedit/")?>'+btn,
-                data:{'id':btn},
-                cache: false,
-                success:function(data)
-                {
-                    $('#txtHint1').html(data);
-                    //alert(data);
-                }
-
-            });
-            modal3.style.display = "block";
-
-        }
-
-
-
-
-        function selectid(x) {
-
-            btn1 = $(x).data('panel-id');
-
-            if(confirm("Do you want to delete?")) {
-                window.location="<?php echo base_url()?>Salaryc/delete/"+btn1;
-            }
-
-
-
-        }
-
-
-        span.onclick = function() {
-            modal2.style.display = "none";
-        }
-
-        span1.onclick = function() {
-            modal3.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal3) {
-                modal3.style.display = "none";
-            }
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
-        }
-
-
-
-
-    </script>
 
 
     <!-- Vendor JS -->
@@ -613,6 +536,98 @@
 <!--    <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
 
+
+
+
+<script>
+
+    $.ajaxSetup({
+        data: {
+            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+        }
+    });
+
+
+    // Get the modal
+    // var modal = document.getElementById('myModal');
+    var modal2 = document.getElementById('myModal2');
+    var modal3 = document.getElementById('myModal3');
+
+
+    // Get the button that opens the modal
+    //var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[1];
+
+
+    // When the user clicks the button, open the modal
+    // btn = $(x).data('panel-name');
+
+    function selectid2(x) {
+
+        btn = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Salaryc/showedit/")?>'+btn,
+            data:{'id':btn},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint1').html(data);
+                //alert(data);
+            }
+
+        });
+        modal3.style.display = "block";
+
+    }
+
+
+
+
+    function selectid(x) {
+
+        btn1 = $(x).data('panel-id');
+
+        if(confirm("Do you want to delete?")) {
+            window.location="<?php echo base_url()?>Salaryc/delete/"+btn1;
+        }
+
+
+
+    }
+
+
+    span.onclick = function() {
+        modal2.style.display = "none";
+    }
+
+    span1.onclick = function() {
+        modal3.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal3) {
+            modal3.style.display = "none";
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+
+
+
+
+</script>
+
 <!-- date picker  -->
 
 <!--<script src="--><?php //echo base_url()?><!--js/jquery-1.12.4.js"></script>-->
@@ -620,11 +635,6 @@
 <script src="<?php echo base_url()?>js/main.js"></script>
 
 <!-- date picker  -->
-
-
-
-
-
 
 
 </body>

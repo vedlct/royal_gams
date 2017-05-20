@@ -115,6 +115,7 @@
 
 <script>
 
+
         function selectid1(x) {
 
             btn = $(x).data('panel-id');

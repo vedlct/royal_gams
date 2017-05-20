@@ -24,7 +24,7 @@ class Userm extends CI_Model
             'phone_number' => $phone,
             'email' => $email,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('user', $data);
     }

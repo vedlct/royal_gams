@@ -8,7 +8,7 @@ class Typem extends CI_Model {
             'name' => $t_name,
 
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('type',$data);
     }
 
@@ -34,7 +34,7 @@ class Typem extends CI_Model {
 
             'name' => $type_name,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('type', $data);
 

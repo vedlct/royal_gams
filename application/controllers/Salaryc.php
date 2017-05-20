@@ -87,7 +87,7 @@ class Salaryc extends CI_Controller
 
                 if ($this->data['month'] == null) {
 
-                    $query1 = $this->db->query("SELECT CURDATE() as month");
+                    $query1 = $this->db->query("SELECT CURDATE() as month,YEAR(CURDATE()) as year");
                     foreach ($query1->result() as $r) {
                         $month = $r->month;
                         $year = $r->year;

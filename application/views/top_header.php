@@ -59,9 +59,6 @@
 
         function selectid100(x) {
 
-            //btn = $(x).data('panel-id');
-
-
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url("Login/chnage_pass/")?>',
