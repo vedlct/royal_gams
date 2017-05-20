@@ -25,7 +25,7 @@
 
 
         <br>
-        <h5 class="mb-1">BUY Report</h5>
+        <h5 style="text-align: center" class="mb-1">BUY Report</h5>
 
 
         <?php if($this->input->post('buy_generate')){?>
@@ -77,6 +77,7 @@
                             <td ><?php echo $m->total?></td>
 
                         <?php } ?>
+                        <td colspan="3"></td>
                     </tr>
                 </table>
             </div>
@@ -130,6 +131,7 @@
                             <td ><?php echo $m->total?></td>
 
                         <?php } ?>
+                        <td colspan="3"></td>
                     </tr>
                 </table>
             </div>

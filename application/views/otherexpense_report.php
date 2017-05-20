@@ -25,7 +25,7 @@
 
 
         <br>
-        <h5 class="mb-1">Other Expense Report</h5>
+        <h5 style="text-align: center" class="mb-1">Other Expense Report</h5>
 
 
         <?php if($this->input->post('otherexpense_generate')){?>
