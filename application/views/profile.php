@@ -1,5 +1,5 @@
 
-<h1 style="text-align: center"><b>Profile Info</b></h1>
+<h1 style="text-align: center;padding: 0px" ><b>Profile Info</b></h1>
 
 <form method="post" action="<?php echo base_url()?>Profile/edit_profile">
 

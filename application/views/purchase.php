@@ -255,11 +255,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <form class="form-material material-primary" method="post" action="">
-                                                <div class="form-group row ">
+
                                                     <div class="col-md-1">
                                                         <input type="text" class="form-control"  placeholder="Product ID" name="sp_id" id="p_id" >
                                                     </div>
-
                                                     <div class="col-md-1">
                                                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="purc_id_search">Search</button>
@@ -307,12 +306,10 @@
                                             </form>
 
                                             <form class="form-material material-primary" method="post" action="">
-
-
                                                     <div class="col-md-2">
-                                                        <select class="form-control" name="sp_type" id="sp_type"  >
+                                                        <select class="form-control" name="sp_type" id="sp_type">
                                                             <option selected  >Select Name</option>
-                                                            <!--            --><?php
+                                                            <?php
                                                             foreach ($showpdtype as $st)
                                                             {
                                                                 echo "<option  value='" . $st->type . "'>" . $st->type . "</option>";
@@ -325,13 +322,16 @@
                                                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="purc_type_search">Search</button>
                                                     </div>
-                                                </div>
-
 
                                             </form>
 
+                                            </div>
+
                                             <br>
-                                            <h5 class="mb-1">Product List</h5>
+
+                                    <h5 class="mb-1" style="text-align: center">Product List</h5>
+                                    <div class="table-responsive">
+
                                             <table class="table mb-md-0">
                                                 <thead>
                                                 <tr>

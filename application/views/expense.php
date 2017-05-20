@@ -134,7 +134,7 @@
 
         @media screen and (max-width: 650px) {
             label {
-                font-size: 0;
+                font-size: 10px;
             }
             label:before {
                 margin: 0;
@@ -262,7 +262,7 @@
 
 
                                             <br>
-                                            <h5 class="mb-1">Expence List</h5>
+
 
 
 
@@ -292,7 +292,7 @@
 
                                         </div>
                                     </div>
-
+                                    <h5 style="text-align: center" class="mb-1">Expense List</h5>
                                     <?php if($this->input->post('generate')){?>
 
                                         <div class="table-responsive">

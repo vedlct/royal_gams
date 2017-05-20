@@ -134,7 +134,7 @@
 
     @media screen and (max-width: 650px) {
         label {
-            font-size: 0;
+            font-size: 10px;
         }
         label:before {
             margin: 0;

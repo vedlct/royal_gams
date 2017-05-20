@@ -132,7 +132,7 @@
 
         @media screen and (max-width: 650px) {
             label {
-                font-size: 0;
+                font-size: 10px;
             }
             label:before {
                 margin: 0;
@@ -248,7 +248,7 @@
 
 
                                             <br>
-                                            <h5 class="mb-1">Type List</h5>
+                                            <h5 style="text-align: center" class="mb-1">Type List</h5>
                                             <table class="table mb-md-0">
                                                 <thead>
                                                 <tr>

@@ -136,7 +136,7 @@
 
     @media screen and (max-width: 650px) {
         label {
-            font-size: 0;
+            font-size: 10px;
         }
         label:before {
             margin: 0;
@@ -294,8 +294,8 @@
                                                     </form>
 
                                                     <br>
-                                                    <div class="table table-responsive"
-                                                    <h5 class="mb-1">Product List</h5>
+                                                    <h5 style="text-align: center" class="mb-1">Product List</h5>
+                                                    <div class="table table-responsive">
                                                     <table class="table mb-md-0">
                                                         <thead>
                                                         <tr>
@@ -363,11 +363,7 @@
                                 <span class="close">×</span>
 
                                 <h2>Edit </h2>
-                                <div id="txtHint"><?php
-
-                                    //$this->data['edit'] = $this->data['ev'];
-                                    //$this->load->view('editview', $this->data);
-                                    //$this->load->view('editview'); ?></div>
+                                <div id="txtHint"></div>
 
 
 

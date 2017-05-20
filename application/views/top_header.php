@@ -8,12 +8,12 @@
             <div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
                 <span class="hamburger"></span>
             </div>
-            <div class="toggle-button-second dark float-xs-right hidden-md-up">
-                <i class="ti-arrow-left"></i>
-            </div>
-            <div class="toggle-button dark float-xs-right hidden-md-up" data-toggle="collapse" data-target="#collapse-1">
-                <span class="more"></span>
-            </div>
+<!--            <div class="toggle-button-second dark float-xs-right hidden-md-up">-->
+<!--                <i class="ti-arrow-left"></i>-->
+<!--            </div>-->
+<!--            <div class="toggle-button dark float-xs-right hidden-md-up" data-toggle="collapse" data-target="#collapse-1">-->
+<!--                <span class="more"></span>-->
+<!--            </div>-->
         </div>
         <div class="navbar-right navbar-toggleable-sm collapse" id="collapse-1">
             <div class="toggle-button light sidebar-toggle-second float-xs-left hidden-sm-down">
