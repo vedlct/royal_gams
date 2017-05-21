@@ -267,40 +267,57 @@
                                 }
                                 ?>
                                 <form class="form-material material-primary" id="" method="post" action="<?php echo base_url()?>Home/add_cart" enctype="multipart/form-data">
+                                                <table class="table-striped" width="100%">
+                                                <tr>
+                                                    <td align="center">
+                                                        id
+                                                    </td >
+                                                     <td align="center">
+                                                        Amount
+                                                    </td>
+                                                     <td align="center">
+                                                        Price
+                                                    </td>
+                                                    <td align="center">
+                                                        Action
+                                                    </td>
 
+                                                </tr>
                                     <?php $total = 0; foreach ($this->cart->contents() as $items) { ?>
 
-                                        <div style="background-color: #efefef; padding:20px; font-weight: bold"> <?php
-                                            echo "ID: " . $items['id'] ?>
-                                            <i style="alignment: right" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  class="fa fa-trash-o" aria-hidden="true"></i>
-                                            <?php echo "<br>"."Amount:"?>
-
-                                            <div style="margin-left: 70px;margin-top: -21px;">
+                                            <tr>
+                                                <td align="center">
+                                                    <?php echo $items['id']?>
+                                                </td>
+                                                <td align="center">
+                                            <div style="margin-left: 100px">
                                             <input type="button"  class="btn btn-default" style="background:#ec008c; text-align: center; width:30px; color: #fff; font-weight: bold; padding:0px 0px;  border-radius:0px; float: left" data-panel-id="<?= $items['rowid'] ?>" onclick="minus(this)" value="-"/>
-                                                <!--                                --><?php //echo "Amount: " . $items['qty']. "<br>";?>
-                                                <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
+
+                                                        <input type="text"  name="qty" id="<?php echo $items['rowid']?>" class="form-control" style="text-align: center; border-right:none; border-left:none; border-radius:0px; width: 50px; padding:0px 0px; height:auto; float: left" value="<?php echo $items['qty']?>"readonly/>
                                             <input type="button" class="btn btn-default" data-panel-id="<?= $items['rowid'] ?>" onclick="plus(this)" style="background:#ec008c; font-weight: bold; color: #fff; text-align: center; border-radius:0px; width: 30px; padding: 0px 0px; float: left" value="+">
 
-                                            </div><br>
-                                            <?php echo "Price: " ."    ".  $items['price']*$items['qty'] . "<br>";?>
+                                                </div>
+                                                </td>
+                                                <td align="center">
+                                                    <?php echo $items['price']*$items['qty'] ?>
+                                                </td>
+                                                <td>
+                                                   <i style="alignment: right" data-panel-id="<?= $items['rowid'] ?>" onclick="selectid5(this)"  class="fa fa-trash-o" aria-hidden="true"></i>
 
-                                        </div>
-                                        <br> <?php
+                                                </td align="center">
+                                            </tr>
+
+                                         <?php
 
                                         ?>
 
 
                                         <input type="hidden" class="form-control" id="product_id" name="product_id" value="<?php echo $items['id']?>">
-<!--                                        <input type="hidden" class="form-control" id="type" name="type" value="--><?php //echo $items['type']?><!--">-->
-<!--                                        <input type="hidden" class="form-control" id="weight" name="weight" value="--><?php //echo $items['weight']?><!--">-->
-<!--                                        <input type="hidden" class="form-control" id="price" name="price" value="--><?php //echo $items['price']*$items['qty'];?><!--">-->
-<!--                                        <input type="hidden" class="form-control" id="--><?php //echo $items['rowid']?><!--" name="amount" value="--><?php //echo $items['qty']?><!--">-->
 
-
-
-
-                                        <!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
-                                    <?php $total = $total+$items['subtotal'];}if($this->cart->contents()==null){ }else{
+                                    <?php $total = $total+$items['subtotal'];}
+                                    ?></table>
+                                    <?php
+                                    if($this->cart->contents()==null){ }else{
                                         $rows = "count: " . count($this->cart->contents());
 //                                        echo $rows . "<br>";
                                         ?>
@@ -310,6 +327,7 @@
                                         <a href="Home/removeall"> <button>Clear Cart</button></a>
                                         <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
                                     <?php }?>
+
                                 </form>
                             </span>
                             </div>
@@ -567,7 +585,13 @@
 
 
         </script>
+        <script type="text/javascript">
+            function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
 
+            $(document).ready(function(){
+                $(document).on("keydown", disableF5);
+            });
+        </script>
 
 </body>
 
