@@ -193,6 +193,7 @@
                                         </div>
 
                                         <div class=" col-md-5">
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                             <button type="submit" class="btn btn-primary"  name="psubmit">Submit</button>
 
                                         </div>
@@ -236,7 +237,7 @@
                                                     <input type="text" class="form-control" id="price" name="price" placeholder="Warning" value="<?php echo $vp->price?>" readonly>
                                                 </div>
                                             </div>
-
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Amount</label>
                                                 <div class="col-sm-6">
@@ -323,7 +324,7 @@
                                         ?>
 
                                         <b>Total :  <?php echo $total;?><br></b>
-
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                         <a href="Home/removeall"> <button>Clear Cart</button></a>
                                         <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
                                     <?php }?>
@@ -381,6 +382,9 @@
 
 
         <script type="text/javascript">
+
+
+
             var text_input = document.getElementById ('p_id');
             text_input.focus ();
             text_input.select ();
@@ -416,14 +420,33 @@
 
 
         <script>
+
+            // Get the modal
+            // var modal = document.getElementById('myModal');
+            var modal2 = document.getElementById('myModal2');
+
+            // Get the button that opens the modal
+            //var btn = document.getElementById("myBtn");
+
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            // btn = $(x).data('panel-name');
+
+
             function myfunc() {
                 $("#p_from").submit(function (e) {
                     e.preventDefault();
                 });
             }
-        </script>
 
-        <script>
+
+            $.ajaxSetup({
+                data: {
+                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+                }
+            });
+
             function cart_submit() {
                 document.getElementById("cart_form").submit();
             }
@@ -495,9 +518,9 @@
                 });
             }
 
-        </script>
 
-        <script>
+
+
 
             var btn =0;
             $.ajax({
@@ -554,22 +577,12 @@
 
             });
 
-        </script>
-
-        <script>
 
 
-            // Get the modal
-            // var modal = document.getElementById('myModal');
-            var modal2 = document.getElementById('myModal2');
 
-            // Get the button that opens the modal
-            //var btn = document.getElementById("myBtn");
 
-            var span = document.getElementsByClassName("close")[0];
 
-            // When the user clicks the button, open the modal
-            // btn = $(x).data('panel-name');
+
 
             span.onclick = function() {
                 modal2.style.display = "none";

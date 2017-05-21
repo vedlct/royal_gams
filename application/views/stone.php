@@ -134,7 +134,7 @@
 
     @media screen and (max-width: 650px) {
         label {
-            font-size: 0;
+            font-size: 10px;
         }
         label:before {
             margin: 0;
@@ -289,6 +289,7 @@
                                                             </div>
 
                                                                 <div class="col-md-2" >
+                                                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <button type="submit" class="btn btn-primary"  name="search_from">Search</button>
                                                                 </div>
                                                             </div>
@@ -322,7 +323,7 @@
                                                             <td><?php echo $s->weight?></td>
                                                             <td><?php echo $s->price?></td>
                                                             <td><?php echo $s->amount?></td>
-                                                            <td>  <i data-panel-id="<?= $s->id ?>"  onclick="selectid2(this)"  class="fa fa-edit" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<i data-panel-id="<?= $s->id ?>" onclick="selectid(this)"  class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</td>
+                                                            <td><i data-panel-id="<?= $s->id ?>" onclick="selectid2(this)"  class="fa fa-edit" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;<i data-panel-id="<?= $s->id ?>" onclick="selectid(this)"  class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;</td>
                                                         </tr>
                                                         <?php
                                                         $count=$count+1;
@@ -419,105 +420,6 @@
         </script>
 
 
-        <script>
-
-
-            // Get the modal
-            // var modal = document.getElementById('myModal');
-            var modal2 = document.getElementById('myModal2');
-
-            // Get the button that opens the modal
-            //var btn = document.getElementById("myBtn");
-
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            // btn = $(x).data('panel-name');
-
-            function selectid2(x) {
-
-                btn = $(x).data('panel-id');
-
-
-                $.ajax({
-                    type:'POST',
-                    url:'<?php echo base_url("Stonec/showedit/")?>'+btn,
-                    data:{'id':btn},
-                    cache: false,
-                    success:function(data)
-                    {
-                        $('#txtHint').html(data);
-                    }
-
-                });
-
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
-
-
-                    modal2.style.display = "block";
-
-            }
-
-
-            function selectid(x) {
-
-                btn1 = $(x).data('panel-id');
-
-            if(confirm("Do you want to delete?")) {
-                window.location="<?php echo base_url()?>Stonec/delete_stone/"+btn1;
-            }
-
-
-
-            }
-
-
-            span.onclick = function() {
-                modal2.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal2) {
-                    modal2.style.display = "none";
-                }
-            }
-
-            function getsearchfrom(x){
-
-                var search_from = document.getElementById('get_search_from').value;
-
-                if(search_from == '8'){
-                    document.getElementById('seacrchin').style.display = 'none';
-                    document.getElementById('seacrchin1').style.display = 'block';
-
-                }
-                else {
-
-                    document.getElementById('seacrchin').style.display = 'block';
-                    document.getElementById('seacrchin1').style.display = 'none';
-                }
-            }
-
-        </script>
-
-
         <!-- Vendor JS -->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/flot/jquery.flot.min.js"></script>
@@ -549,7 +451,89 @@
 <!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
 
+    <script>
 
+        $.ajaxSetup({
+            data: {
+                '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+            }
+        });
+
+        // Get the modal
+        // var modal = document.getElementById('myModal');
+        var modal2 = document.getElementById('myModal2');
+
+        // Get the button that opens the modal
+        //var btn = document.getElementById("myBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        // btn = $(x).data('panel-name');
+
+
+
+        function selectid2(x) {
+
+            btn = $(x).data('panel-id');
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Stonec/showedit/")?>',
+                data:{'id':btn},
+                cache: false,
+                success:function(data)
+                {
+                    $('#txtHint').html(data);
+                }
+
+            });
+
+            modal2.style.display = "block";
+
+        }
+
+
+        function selectid(x) {
+
+            btn1 = $(x).data('panel-id');
+
+            if(confirm("Do you want to delete?")) {
+                window.location="<?php echo base_url()?>Stonec/delete_stone/"+btn1;
+            }
+
+
+
+        }
+
+
+        span.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+        function getsearchfrom(x){
+
+            var search_from = document.getElementById('get_search_from').value;
+
+            if(search_from == '8'){
+                document.getElementById('seacrchin').style.display = 'none';
+                document.getElementById('seacrchin1').style.display = 'block';
+
+            }
+            else {
+
+                document.getElementById('seacrchin').style.display = 'block';
+                document.getElementById('seacrchin1').style.display = 'none';
+            }
+        }
+
+    </script>
 
 
 

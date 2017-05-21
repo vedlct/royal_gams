@@ -60,6 +60,7 @@
     <div class="form-group row">
         <div class="col-md-2"></div>
         <div class=" col-md-10">
+            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
             <button type="submit" class="btn btn-primary"  name="purcsubmit">Submit</button>
 
         </div>
@@ -67,6 +68,12 @@
 </form>
 
 <script>
+
+    $.ajaxSetup({
+        data: {
+            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+        }
+    });
 
     $(function() {
 

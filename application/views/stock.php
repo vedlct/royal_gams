@@ -136,7 +136,7 @@
 
     @media screen and (max-width: 650px) {
         label {
-            font-size: 0;
+            font-size: 10px;
         }
         label:before {
             margin: 0;
@@ -286,6 +286,7 @@
                                                             </div>
 
                                                             <div class="col-md-2" >
+                                                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                                 <button type="submit" class="btn btn-primary"  name="search_from">Search</button>
                                                             </div>
                                                         </div>
@@ -293,8 +294,8 @@
                                                     </form>
 
                                                     <br>
-                                                    <div class="table table-responsive"
-                                                    <h5 class="mb-1">Product List</h5>
+                                                    <h5 style="text-align: center" class="mb-1">Product List</h5>
+                                                    <div class="table table-responsive">
                                                     <table class="table mb-md-0">
                                                         <thead>
                                                         <tr>
@@ -362,11 +363,7 @@
                                 <span class="close">×</span>
 
                                 <h2>Edit </h2>
-                                <div id="txtHint"><?php
-
-                                    //$this->data['edit'] = $this->data['ev'];
-                                    //$this->load->view('editview', $this->data);
-                                    //$this->load->view('editview'); ?></div>
+                                <div id="txtHint"></div>
 
 
 
@@ -403,6 +400,7 @@
             </div>
 
         </div>
+
         <script type="text/javascript">
 
             var text_input = document.getElementById ('p_id');
@@ -410,109 +408,6 @@
             text_input.select ();
 
         </script>
-
-
-        <script>
-
-
-            // Get the modal
-            // var modal = document.getElementById('myModal');
-            var modal2 = document.getElementById('myModal2');
-
-            // Get the button that opens the modal
-            //var btn = document.getElementById("myBtn");
-
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            // btn = $(x).data('panel-name');
-
-            function selectid2(x) {
-
-                btn = $(x).data('panel-id');
-
-
-                $.ajax({
-                    type:'POST',
-                    url:'<?php echo base_url("Stockc/showedit/")?>'+btn,
-                    data:{'id':btn},
-                    cache: false,
-                    success:function(data)
-                    {
-                        $('#txtHint').html(data);
-                    }
-
-                });
-
-
-//                    if (window.XMLHttpRequest) {
-//                        // code for IE7+, Firefox, Chrome, Opera, Safari
-//                        xmlhttp = new XMLHttpRequest();
-//                    } else {
-//                        // code for IE6, IE5
-//                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//                    }
-//                    xmlhttp.onreadystatechange = function() {
-//                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                        }
-//                    }
-//
-//
-//                    xmlhttp.open("POST","views/editview?id"+btn);
-//                    xmlhttp.send();
-
-
-                    modal2.style.display = "block";
-
-            }
-
-
-            function selectid(x) {
-
-                btn1 = $(x).data('panel-id');
-
-            if(confirm("Do you want to delete?")) {
-                window.location="<?php echo base_url()?>Stockc/delete/"+btn1;
-            }
-            }
-
-            function getsearchfrom(x){
-
-                var search_from = document.getElementById('get_search_from').value;
-
-                if(search_from == '8'){
-                    document.getElementById('seacrchin').style.display = 'none';
-                    document.getElementById('seacrchin1').style.display = 'block';
-
-                }
-                else {
-
-                    document.getElementById('seacrchin').style.display = 'block';
-                    document.getElementById('seacrchin1').style.display = 'none';
-                }
-            }
-
-
-            span.onclick = function() {
-                modal2.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal2) {
-                    modal2.style.display = "none";
-                }
-            }
-
-
-
-        </script>
-
-
-
-
-
         <!-- Vendor JS -->
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/jquery/jquery-1.12.3.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>vendor/tether/js/tether.min.js"></script>
@@ -541,7 +436,86 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
 <!--        <script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
+<script>
 
+
+
+
+    // Get the modal
+    // var modal = document.getElementById('myModal');
+    var modal2 = document.getElementById('myModal2');
+
+    // Get the button that opens the modal
+    //var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    // btn = $(x).data('panel-name');
+
+    $.ajaxSetup({
+        data: {
+            '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+        }
+    });
+
+    function selectid2(x) {
+
+        btn = $(x).data('panel-id');
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Stockc/showedit/")?>'+btn,
+            data:{'id':btn},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint').html(data);
+            }
+
+        });
+        modal2.style.display = "block";
+
+    }
+
+
+    function selectid(x) {
+
+        btn1 = $(x).data('panel-id');
+
+        if(confirm("Do you want to delete?")) {
+            window.location="<?php echo base_url()?>Stockc/delete/"+btn1;
+        }
+    }
+
+    function getsearchfrom(x){
+
+        var search_from = document.getElementById('get_search_from').value;
+
+        if(search_from == '8'){
+            document.getElementById('seacrchin').style.display = 'none';
+            document.getElementById('seacrchin1').style.display = 'block';
+
+        }
+        else {
+
+            document.getElementById('seacrchin').style.display = 'block';
+            document.getElementById('seacrchin1').style.display = 'none';
+        }
+    }
+
+
+    span.onclick = function() {
+        modal2.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+
+</script>
 
 
 

@@ -15,7 +15,7 @@ class Stone extends CI_Model {
             'price' => $price,
             'amount' => $amount,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('stock',$data);
     }
 
@@ -41,7 +41,8 @@ class Stone extends CI_Model {
             'price' => $price,
             'amount' => $amount,
         );
-
+        $data = $this->security->xss_clean($data);
+        $stonedata = $this->security->xss_clean($stonedata);
         $this->db->insert('stone',$data);
         $this->db->insert('stock',$stonedata);
     }
@@ -114,7 +115,7 @@ class Stone extends CI_Model {
             'price' => $price,
             'amount' => $amount,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('stock', $data);
 
@@ -135,7 +136,7 @@ class Stone extends CI_Model {
             'price' => $price,
             'amount' => $amount,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('stone', $data);
 
@@ -203,13 +204,13 @@ class Stone extends CI_Model {
 
     function search_by_stock_less($stock){
 
-        $query=$this->db->query("SELECT * FROM stone WHERE `amount`<='$stock' ORDER BY amount  ");
+        $query=$this->db->query("SELECT * FROM stone WHERE `amount`<'$stock' ORDER BY amount  ");
         return $query->result();
     }
 
     function search_by_stock_greater($stock){
 
-        $query=$this->db->query("SELECT * FROM stone WHERE `amount`>='$stock' ORDER BY amount  ");
+        $query=$this->db->query("SELECT * FROM stone WHERE `amount`>'$stock' ORDER BY amount  ");
         return $query->result();
     }
 

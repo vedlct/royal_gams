@@ -1,5 +1,5 @@
 
-<h1 style="text-align: center"><b>Profile Info</b></h1>
+<h1 style="text-align: center;padding: 0px" ><b>Profile Info</b></h1>
 
 <form method="post" action="<?php echo base_url()?>Profile/edit_profile">
 
@@ -50,7 +50,7 @@
                 </div>
             </div >
         </div >
-
+        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
         <input type="hidden" name="id" value="<?php echo $uinfo->id?>">
         <input class="btn btn-success" type="submit" value="submit">
 

@@ -290,6 +290,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-2"></div>
                                         <div class=" col-md-10">
+                                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                             <button type="submit" class="btn btn-primary"  name="submit">Submit</button>
 
                                         </div>
@@ -353,70 +354,7 @@
 <!--</script>-->
 
 
-<script>
 
-
-    // Get the modal
-    // var modal = document.getElementById('myModal');
-    var modal2 = document.getElementById('myModal2');
-
-    // Get the button that opens the modal
-    //var btn = document.getElementById("myBtn");
-
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
-    // btn = $(x).data('panel-name');
-
-    function selectid2(x) {
-
-        btn = $(x).data('panel-id');
-
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Purchasec/showedit/")?>'+btn,
-            data:{'id':btn},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-
-
-
-        modal2.style.display = "block";
-
-    }
-
-
-    function selectid(x) {
-
-        btn1 = $(x).data('panel-id');
-
-        if(confirm("Do you want to delete?")) {
-            window.location="<?php echo base_url()?>Purchasec/delete/"+btn1;
-        }
-
-
-
-    }
-
-
-    span.onclick = function() {
-        modal2.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal2) {
-            modal2.style.display = "none";
-        }
-    }
-
-</script>
 
 
 <!-- Vendor JS -->
@@ -448,7 +386,75 @@
 <!--<script type="text/javascript" src="--><?php //echo base_url(); ?><!--js/index.js"></script>-->
 
 
+        <script>
 
+            $.ajaxSetup({
+                data: {
+                    '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
+                }
+            });
+
+            // Get the modal
+            // var modal = document.getElementById('myModal');
+            var modal2 = document.getElementById('myModal2');
+
+            // Get the button that opens the modal
+            //var btn = document.getElementById("myBtn");
+
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            // btn = $(x).data('panel-name');
+
+            function selectid2(x) {
+
+                btn = $(x).data('panel-id');
+
+
+                $.ajax({
+                    type:'POST',
+                    url:'<?php echo base_url("Purchasec/showedit/")?>'+btn,
+                    data:{'id':btn},
+                    cache: false,
+                    success:function(data)
+                    {
+                        $('#txtHint').html(data);
+                    }
+
+                });
+
+
+
+                modal2.style.display = "block";
+
+            }
+
+
+            function selectid(x) {
+
+                btn1 = $(x).data('panel-id');
+
+                if(confirm("Do you want to delete?")) {
+                    window.location="<?php echo base_url()?>Purchasec/delete/"+btn1;
+                }
+
+
+
+            }
+
+
+            span.onclick = function() {
+                modal2.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                }
+            }
+
+        </script>
 
 
 

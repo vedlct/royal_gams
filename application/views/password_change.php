@@ -1,15 +1,7 @@
+ <form action="<?php echo base_url()?>Login/password_change" class="popup-form" id="forgot_pass" method="post">
 
 
-
-
-
-
-
-
-        <form action="<?php echo base_url()?>Login/password_change" class="popup-form" id="forgot_pass" method="post">
-
-
-            <h2 style="text-align: center">Change Password</h2>
+            <h1 style="text-align: center;padding: 0px">Change Password</h1>
 
             <div class="row" >
                 <div class="col-md-6 col-sm-6" >
@@ -47,7 +39,7 @@
                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                 <button type="submit" class="btn btn-submit" value="Submit">Submit</button>
             </div>
-        </form>
+ </form>
 
 
 

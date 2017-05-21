@@ -48,7 +48,7 @@
                     <th scope="row"><?php echo $count?></th>
                     <td>
                         <?php
-                        date_default_timezone_set("America/New_York");
+                        date_default_timezone_set("Asia/Dhaka");
 
                         ?>
                         <?php echo  date("h:i:sa");?>
@@ -98,7 +98,7 @@
                 <tr>
                     <td><?php echo $count++ ?></td>
                     <td><?php
-                        date_default_timezone_set("America/New_York");
+                        date_default_timezone_set("Asia/Dhaka");
 
                         ?>
                         <?php echo  date("Y-m-d");?>

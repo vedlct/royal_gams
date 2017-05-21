@@ -3,7 +3,7 @@
 
 
     <br>
-    <h5 class="mb-1">Employee List</h5>
+    <h5 style="text-align: center" class="mb-1">Employee List</h5>
     <div class="table table-responsive">
         <table class="table mb-md-0">
 
@@ -52,6 +52,8 @@
 
 
 <script>
+
+
 
     function selectid3(x) {
 

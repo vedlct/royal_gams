@@ -34,7 +34,7 @@ class Loginm extends CI_Model
             'password' => $con_pass
 
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('username', $username);
 
         $this->db->update('user', $data);

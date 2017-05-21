@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url()?>css/login.css">
     <link rel="stylesheet" href="<?php echo base_url()?>css/animate.css">
+    
 
 
     <style>
@@ -63,13 +64,17 @@
                             </svg>
                             <input type="password" class="login__input pass" placeholder="Password" name="password"/>
                         </div>
+                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                         <button type="submit" class="login__submit">Sign in</button>
 
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="<?php echo base_url()?>js/login.js"></script>

@@ -18,6 +18,7 @@ class Sales extends CI_Model
             'price' => $price,
             'amount' => $amount,
         );
+        $data = $this->security->xss_clean($data);
         $this->db->insert('sales',$data);
 
     }
@@ -43,6 +44,7 @@ class Sales extends CI_Model
                 'amount' => $amount1,
                 'date'=>$month
             );
+            $data = $this->security->xss_clean($data);
             $this->db->insert('sales',$data);
 
             $data1 = array(
@@ -50,6 +52,7 @@ class Sales extends CI_Model
                 'amount' => $qun-$amount1,
 
             );
+            $data1 = $this->security->xss_clean($data1);
             $this->db->where('product_id',$pr_id);
             $this->db->update('stock',$data1);
 
@@ -62,7 +65,7 @@ class Sales extends CI_Model
                     'qty'=>0
 
                 );
-
+                $data = $this->security->xss_clean($data);
                 $this->cart->update($data);
 
         }

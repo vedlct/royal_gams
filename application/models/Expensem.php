@@ -17,7 +17,7 @@ class Expensem extends CI_Model
             'date' => $date,
 
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('expense', $data);
     }
 
