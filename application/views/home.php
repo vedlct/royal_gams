@@ -568,12 +568,14 @@
 
             span.onclick = function() {
                 modal2.style.display = "none";
+                window.location.replace('<?php echo base_url()?>Home');
             }
 
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal2) {
                     modal2.style.display = "none";
+                    window.location.replace('<?php echo base_url()?>Home');
                 }
             }
 

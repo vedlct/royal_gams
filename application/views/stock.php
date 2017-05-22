@@ -506,12 +506,18 @@
 
     span.onclick = function() {
         modal2.style.display = "none";
+        window.location.replace('<?php echo base_url()?>Stockc');
+        //setTimeout("location.reload(true);", t);
+        //setTimeout("location.reload(true);",10)
+
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal2) {
             modal2.style.display = "none";
+            window.location.replace('<?php echo base_url()?>Stockc');
+            //window.location.reload(true);
         }
     }
 
