@@ -501,9 +501,6 @@
             }
 
 
-
-
-
             var btn =0;
             $.ajax({
                 type:'POST',
@@ -516,12 +513,15 @@
                     //alert(data);
                     $('#todaybuy').html(data);
 
+
+
                    // $('#cart_table').load(document.URL +  ' #cart_table');
 
 
                 }
 
             });
+
 
             $.ajax({
                 type:'POST',
@@ -558,6 +558,44 @@
                 }
 
             });
+
+
+//
+//            $.ajax({
+//                type:'POST',
+//                url:'<?php //echo base_url("Home/todayssell/")?>//'+btn,
+//                data:{id:btn},
+//                cache: false,
+//                success:function(data) {
+//
+//                    //location.reload();
+//                    //alert(data);
+//                    $('#todayssell').html(data);
+//
+//                    // $('#cart_table').load(document.URL +  ' #cart_table');
+//
+//
+//                }
+//
+//            });
+//
+//            $.ajax({
+//                type:'POST',
+//                url:'<?php //echo base_url("Home/other_expense/")?>//'+btn,
+//                data:{id:btn},
+//                cache: false,
+//                success:function(data) {
+//
+//                    //location.reload();
+//                    //alert(data);
+//                    $('#other_expense').html(data);
+//
+//                    // $('#cart_table').load(document.URL +  ' #cart_table');
+//
+//
+//                }
+//
+//            });
 
 
 
