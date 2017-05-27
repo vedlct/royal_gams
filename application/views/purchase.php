@@ -542,14 +542,12 @@
         if(confirm("Do you want to delete?")) {
             window.location="<?php echo base_url()?>Purchasec/delete/"+btn1;
         }
-
-
-
     }
 
 
     span.onclick = function() {
         modal2.style.display = "none";
+        window.location.replace('<?php echo base_url()?>Purchasec');
     }
 
 
@@ -558,6 +556,7 @@
     window.onclick = function(event) {
         if (event.target == modal2) {
             modal2.style.display = "none";
+            window.location.replace('<?php echo base_url()?>Purchasec');
         }
     }
 
