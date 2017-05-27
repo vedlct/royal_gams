@@ -248,7 +248,7 @@ class Home extends CI_Controller
     {
         if ($this->session->userdata('type') == "Admin") {
             $this->cart->destroy();
-            redirect(Home::get_instance());
+            redirect('Home');
         } else {
 
             redirect('Login');
@@ -262,7 +262,7 @@ class Home extends CI_Controller
                 $pr_id = $items['id'];
                 $type = $items['type'];
                 $weight = $items['weight'];
-                $price = $items['price'];
+                $price = $items['price']*$items['qty'];
                 $amount1 = $items['qty'];
                 $row_id = $items['rowid'];
 

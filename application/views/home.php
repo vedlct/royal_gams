@@ -302,16 +302,19 @@
 
                                         <!--                            <input type="button" class="btn btn-primary" name="cart_submit" value="Add Cart" onclick="cart_submit()">-->
                                     <?php $total = $total+$items['subtotal'];}if($this->cart->contents()==null){ }else{
-                                        $rows = "count: " . count($this->cart->contents());
+//                                        $rows = "count: " . count($this->cart->contents());
 //                                        echo $rows . "<br>";
                                         ?>
 
                                         <b>Total :  <?php echo $total;?><br></b>
                                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
-                                        <a href="Home/removeall"> <button>Clear Cart</button></a>
-                                        <a href=""> <button onclick="cart_submit()">Add Cart</button></a>
+                                        <a href="Home/removeall"  type="button" class="btn"> Clear Cart </a>
+                                        <a type="button" class="btn" onclick="cart_submit()"> Add Cart </a>
+
                                     <?php }?>
                                 </form>
+
+
                             </span>
                             </div>
                         </div>

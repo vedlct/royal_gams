@@ -452,7 +452,7 @@ $csrf_pages = array('home');
 if (isset($_SERVER["REQUEST_URI"])) {
     foreach ($csrf_pages as $csrf_page){
         if(stripos($_SERVER["REQUEST_URI"],$csrf_page) !== true) {
-            $config['csrf_protection'] = false;
+            $config['csrf_regenerate'] = false;
             break;
         }
     }
