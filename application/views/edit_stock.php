@@ -3,13 +3,13 @@
 <div class="form-group row ">
 <label  class="col-md-3 col-form-label"  >Product ID</label>
 <div class="col-md-7">
-    <input type="text" class="form-control"  placeholder="Product ID" name="p_id" id="p_id" value=" <?php echo $e->product_id ?>" >
+    <input type="text" class="form-control"  placeholder="Product ID" name="p_id" id="p_id" value="<?php echo $e->product_id ?>" >
 </div>
 </div>
 <div class="form-group row ">
 <label  class="col-md-3 col-form-label"  >Type</label>
 <div class="col-md-7">
-    <input type="text" class="form-control"  placeholder="Type" name="type" value=" <?php echo $e->type ?>" >
+    <input type="text" class="form-control"  placeholder="Type" name="type" value="<?php echo $e->type ?>" >
 </div>
 </div>
 <div class="form-group row ">
